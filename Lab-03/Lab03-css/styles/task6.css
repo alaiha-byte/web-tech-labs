@@ -1,0 +1,252 @@
+/* ===== TASK 6: FORM STYLING ===== */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.page-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+  color: white;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+}
+
+header p {
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+/* Form Container */
+.registration-form {
+  background: white;
+  padding: 35px 40px;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+/* Form Row */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Form Group */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+/* Labels */
+label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 6px;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+select,
+textarea {
+  padding: 12px 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #333;
+  transition: all 0.3s ease;
+  outline: none;
+  background-color: #fafafa;
+}
+
+/* Focus State */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="tel"]:focus,
+select:focus,
+textarea:focus {
+  border-color: #667eea;
+  background-color: #f0f0ff;
+  box-shadow: 0 0 0 4px rgba(102,126,234,0.15);
+}
+
+/* Select Dropdown */
+select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23667eea' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+
+/* Textarea */
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Radio Group */
+.radio-group, .checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 6px;
+}
+
+.radio-label, .checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: normal;
+  cursor: pointer;
+  color: #555;
+  font-size: 14px;
+}
+
+.radio-label input[type="radio"],
+.checkbox-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #667eea;
+  cursor: pointer;
+}
+
+/* Error Message */
+.error-msg {
+  font-size: 12px;
+  color: #e74c3c;
+  margin-top: 4px;
+  display: none;
+}
+
+/* Show error on invalid */
+input:invalid:not(:placeholder-shown) ~ .error-msg {
+  display: block;
+}
+
+/* Success Message (inline) */
+.success-msg {
+  font-size: 12px;
+  color: #27ae60;
+  margin-top: 4px;
+  display: none;
+}
+
+input:valid:not(:placeholder-shown) ~ .success-msg {
+  display: block;
+}
+
+/* Hint Message */
+.hint-msg {
+  font-size: 12px;
+  color: #7f8c8d;
+  margin-top: 4px;
+}
+
+/* Error state styling */
+input:invalid:not(:placeholder-shown) {
+  border-color: #e74c3c;
+  background-color: #fdecea;
+}
+
+/* Valid state styling */
+input:valid:not(:placeholder-shown) {
+  border-color: #27ae60;
+  background-color: #f0fff4;
+}
+
+/* Terms */
+.terms-group {
+  margin-bottom: 10px;
+}
+
+.terms-group a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.terms-group a:hover {
+  text-decoration: underline;
+}
+
+/* Buttons */
+.form-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.btn-reset {
+  flex: 1;
+  padding: 14px;
+  border: 2px solid #ddd;
+  background: transparent;
+  color: #666;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-reset:hover {
+  border-color: #e74c3c;
+  color: #e74c3c;
+}
+
+.btn-submit {
+  flex: 2;
+  padding: 14px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102,126,234,0.4);
+}
+
+.btn-submit:active {
+  transform: translateY(0);
+}
+
+/* Success Banner */
+.success-banner {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #d4edda;
+  border: 2px solid #27ae60;
+  border-radius: 8px;
+  color: #155724;
+  font-weight: 600;
+  text-align: center;
+  display: none;
+}

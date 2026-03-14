@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 7 - Card Component Design</title>
+  <link rel="stylesheet" href="styles/task7.css">
+</head>
+<body>
+
+  <header>
+    <h1>Card Component Design</h1>
+    <p>Hover over cards to see effects</p>
+  </header>
+
+  <!-- Product Cards -->
+  <section>
+    <h2>Product Cards</h2>
+    <div class="cards-grid">
+
+      <div class="card">
+        <div class="card-img-wrap">
+          <img src="images/gallery/photo1.jpg" alt="Product 1">
+          <span class="badge badge-new">New</span>
+        </div>
+        <div class="card-body">
+          <p class="card-category">Web Development</p>
+          <h3 class="card-title">HTML & CSS Masterclass</h3>
+          <p class="card-desc">Learn modern HTML5 and CSS3 from scratch with hands-on projects and real world examples.</p>
+          <div class="card-footer">
+            <span class="card-price">$49.99</span>
+            <button class="card-btn">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img-wrap">
+          <img src="images/gallery/photo2.jpg" alt="Product 2">
+          <span class="badge badge-sale">Sale</span>
+        </div>
+        <div class="card-body">
+          <p class="card-category">JavaScript</p>
+          <h3 class="card-title">JavaScript Pro Course</h3>
+          <p class="card-desc">Master JavaScript with ES6+, async programming, DOM manipulation and modern frameworks.</p>
+          <div class="card-footer">
+            <span class="card-price">$39.99</span>
+            <button class="card-btn">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img-wrap">
+          <img src="images/gallery/photo1.jpg" alt="Product 3">
+          <span class="badge badge-hot">Hot</span>
+        </div>
+        <div class="card-body">
+          <p class="card-category">React</p>
+          <h3 class="card-title">React & Redux Bootcamp</h3>
+          <p class="card-desc">Build powerful web applications using React hooks, Redux state management and REST APIs.</p>
+          <div class="card-footer">
+            <span class="card-price">$59.99</span>
+            <button class="card-btn">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Service Cards -->
+  <section>
+    <h2>Service Cards</h2>
+    <div class="cards-grid">
+
+      <div class="service-card">
+        <div class="service-icon">🎨</div>
+        <h3>UI/UX Design</h3>
+        <p>Beautiful and intuitive interfaces designed with the user experience in mind.</p>
+        <a href="#" class="service-link">Learn More →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">💻</div>
+        <h3>Web Development</h3>
+        <p>Full stack web development using modern technologies and best practices.</p>
+        <a href="#" class="service-link">Learn More →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">📱</div>
+        <h3>Mobile Apps</h3>
+        <p>Cross platform mobile applications for iOS and Android using React Native.</p>
+        <a href="#" class="service-link">Learn More →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Profile Cards -->
+  <section>
+    <h2>Profile Cards</h2>
+    <div class="cards-grid">
+
+      <div class="profile-card">
+        <div class="profile-cover"></div>
+        <div class="profile-body">
+          <img src="images/gallery/photo1.jpg" 
+          alt="Profile" class="profile-avatar">
+          <h3>Ahmad Hassan</h3>
+          <p class="profile-role">Full Stack Developer</p>
+          <p class="profile-bio">Passionate developer with 5 years experience building modern web applications.</p>
+          <div class="profile-stats">
+            <div class="stat">
+              <span class="stat-num">120</span>
+              <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">4.9</span>
+              <span class="stat-label">Rating</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">850</span>
+              <span class="stat-label">Clients</span>
+            </div>
+          </div>
+          <button class="profile-btn">View Profile</button>
+        </div>
+      </div>
+
+      <div class="profile-card">
+        <div class="profile-cover cover-2"></div>
+        <div class="profile-body">
+          <img src="images/gallery/photo2.jpg" 
+          alt="Profile" class="profile-avatar">
+          <h3>Sara Khan</h3>
+          <p class="profile-role">UI/UX Designer</p>
+          <p class="profile-bio">Creative designer specializing in user centered design and brand identity.</p>
+          <div class="profile-stats">
+            <div class="stat">
+              <span class="stat-num">85</span>
+              <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">5.0</span>
+              <span class="stat-label">Rating</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">620</span>
+              <span class="stat-label">Clients</span>
+            </div>
+          </div>
+          <button class="profile-btn">View Profile</button>
+        </div>
+      </div>
+
+      <div class="profile-card">
+        <div class="profile-cover cover-3"></div>
+        <div class="profile-body">
+          <img src="images/gallery/photo1.jpg" 
+          alt="Profile" class="profile-avatar">
+          <h3>Ali Raza</h3>
+          <p class="profile-role">Data Scientist</p>
+          <p class="profile-bio">Data expert with deep knowledge of machine learning, AI and data visualization.</p>
+          <div class="profile-stats">
+            <div class="stat">
+              <span class="stat-num">60</span>
+              <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">4.8</span>
+              <span class="stat-label">Rating</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">310</span>
+              <span class="stat-label">Clients</span>
+            </div>
+          </div>
+          <button class="profile-btn">View Profile</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>

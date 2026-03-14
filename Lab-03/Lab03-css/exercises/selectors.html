@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 1 - CSS Methods</title>
+
+  <!-- METHOD 3: External CSS -->
+  <link rel="stylesheet" href="../styles/main.css">
+
+  <!-- METHOD 2: Internal CSS -->
+  <style>
+    h2 {
+      color: darkblue;
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+
+    .internal-styled {
+      background-color: lightyellow;
+      padding: 10px;
+      border: 2px solid orange;
+      margin: 10px 0;
+    }
+  </style>
+
+</head>
+<body>
+
+  <h1>Exercise 1: CSS Implementation Methods</h1>
+
+  <!-- METHOD 1: Inline CSS -->
+  <p style="color: red; font-size: 20px; font-weight: bold;">
+    🔴 This paragraph uses INLINE CSS (style attribute directly on element)
+  </p>
+
+  <!-- METHOD 2: Internal CSS -->
+  <h2>This heading uses INTERNAL CSS (style tag in head)</h2>
+
+  <div class="internal-styled">
+    📄 This box is styled using INTERNAL CSS via a class selector.
+  </div>
+
+  <!-- METHOD 3: External CSS -->
+  <p class="external-styled">
+    📁 This paragraph is styled using EXTERNAL CSS (linked main.css file)
+  </p>
+
+  <!-- METHOD 4: Precedence Demo -->
+  <p class="external-styled" style="color: green;">
+    ⚡ This uses BOTH external CSS and inline CSS — inline wins! (color is green)
+  </p>
+
+
+  <!-- ===== EXERCISE 2: BASIC SELECTORS ===== -->
+  <hr>
+  <h1>Exercise 2: Basic Selectors</h1>
+
+  <!-- Element Selector -->
+  <p>This paragraph is styled by the element selector (p)</p>
+  <p>This one too — all p tags get the same style</p>
+
+  <!-- Class Selector -->
+  <p class="highlight">This uses a CLASS selector (.highlight)</p>
+  <p class="highlight">This also has the same class</p>
+
+  <!-- ID Selector -->
+  <p id="unique">This uses an ID selector (#unique) — only one element!</p>
+
+  <!-- Universal Selector -->
+  <div class="universal-demo">
+    <span>Universal selector (*) affects ALL elements</span>
+    <b> — like this bold text too</b>
+  </div>
+
+  <!-- Multiple Classes -->
+  <p class="highlight bold-text">This has TWO classes applied at once</p>
+
+  <!-- ===== EXERCISE 3: ATTRIBUTE SELECTORS ===== -->
+  <hr>
+  <h1>Exercise 3: Attribute Selectors</h1>
+
+  <!-- 1. Has attribute [attribute] -->
+  <p title="tooltip">This paragraph HAS a title attribute</p>
+  <p title="tooltip">This one also has a title attribute</p>
+  <p>This paragraph has NO title attribute</p>
+
+  <!-- 2. Exact value [attribute="value"] -->
+  <input type="text" placeholder="type=text input">
+  <input type="password" placeholder="type=password input">
+  <input type="email" placeholder="type=email input">
+
+  <!-- 3. Partial match [attribute*="value"] -->
+  <a href="https://google.com">Google (https link)</a><br>
+  <a href="http://example.com">Example (http link)</a><br>
+  <a href="https://github.com">GitHub (https link)</a><br>
+
+  <!-- 4. Begins with [attribute^="value"] -->
+  <img src="../images/gallery/photo1.jpg" alt="Gallery image 1">
+  <img src="../images/icons/icon1.png" alt="Icon image">
+  <img src="../images/gallery/photo2.jpg" alt="Gallery image 2">
+
+  <!-- 5. Ends with [attribute$="value"] -->
+  <a href="document.pdf">Download PDF</a><br>
+  <a href="image.png">View PNG</a><br>
+  <a href="page.html">Visit HTML page</a>
+
+  <!-- ===== EXERCISE 4: CSS COMBINATORS ===== -->
+  <hr>
+  <h1>Exercise 4: CSS Combinators</h1>
+
+  <!-- 1. Descendant Combinator (space) -->
+  <div class="ancestor">
+    <p>I am a DESCENDANT paragraph (inside div)</p>
+    <section>
+      <p>I am also a DESCENDANT (nested deeper)</p>
+    </section>
+  </div>
+  <p>I am OUTSIDE the div — not affected</p>
+
+  <!-- 2. Child Combinator (>) -->
+  <div class="parent">
+    <p>I am a DIRECT CHILD paragraph ✅</p>
+    <section>
+      <p>I am a grandchild — NOT direct child ❌</p>
+    </section>
+  </div>
+
+  <!-- 3. Adjacent Sibling Combinator (+) -->
+  <div class="adjacent-demo">
+    <h3>This is a heading</h3>
+    <p>I am the FIRST paragraph right after h3 — adjacent sibling ✅</p>
+    <p>I am the SECOND paragraph — NOT adjacent ❌</p>
+    <p>I am the THIRD paragraph — NOT adjacent ❌</p>
+  </div>
+
+  <!-- 4. General Sibling Combinator (~) -->
+  <div class="sibling-demo">
+    <h3>This is a heading</h3>
+    <p>I am a sibling paragraph ✅</p>
+    <p>I am also a sibling paragraph ✅</p>
+    <p>All paragraphs after h3 are affected ✅</p>
+  </div>
+
+  <!-- ===== EXERCISE 5: PSEUDO-CLASSES ===== -->
+  <hr>
+  <h1>Exercise 5: Pseudo-classes</h1>
+
+  <!-- 1. Link States -->
+  <div class="link-demo">
+    <h3>Link States</h3>
+    <a href="https://google.com">Visit Google (hover over me!)</a><br><br>
+    <a href="https://github.com">Visit GitHub (hover over me!)</a>
+  </div>
+
+  <!-- 2. Form States -->
+  <div class="form-demo">
+    <h3>Form States</h3>
+    <input type="text" placeholder="Click me to see :focus state"><br><br>
+    <input type="checkbox" id="check1"> 
+    <label for="check1">Check me to see :checked state</label><br><br>
+    <input type="text" placeholder="I am disabled" disabled><br><br>
+  </div>
+
+  <!-- 3. Structural Pseudo-classes -->
+  <div class="structural-demo">
+    <h3>Structural Pseudo-classes</h3>
+    <ul>
+      <li>First item (:first-child)</li>
+      <li>Second item</li>
+      <li>Third item (:nth-child(3))</li>
+      <li>Fourth item</li>
+      <li>Last item (:last-child)</li>
+    </ul>
+  </div>
+
+  <!-- 4. :not() and :empty -->
+  <div class="not-demo">
+    <h3>:not() and :empty</h3>
+    <p class="special">I have class "special" — :not() won't target me</p>
+    <p>I have NO special class — :not(.special) targets me ✅</p>
+    <p>I also have NO special class — targeted ✅</p>
+    <div class="empty-box"></div>
+    <p>👆 That empty div above is styled with :empty</p>
+  </div>
+
+
+  <!-- ===== EXERCISE 6: PSEUDO-ELEMENTS ===== -->
+  <hr>
+  <h1>Exercise 6: Pseudo-elements</h1>
+
+  <!-- 1. ::before and ::after -->
+  <div class="before-after-demo">
+    <h3>Before and After</h3>
+    <p class="note">This paragraph has generated content before and after it</p>
+    <p class="note">This one too!</p>
+  </div>
+
+  <!-- 2. ::first-letter and ::first-line -->
+  <div class="text-demo">
+    <h3>First Letter and First Line</h3>
+    <p class="story">
+      Once upon a time in a land far away, there lived a developer who loved CSS.
+      They spent their days styling beautiful websites and making the web a prettier place.
+      Everyone admired their work and wanted to learn their secrets.
+    </p>
+  </div>
+
+  <!-- 3. ::selection -->
+  <div class="selection-demo">
+    <h3>Text Selection</h3>
+    <p class="selectable">Try selecting this text with your mouse — 
+    it will have a custom highlight color!</p>
+  </div>
+
+  <!-- 4. Pseudo-elements + Pseudo-classes combined -->
+  <div class="combined-demo">
+    <h3>Combined: Pseudo-element + Pseudo-class</h3>
+    <p class="hover-note">Hover over me to see ::before change!</p>
+    <p class="hover-note">Hover over me too!</p>
+  </div>
+</body>
+</html>
+

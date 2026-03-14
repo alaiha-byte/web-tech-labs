@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 12 - Course Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/task12.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-content">
+      <div class="logo">CS 224L</div>
+      <div class="header-info">
+        <h1>Web Technologies</h1>
+        <p>Department of Computer Science — UET Peshawar</p>
+      </div>
+      <div class="semester-badge">Fall 2024</div>
+    </div>
+  </header>
+
+  <!-- Course Info Cards -->
+  <section class="info-section">
+    <div class="info-grid">
+      <div class="info-card">
+        <span class="info-icon">👨‍🏫</span>
+        <div>
+          <p class="info-label">Instructor</p>
+          <p class="info-value">Mr. Mohammad</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <span class="info-icon">🏫</span>
+        <div>
+          <p class="info-label">Department</p>
+          <p class="info-value">Computer Science</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <span class="info-icon">📅</span>
+        <div>
+          <p class="info-label">Semester</p>
+          <p class="info-value">Fall 2024</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <span class="info-icon">⏰</span>
+        <div>
+          <p class="info-label">Credit Hours</p>
+          <p class="info-value">3 + 1 Lab</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Course Schedule Table -->
+  <section class="schedule-section">
+    <h2 class="section-title">Course Schedule</h2>
+    <div class="table-wrapper">
+      <table class="schedule-table">
+        <thead>
+          <tr>
+            <th>Week</th>
+            <th>Topic</th>
+            <th>Type</th>
+            <th>Lab</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="type-intro">
+            <td>Week 1</td>
+            <td>Introduction to Web Technologies</td>
+            <td><span class="tag tag-intro">Intro</span></td>
+            <td>Setup & Tools</td>
+            <td><span class="status done">✓ Done</span></td>
+          </tr>
+          <tr class="type-html">
+            <td>Week 2</td>
+            <td>HTML Basics — Structure & Elements</td>
+            <td><span class="tag tag-html">HTML</span></td>
+            <td>Lab 01</td>
+            <td><span class="status done">✓ Done</span></td>
+          </tr>
+          <tr class="type-html">
+            <td>Week 3</td>
+            <td>HTML Forms, Tables & Multimedia</td>
+            <td><span class="tag tag-html">HTML</span></td>
+            <td>Lab 02</td>
+            <td><span class="status done">✓ Done</span></td>
+          </tr>
+          <tr class="type-css">
+            <td>Week 4</td>
+            <td>CSS Fundamentals & Selectors</td>
+            <td><span class="tag tag-css">CSS</span></td>
+            <td>Lab 03</td>
+            <td><span class="status current">▶ Current</span></td>
+          </tr>
+          <tr class="type-css">
+            <td>Week 5</td>
+            <td>CSS Layout — Flexbox</td>
+            <td><span class="tag tag-css">CSS</span></td>
+            <td>Lab 04</td>
+            <td><span class="status upcoming">○ Upcoming</span></td>
+          </tr>
+          <tr class="type-css">
+            <td>Week 6</td>
+            <td>CSS Layout — Grid</td>
+            <td><span class="tag tag-css">CSS</span></td>
+            <td>Lab 05</td>
+            <td><span class="status upcoming">○ Upcoming</span></td>
+          </tr>
+          <tr class="type-js">
+            <td>Week 7</td>
+            <td>JavaScript Basics</td>
+            <td><span class="tag tag-js">JS</span></td>
+            <td>Lab 06</td>
+            <td><span class="status upcoming">○ Upcoming</span></td>
+          </tr>
+          <tr class="type-js">
+            <td>Week 8</td>
+            <td>DOM Manipulation</td>
+            <td><span class="tag tag-js">JS</span></td>
+            <td>Lab 07</td>
+            <td><span class="status upcoming">○ Upcoming</span></td>
+          </tr>
+          <tr class="type-midterm">
+            <td>Week 9</td>
+            <td>Midterm Examination</td>
+            <td><span class="tag tag-exam">Exam</span></td>
+            <td>—</td>
+            <td><span class="status upcoming">○ Upcoming</span></td>
+          </tr>
+          <tr class="type-js">
+            <td>Week 10</td>
+            <td>JavaScript Events & APIs</td>
+            <td><span class="tag tag-js">JS</span></td>
+            <td>Lab 08</td>
+            <td><span class="status upcoming">○ Upcoming</span></td>
+          </tr>
+          <tr class="type-framework">
+            <td>Week 11</td>
+            <td>Bootstrap Framework</td>
+            <td><span class="tag tag-framework">Framework</span></td>
+            <td>Lab 09</td>
+            <td><span class="status upcoming">○ Upcoming</span></td>
+          </tr>
+          <tr class="type-framework">
+            <td>Week 12</td>
+            <td>Responsive Web Design</td>
+            <td><span class="tag tag-framework">Framework</span></td>
+            <td>Lab 10</td>
+            <td><span class="status upcoming">○ Upcoming</span></td>
+          </tr>
+          <tr class="type-project">
+            <td>Week 13-14</td>
+            <td>Final Project Development</td>
+            <td><span class="tag tag-project">Project</span></td>
+            <td>Project</td>
+            <td><span class="status upcoming">○ Upcoming</span></td>
+          </tr>
+          <tr class="type-midterm">
+            <td>Week 15</td>
+            <td>Final Examination</td>
+            <td><span class="tag tag-exam">Exam</span></td>
+            <td>—</td>
+            <td><span class="status upcoming">○ Upcoming</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Legend -->
+  <section class="legend-section">
+    <h2 class="section-title">Course Type Legend</h2>
+    <div class="legend-grid">
+      <div class="legend-item">
+        <span class="tag tag-intro">Intro</span>
+        <span>Introduction</span>
+      </div>
+      <div class="legend-item">
+        <span class="tag tag-html">HTML</span>
+        <span>HTML Topics</span>
+      </div>
+      <div class="legend-item">
+        <span class="tag tag-css">CSS</span>
+        <span>CSS Topics</span>
+      </div>
+      <div class="legend-item">
+        <span class="tag tag-js">JS</span>
+        <span>JavaScript</span>
+      </div>
+      <div class="legend-item">
+        <span class="tag tag-framework">Framework</span>
+        <span>Frameworks</span>
+      </div>
+      <div class="legend-item">
+        <span class="tag tag-project">Project</span>
+        <span>Project Work</span>
+      </div>
+      <div class="legend-item">
+        <span class="tag tag-exam">Exam</span>
+        <span>Examination</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>CS 224L Web Technologies — UET Peshawar — Fall 2024</p>
+    <p>Instructor: Mr. Mohammad</p>
+  </footer>
+
+</body>
+</html>

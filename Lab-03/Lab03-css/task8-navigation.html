@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 8 - Navigation Menu</title>
+  <link rel="stylesheet" href="styles/task8.css">
+</head>
+<body>
+
+  <h1 class="page-title">Navigation Menu Styling</h1>
+
+  <!-- 1. Horizontal Navbar -->
+  <section>
+    <h2>Horizontal Navigation</h2>
+    <nav class="navbar-horizontal">
+      <div class="nav-logo">MyBrand</div>
+      <ul class="nav-links">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </section>
+
+  <!-- 2. Navbar with Dropdown -->
+  <section>
+    <h2>Navigation with Dropdown</h2>
+    <nav class="navbar-dropdown">
+      <div class="nav-logo">MyBrand</div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li class="has-dropdown">
+          <a href="#">Services ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Web Design</a></li>
+            <li><a href="#">Development</a></li>
+            <li><a href="#">SEO</a></li>
+            <li><a href="#">Marketing</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="#">Pages ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </li>
+        <li><a href="#" class="nav-cta">Get Started</a></li>
+      </ul>
+    </nav>
+  </section>
+
+  <!-- 3. Vertical Sidebar -->
+  <section>
+    <h2>Vertical Sidebar Navigation</h2>
+    <div class="sidebar-wrapper">
+      <nav class="sidebar">
+        <div class="sidebar-logo">Dashboard</div>
+        <ul class="sidebar-links">
+          <li><a href="#" class="active">🏠 Home</a></li>
+          <li><a href="#">👤 Profile</a></li>
+          <li><a href="#">📊 Analytics</a></li>
+          <li><a href="#">📁 Projects</a></li>
+          <li><a href="#">💬 Messages</a></li>
+          <li><a href="#">⚙️ Settings</a></li>
+          <li><a href="#" class="sidebar-logout">🚪 Logout</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar-content">
+        <h3>Main Content Area</h3>
+        <p>The sidebar stays on the left while content fills the right side.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Breadcrumb -->
+  <section>
+    <h2>Breadcrumb Navigation</h2>
+    <nav class="breadcrumb">
+      <a href="#">Home</a>
+      <span class="separator">›</span>
+      <a href="#">Courses</a>
+      <span class="separator">›</span>
+      <a href="#">Web Technologies</a>
+      <span class="separator">›</span>
+      <span class="current">Lab 03</span>
+    </nav>
+  </section>
+
+  <!-- 5. Tab Navigation -->
+  <section>
+    <h2>Tab Navigation</h2>
+    <div class="tabs-wrapper">
+      <nav class="tabs-nav">
+        <a href="#" class="tab active">Overview</a>
+        <a href="#" class="tab">Curriculum</a>
+        <a href="#" class="tab">Reviews</a>
+        <a href="#" class="tab">Instructor</a>
+      </nav>
+      <div class="tab-content">
+        <p>Tab content appears here based on active tab selection.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Pill Navigation -->
+  <section>
+    <h2>Pill Navigation</h2>
+    <nav class="pill-nav">
+      <a href="#" class="pill active">All</a>
+      <a href="#" class="pill">Design</a>
+      <a href="#" class="pill">Development</a>
+      <a href="#" class="pill">Marketing</a>
+      <a href="#" class="pill">Business</a>
+    </nav>
+  </section>
+
+</body>
+</html>

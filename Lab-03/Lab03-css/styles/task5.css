@@ -1,0 +1,239 @@
+/* ===== TASK 5: BUTTON STYLING COLLECTION ===== */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  padding: 30px;
+}
+
+header {
+  text-align: center;
+  padding: 40px;
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 12px;
+  color: white;
+}
+
+header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+header p  { font-size: 1.1rem; opacity: 0.85; }
+
+section {
+  background: white;
+  padding: 25px 30px;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 8px;
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Base Button */
+.btn {
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+/* 1. Sizes */
+.btn-xs { font-size: 10px; padding: 4px 8px;   border-radius: 4px; background: #3498db; color: white; }
+.btn-sm { font-size: 12px; padding: 6px 12px;  border-radius: 4px; background: #3498db; color: white; }
+.btn-md { font-size: 14px; padding: 10px 20px; border-radius: 6px; background: #3498db; color: white; }
+.btn-lg { font-size: 18px; padding: 14px 28px; border-radius: 6px; background: #3498db; color: white; }
+.btn-xl { font-size: 22px; padding: 18px 36px; border-radius: 8px; background: #3498db; color: white; }
+
+/* 2. Colors */
+.btn-primary { background-color: #3498db; color: white; padding: 10px 20px; border-radius: 6px; }
+.btn-success { background-color: #27ae60; color: white; padding: 10px 20px; border-radius: 6px; }
+.btn-danger  { background-color: #e74c3c; color: white; padding: 10px 20px; border-radius: 6px; }
+.btn-warning { background-color: #f39c12; color: white; padding: 10px 20px; border-radius: 6px; }
+.btn-info    { background-color: #1abc9c; color: white; padding: 10px 20px; border-radius: 6px; }
+.btn-dark    { background-color: #2c3e50; color: white; padding: 10px 20px; border-radius: 6px; }
+
+.btn-primary:hover { background-color: #2980b9; }
+.btn-success:hover { background-color: #1e8449; }
+.btn-danger:hover  { background-color: #c0392b; }
+.btn-warning:hover { background-color: #d68910; }
+.btn-info:hover    { background-color: #17a589; }
+.btn-dark:hover    { background-color: #1a252f; }
+
+/* 3. Shapes */
+.btn-square  { border-radius: 0; }
+.btn-rounded { border-radius: 12px; }
+.btn-pill    { border-radius: 50px; }
+.btn-circle  {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  font-size: 20px;
+}
+
+.btn-outline-primary {
+  background: transparent;
+  border: 2px solid #1abc9c;
+  color: #1abc9c;
+  padding: 10px 20px;
+  border-radius: 6px;
+}
+.btn-outline-primary:hover {
+  background: #1abc9c;
+  color: white;
+}
+
+/* 4. Hover Effects */
+.btn-hover-fill {
+  background: transparent;
+  border: 2px solid #3498db;
+  color: #3498db;
+  padding: 10px 20px;
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+.btn-hover-fill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #3498db;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+  z-index: -1;
+}
+.btn-hover-fill:hover::before { transform: scaleX(1); }
+.btn-hover-fill:hover { color: white; }
+
+.btn-hover-lift {
+  background: #9b59b6;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+.btn-hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+.btn-hover-slide {
+  background: #e74c3c;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+}
+.btn-hover-slide::after {
+  content: "→";
+  position: absolute;
+  right: -20px;
+  transition: right 0.3s ease;
+}
+.btn-hover-slide:hover::after { right: 12px; }
+.btn-hover-slide:hover { padding-right: 30px; }
+
+.btn-hover-bounce {
+  background: #f39c12;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+}
+.btn-hover-bounce:hover { animation: bounce 0.4s ease; }
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+/* 5. Transitions */
+.btn-trans-color {
+  background: #3498db;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  transition: background-color 0.4s ease;
+}
+.btn-trans-color:hover { background: #e74c3c; }
+
+.btn-trans-scale {
+  background: #27ae60;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  transition: transform 0.3s ease;
+}
+.btn-trans-scale:hover { transform: scale(1.15); }
+
+.btn-trans-rotate {
+  background: #9b59b6;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  transition: transform 0.4s ease;
+}
+.btn-trans-rotate:hover { transform: rotate(5deg) scale(1.05); }
+
+.btn-trans-shadow {
+  background: #1abc9c;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  transition: box-shadow 0.3s ease;
+}
+.btn-trans-shadow:hover {
+  box-shadow: 0 0 20px rgba(26,188,156,0.7);
+}
+
+/* 6. Gradients */
+.btn-grad-1 {
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+  color: white; padding: 10px 24px; border-radius: 50px;
+}
+.btn-grad-2 {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  color: white; padding: 10px 24px; border-radius: 50px;
+}
+.btn-grad-3 {
+  background: linear-gradient(135deg, #43e97b, #38f9d7);
+  color: white; padding: 10px 24px; border-radius: 50px;
+}
+.btn-grad-4 {
+  background: linear-gradient(135deg, #fa709a, #fee140);
+  color: white; padding: 10px 24px; border-radius: 50px;
+}
+
+.btn-grad-1:hover, .btn-grad-2:hover,
+.btn-grad-3:hover, .btn-grad-4:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+/* 7. Disabled */
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}

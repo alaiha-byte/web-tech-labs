@@ -1,0 +1,137 @@
+/* ===== TASK 2: TYPOGRAPHY SHOWCASE ===== */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: #1a1a2e;
+  color: #eee;
+  padding: 30px;
+}
+
+header {
+  text-align: center;
+  padding: 40px 20px;
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, #16213e, #0f3460);
+  border-radius: 12px;
+  border: 1px solid #e94560;
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: #e94560;
+  text-shadow: 0 0 20px rgba(233,69,96,0.5);
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.1rem;
+  color: #a0a0b0;
+  letter-spacing: 2px;
+}
+
+section {
+  background: #16213e;
+  padding: 25px 30px;
+  margin: 20px 0;
+  border-radius: 10px;
+  border-left: 5px solid #e94560;
+}
+
+h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.3rem;
+  color: #e94560;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* 1. Google Fonts */
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: #f0c27f;
+  margin: 10px 0;
+}
+
+.font-roboto {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.1rem;
+  color: #7ec8e3;
+  margin: 10px 0;
+}
+
+.font-mono {
+  font-family: 'Space Mono', monospace;
+  font-size: 1rem;
+  color: #98e4a3;
+  background-color: #0d1b2a;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin: 10px 0;
+}
+
+/* 2. Font Sizes */
+.size-12      { font-size: 12px; color: #aaa; margin: 6px 0; }
+.size-16      { font-size: 16px; color: #ccc; margin: 6px 0; }
+.size-20      { font-size: 20px; color: #ddd; margin: 6px 0; }
+.size-1em     { font-size: 1.5em; color: #7ec8e3; margin: 6px 0; }
+.size-2rem    { font-size: 2rem; color: #f0c27f; margin: 6px 0; }
+.size-percent { font-size: 120%; color: #98e4a3; margin: 6px 0; }
+
+/* 3. Alignment */
+.align-left    { text-align: left;    margin: 8px 0; padding: 8px; background: #0d1b2a; border-radius: 4px; }
+.align-center  { text-align: center;  margin: 8px 0; padding: 8px; background: #0d1b2a; border-radius: 4px; }
+.align-right   { text-align: right;   margin: 8px 0; padding: 8px; background: #0d1b2a; border-radius: 4px; }
+.align-justify { text-align: justify; margin: 8px 0; padding: 8px; background: #0d1b2a; border-radius: 4px; }
+
+/* 4. Decoration and Transformation */
+.deco-underline { text-decoration: underline; color: #7ec8e3; margin: 8px 0; }
+.deco-overline  { text-decoration: overline;  color: #f0c27f; margin: 8px 0; }
+.deco-strike    { text-decoration: line-through; color: #e94560; margin: 8px 0; }
+.trans-upper { text-transform: uppercase; color: #98e4a3; margin: 8px 0; letter-spacing: 2px; }
+.trans-lower { text-transform: lowercase; color: #7ec8e3; margin: 8px 0; }
+.trans-cap   { text-transform: capitalize; color: #f0c27f; margin: 8px 0; }
+
+/* 5. Text Shadows */
+.shadow-soft {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+  margin: 10px 0;
+}
+
+.shadow-hard {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #f0c27f;
+  text-shadow: 3px 3px 0px #c0392b;
+  margin: 10px 0;
+}
+
+.shadow-glow {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #00d4ff;
+  text-shadow:
+    0 0 10px #00d4ff,
+    0 0 20px #00d4ff,
+    0 0 40px #00d4ff;
+  margin: 10px 0;
+}
+
+.shadow-3d {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #98e4a3;
+  text-shadow:
+    1px 1px 0 #2ecc71,
+    2px 2px 0 #27ae60,
+    3px 3px 0 #1e8449,
+    4px 4px 0 #196f3d;
+  margin: 10px 0;
+}

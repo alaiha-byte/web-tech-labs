@@ -1,0 +1,1070 @@
+/* External CSS - Exercise 1 */
+
+.external-styled {
+  color: purple;
+  font-size: 18px;
+  background-color: #e8f4f8;
+  padding: 10px 15px;
+  border-left: 4px solid purple;
+  margin: 10px 0;
+}
+/* ===== EXERCISE 2: BASIC SELECTORS ===== */
+
+/* 1. Element Selector */
+p {
+  font-size: 16px;
+  color: #333;
+  margin: 8px 0;
+}
+
+/* 2. Class Selector */
+.highlight {
+  background-color: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 8px 12px;
+  color: #856404;
+}
+
+/* 3. ID Selector */
+#unique {
+  background-color: #d4edda;
+  border-left: 4px solid #28a745;
+  padding: 8px 12px;
+  color: #155724;
+  font-weight: bold;
+}
+
+/* 4. Universal Selector */
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* 5. Multiple Classes */
+.bold-text {
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: underline;
+}
+
+/* ===== EXERCISE 3: ATTRIBUTE SELECTORS ===== */
+
+/* 1. Has attribute - any element with title attribute */
+[title] {
+  background-color: #cce5ff;
+  border-left: 4px solid #004085;
+  padding: 8px 12px;
+  color: #004085;
+}
+
+/* 2. Exact value - only type="text" inputs */
+input[type="text"] {
+  border: 2px solid green;
+  padding: 6px;
+  border-radius: 4px;
+  display: block;
+  margin: 6px 0;
+  background-color: #d4edda;
+}
+
+input[type="password"] {
+  border: 2px solid red;
+  padding: 6px;
+  border-radius: 4px;
+  display: block;
+  margin: 6px 0;
+  background-color: #f8d7da;
+}
+
+input[type="email"] {
+  border: 2px solid orange;
+  padding: 6px;
+  border-radius: 4px;
+  display: block;
+  margin: 6px 0;
+  background-color: #fff3cd;
+}
+
+/* 3. Partial match - links containing "google" */
+a[href*="google"] {
+  color: #1a73e8;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: #e8f0fe;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* 4. Begins with - img src starting with "gallery/" */
+img[src^="../images/gallery/"]  {
+  border: 3px solid purple;
+  border-radius: 8px;
+  margin: 4px;
+  width: 80px;
+  height: 80px;
+  background-color: #e8d5f5;
+  display: inline-block;
+}
+
+/* 5. Ends with - links ending in .pdf */
+a[href$=".pdf"] {
+  color: red;
+  font-weight: bold;
+}
+
+a[href$=".png"] {
+  color: blue;
+  font-weight: bold;
+}
+/* ===== EXERCISE 4: CSS COMBINATORS ===== */
+
+/* 1. Descendant Combinator (space) - ALL p inside .ancestor */
+.ancestor p {
+  background-color: #d1ecf1;
+  border-left: 4px solid #17a2b8;
+  padding: 8px 12px;
+  color: #0c5460;
+  margin: 5px 0;
+}
+
+/* 2. Child Combinator (>) - ONLY direct p inside .parent */
+.parent > p {
+  background-color: #d4edda;
+  border-left: 4px solid #28a745;
+  padding: 8px 12px;
+  color: #155724;
+  margin: 5px 0;
+}
+
+/* 3. Adjacent Sibling (+) - ONLY first p right after h3 */
+.adjacent-demo h3 + p {
+  background-color: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 8px 12px;
+  color: #856404;
+  font-weight: bold;
+}
+
+/* 4. General Sibling (~) - ALL p after h3 */
+.sibling-demo h3 ~ p {
+  background-color: #f8d7da;
+  border-left: 4px solid #dc3545;
+  padding: 8px 12px;
+  color: #721c24;
+  margin: 5px 0;
+}
+
+/* ===== EXERCISE 5: PSEUDO-CLASSES ===== */
+
+/* 1. Link States */
+.link-demo a:link {
+  color: blue;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.link-demo a:visited {
+  color: purple;
+}
+
+.link-demo a:hover {
+  color: white;
+  background-color: #007bff;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.link-demo a:active {
+  color: red;
+}
+
+/* 2. Form States */
+.form-demo input[type="text"]:focus {
+  outline: none;
+  border: 2px solid #007bff;
+  background-color: #e8f0fe;
+  padding: 6px;
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(0,123,255,0.4);
+}
+
+.form-demo input[type="checkbox"]:checked + label {
+  color: green;
+  font-weight: bold;
+}
+
+.form-demo input:disabled {
+  background-color: #e9ecef;
+  color: #6c757d;
+  cursor: not-allowed;
+  border: 2px dashed #aaa;
+  padding: 6px;
+  border-radius: 4px;
+}
+
+/* 3. Structural Pseudo-classes */
+.structural-demo li:first-child {
+  color: green;
+  font-weight: bold;
+}
+
+.structural-demo li:last-child {
+  color: red;
+  font-weight: bold;
+}
+
+.structural-demo li:nth-child(3) {
+  background-color: #fff3cd;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+/* 4. :not() and :empty */
+.not-demo p:not(.special) {
+  background-color: #f8d7da;
+  border-left: 4px solid #dc3545;
+  padding: 8px 12px;
+  color: #721c24;
+}
+
+.empty-box:empty {
+  width: 150px;
+  height: 50px;
+  background-color: #6c757d;
+  border: 2px dashed #333;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+/* ===== EXERCISE 6: PSEUDO-ELEMENTS ===== */
+
+/* 1. ::before and ::after */
+.note::before {
+  content: "★ ";
+  color: gold;
+  font-size: 18px;
+}
+
+.note::after {
+  content: " ✓";
+  color: green;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* 2. ::first-letter */
+.story::first-letter {
+  font-size: 48px;
+  font-weight: bold;
+  color: #dc3545;
+  float: left;
+  line-height: 1;
+  margin-right: 6px;
+  font-family: Georgia, serif;
+}
+
+/* 2. ::first-line */
+.story::first-line {
+  color: #007bff;
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* 3. ::selection */
+.selectable::selection {
+  background-color: #ff6b6b;
+  color: white;
+}
+
+/* 4. Combined pseudo-element + pseudo-class */
+.hover-note::before {
+  content: "👉 ";
+}
+
+.hover-note:hover::before {
+  content: "🔥 ";
+}
+
+.hover-note:hover {
+  background-color: #fff3cd;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+/* ===== EXERCISE 10: BACKGROUND PROPERTIES ===== */
+
+/* General box styling */
+section {
+  margin: 20px 0;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border-left: 5px solid #007bff;
+}
+
+section div {
+  height: 80px;
+  margin: 10px 0;
+  border-radius: 6px;
+  padding: 10px;
+  font-weight: bold;
+  color: white;
+  display: flex;
+  align-items: center;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* 1. Background Colors */
+.bg-hex  { background-color: #3498db; }
+.bg-rgb  { background-color: rgb(46, 204, 113); }
+.bg-hsl  { background-color: hsl(0, 80%, 60%); }
+.bg-rgba { background-color: rgba(0,0,0,0.15); color: #333; text-shadow: none; }
+
+/* 2. Background Images - using CSS gradient as placeholder */
+.bg-repeat {
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='4' fill='%23007bff'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-color: #e8f0fe;
+  color: #333;
+  text-shadow: none;
+}
+
+.bg-no-repeat {
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='4' fill='%23e74c3c'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-color: #fdecea;
+  color: #333;
+  text-shadow: none;
+}
+
+.bg-repeat-x {
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='4' fill='%2327ae60'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-color: #d5f5e3;
+  color: #333;
+  text-shadow: none;
+}
+
+.bg-repeat-y {
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='4' fill='%238e44ad'/%3E%3C/svg%3E");
+  background-repeat: repeat-y;
+  background-color: #f5eef8;
+  color: #333;
+  text-shadow: none;
+}
+
+/* 3. Background Position and Size */
+.bg-center {
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='40' height='40' fill='%23f39c12'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' fill='white' font-size='20'%3E★%3C/text%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #fef9e7;
+  color: #333;
+  text-shadow: none;
+}
+
+.bg-top-right {
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='40' height='40' fill='%23e74c3c'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' fill='white' font-size='20'%3E★%3C/text%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-color: #fdecea;
+  color: #333;
+  text-shadow: none;
+}
+
+.bg-cover {
+  background-image: linear-gradient(45deg, #3498db, #9b59b6);
+  background-size: cover;
+  height: 100px;
+}
+
+.bg-contain {
+  background-image: linear-gradient(45deg, #27ae60, #f39c12);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #f0f0f0;
+  color: #333;
+  text-shadow: none;
+}
+
+/* 4. Background Attachment */
+.bg-scroll {
+  background-image: linear-gradient(135deg, #667eea, #764ba2);
+  background-attachment: scroll;
+  height: 100px;
+}
+
+.bg-fixed {
+  background-image: linear-gradient(135deg, #f093fb, #f5576c);
+  background-attachment: fixed;
+  height: 100px;
+}
+/* ===== EXERCISE 11: ADVANCED BACKGROUNDS ===== */
+
+/* 1. Multiple Backgrounds */
+.multi-bg {
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(255,255,255,0.3) 10%, transparent 10%),
+    radial-gradient(circle at 80% 50%, rgba(255,255,255,0.3) 10%, transparent 10%),
+    linear-gradient(135deg, #667eea, #764ba2);
+  height: 100px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+/* 2. Linear Gradients */
+.grad-basic {
+  background: linear-gradient(to right, #3498db, #2ecc71);
+}
+
+.grad-diagonal {
+  background: linear-gradient(45deg, #e74c3c, #f39c12);
+}
+
+.grad-multi {
+  background: linear-gradient(to right, #e74c3c, #f39c12, #2ecc71, #3498db, #9b59b6);
+}
+
+.grad-hard {
+  background: linear-gradient(to right,
+    #e74c3c 33%,
+    #3498db 33%,
+    #3498db 66%,
+    #2ecc71 66%);
+}
+
+/* 3. Radial Gradients */
+.radial-basic {
+  background: radial-gradient(circle, #f39c12, #e74c3c);
+}
+
+.radial-ellipse {
+  background: radial-gradient(ellipse, #3498db, #9b59b6);
+}
+
+.radial-corner {
+  background: radial-gradient(circle at top left, #2ecc71, #1a252f);
+}
+
+/* 4. Blend Modes */
+.blend-multiply {
+  background-image: linear-gradient(#e74c3c, #f39c12);
+  background-blend-mode: multiply;
+  background-color: #3498db;
+}
+
+.blend-screen {
+  background-image: linear-gradient(#9b59b6, #3498db);
+  background-blend-mode: screen;
+  background-color: #e74c3c;
+}
+
+.blend-overlay {
+  background-image: linear-gradient(#2ecc71, #f39c12);
+  background-blend-mode: overlay;
+  background-color: #9b59b6;
+}
+/* ===== EXERCISE 12: BASIC IMAGE STYLING ===== */
+
+/* 1. Dimensions */
+.img-small        { width: 100px; height: auto; }
+.img-medium       { width: 200px; height: auto; }
+.img-fixed-height { height: 120px; width: auto; }
+
+/* 2. Borders and Border Radius */
+.img-border  {
+  width: 150px;
+  border: 4px solid #3498db;
+  padding: 4px;
+}
+
+.img-rounded {
+  width: 150px;
+  border: 4px solid #2ecc71;
+  border-radius: 16px;
+}
+
+.img-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid #e74c3c;
+  object-fit: cover;
+}
+
+/* 3. Object Fit */
+.fit-demo {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.fit-demo p {
+  text-align: center;
+  font-weight: bold;
+  margin: 0 0 5px 0;
+  color: #555;
+}
+
+.img-fill, .img-contain, .img-cover, .img-none {
+  width: 150px;
+  height: 150px;
+  border: 3px solid #9b59b6;
+  display: block;
+}
+
+.img-fill    { object-fit: fill; }
+.img-contain { object-fit: contain; background-color: #f0f0f0; }
+.img-cover   { object-fit: cover; }
+.img-none    { object-fit: none; }
+
+/* 4. Filters */
+.filter-demo {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.filter-demo p {
+  text-align: center;
+  font-weight: bold;
+  margin: 0 0 5px 0;
+  color: #555;
+}
+
+.img-original, .img-grayscale,
+.img-sepia, .img-blur {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
+
+.img-original  { filter: none; }
+.img-grayscale { filter: grayscale(100%); }
+.img-sepia     { filter: sepia(100%); }
+.img-blur      { filter: blur(4px); }
+/* ===== EXERCISE 13: ADVANCED IMAGE EFFECTS ===== */
+
+/* 1. Hover Effects */
+.hover-demo {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.hover-demo p {
+  text-align: center;
+  font-weight: bold;
+  margin: 0 0 5px 0;
+}
+
+.img-wrapper-zoom {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 3px solid #3498db;
+}
+
+.img-zoom {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.img-zoom:hover {
+  transform: scale(1.2);
+}
+
+.img-brightness {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: filter 0.3s ease;
+  filter: brightness(60%);
+}
+
+.img-brightness:hover {
+  filter: brightness(120%);
+}
+
+.img-colorize {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease;
+}
+
+.img-colorize:hover {
+  filter: grayscale(0%);
+}
+
+/* 2. Advanced Filters */
+.filter-advanced {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.filter-advanced p {
+  text-align: center;
+  font-weight: bold;
+  margin: 0 0 5px 0;
+}
+
+.img-bright, .img-contrast,
+.img-saturate, .img-hue {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+.img-bright   { filter: brightness(150%); }
+.img-contrast { filter: contrast(200%); }
+.img-saturate { filter: saturate(300%); }
+.img-hue      { filter: hue-rotate(180deg); }
+
+/* 3. Overlays */
+.overlay-demo {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.overlay-dark,
+.overlay-color,
+.overlay-hover {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.overlay-dark img,
+.overlay-color img,
+.overlay-hover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.overlay-text {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  padding: 8px 0;
+}
+
+.overlay-dark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.overlay-dark .overlay-text { z-index: 1; }
+
+.overlay-color::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(52,152,219,0.5);
+}
+
+.overlay-color .overlay-text { z-index: 1; }
+
+.overlay-hover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(231,76,60,0);
+  transition: background-color 0.3s ease;
+}
+
+.overlay-hover:hover::after {
+  background-color: rgba(231,76,60,0.6);
+}
+
+.overlay-hover .overlay-text { z-index: 1; }
+
+/* 4. Clipping */
+.clip-demo {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.clip-demo p {
+  text-align: center;
+  font-weight: bold;
+  margin: 0 0 5px 0;
+}
+
+.clip-triangle, .clip-pentagon, .clip-diamond {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+}
+
+.clip-triangle {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.clip-pentagon {
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+}
+
+.clip-diamond {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+/* ===== EXERCISE 14: BOX MODEL ===== */
+
+/* 1. Margins and Padding */
+.box-margin {
+  margin: 40px;
+  background-color: #d1ecf1;
+  border: 2px solid #17a2b8;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.box-padding {
+  padding: 40px;
+  background-color: #d4edda;
+  border: 2px solid #28a745;
+  border-radius: 6px;
+}
+
+.box-both {
+  margin: 20px;
+  padding: 20px;
+  background-color: #fff3cd;
+  border: 2px solid #ffc107;
+  border-radius: 6px;
+}
+
+.box-sides {
+  margin: 10px 30px 20px 50px;
+  padding: 5px 15px 25px 35px;
+  background-color: #f8d7da;
+  border: 2px solid #dc3545;
+  border-radius: 6px;
+}
+
+/* 2. Borders */
+.border-solid  {
+  border: 3px solid #3498db;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 4px;
+}
+
+.border-dashed {
+  border: 3px dashed #e74c3c;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 4px;
+}
+
+.border-dotted {
+  border: 3px dotted #27ae60;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 4px;
+}
+
+.border-double {
+  border: 6px double #9b59b6;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 4px;
+}
+
+.border-mixed {
+  border-top: 4px solid #e74c3c;
+  border-right: 4px dashed #3498db;
+  border-bottom: 4px dotted #27ae60;
+  border-left: 4px double #9b59b6;
+  padding: 10px;
+  margin: 8px 0;
+}
+
+/* 3. Box Sizing */
+.content-box {
+  box-sizing: content-box;
+  width: 300px;
+  padding: 20px;
+  border: 3px solid #e74c3c;
+  background-color: #fdecea;
+  margin: 8px 0;
+}
+
+.border-box {
+  box-sizing: border-box;
+  width: 300px;
+  padding: 20px;
+  border: 3px solid #27ae60;
+  background-color: #d5f5e3;
+  margin: 8px 0;
+}
+
+/* 4. Box Shadows */
+.shadow-basic {
+  box-shadow: 4px 4px 8px rgba(0,0,0,0.2);
+  padding: 15px;
+  margin: 12px 0;
+  border-radius: 6px;
+  background: white;
+}
+
+.shadow-spread {
+  box-shadow: 0px 0px 0px 8px #3498db;
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 6px;
+  background: white;
+}
+
+.shadow-colored {
+  box-shadow: 6px 6px 12px rgba(231,76,60,0.5);
+  padding: 15px;
+  margin: 12px 0;
+  border-radius: 6px;
+  background: white;
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.shadow-inset {
+  box-shadow: inset 4px 4px 10px rgba(0,0,0,0.3);
+  padding: 15px;
+  margin: 12px 0;
+  border-radius: 6px;
+  background: #f0f0f0;
+}
+
+.shadow-multiple {
+  box-shadow:
+    4px 4px 0px #e74c3c,
+    8px 8px 0px #f39c12,
+    12px 12px 0px #3498db;
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 6px;
+  background: white;
+  font-weight: bold;
+}
+
+/* 5. Outline */
+.outline-solid {
+  outline: 3px solid #3498db;
+  padding: 10px;
+  margin: 12px 0;
+  border-radius: 4px;
+}
+
+.outline-dashed {
+  outline: 3px dashed #e74c3c;
+  padding: 10px;
+  margin: 12px 0;
+  border-radius: 4px;
+}
+
+.outline-offset {
+  outline: 3px solid #27ae60;
+  outline-offset: 8px;
+  padding: 10px;
+  margin: 20px 0;
+  border-radius: 4px;
+}
+/* ===== EXERCISE 15: TRANSFORMS AND TRANSITIONS ===== */
+
+/* 1. 2D Transforms */
+.transform-demo {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 30px 10px;
+}
+
+.transform-demo div {
+  width: 120px;
+  height: 80px;
+  background-color: #3498db;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.t-translate { transform: translate(20px, -10px); background-color: #e74c3c; }
+.t-rotate    { transform: rotate(45deg);           background-color: #f39c12; }
+.t-scale     { transform: scale(1.3);              background-color: #27ae60; }
+.t-skew      { transform: skew(15deg);             background-color: #9b59b6; }
+.t-combined  {
+  transform: translate(10px, -5px) rotate(10deg) scale(1.1);
+  background-color: #1abc9c;
+}
+
+/* 2. Transform Origin */
+.origin-demo {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 20px 10px;
+}
+
+.origin-demo div {
+  width: 140px;
+  height: 80px;
+  background-color: #3498db;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.origin-center {
+  transform: rotate(15deg);
+  transform-origin: center;
+  background-color: #e74c3c;
+}
+
+.origin-top-left {
+  transform: rotate(15deg);
+  transform-origin: top left;
+  background-color: #27ae60;
+}
+
+.origin-bottom-right {
+  transform: rotate(15deg);
+  transform-origin: bottom right;
+  background-color: #9b59b6;
+}
+
+/* 3. Transitions */
+.transition-demo {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 10px 0;
+}
+
+.transition-demo div {
+  width: 140px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  text-align: center;
+}
+
+.trans-color {
+  background-color: #3498db;
+  color: white;
+  transition: background-color 0.4s ease;
+}
+.trans-color:hover { background-color: #e74c3c; }
+
+.trans-size {
+  background-color: #27ae60;
+  color: white;
+  transition: transform 0.3s ease;
+}
+.trans-size:hover { transform: scale(1.2); }
+
+.trans-move {
+  background-color: #f39c12;
+  color: white;
+  transition: transform 0.3s ease;
+}
+.trans-move:hover { transform: translateY(-15px); }
+
+.trans-all {
+  background-color: #9b59b6;
+  color: white;
+  transition: all 0.4s ease;
+}
+.trans-all:hover {
+  background-color: #1abc9c;
+  transform: scale(1.1) rotate(5deg);
+  border-radius: 50%;
+}
+
+/* 4. Hover Transition Effects */
+.hover-effects {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 20px 0;
+}
+
+.hover-effects div {
+  width: 140px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+}
+
+.card-flip {
+  background-color: #e74c3c;
+  transition: transform 0.5s ease;
+}
+.card-flip:hover { transform: rotateY(180deg); }
+
+.card-slide {
+  background-color: #3498db;
+  transition: transform 0.3s ease;
+}
+.card-slide:hover { transform: translateX(20px); }
+
+.card-grow {
+  background-color: #27ae60;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-grow:hover {
+  transform: scale(1.2);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.card-spin {
+  background-color: #9b59b6;
+  transition: transform 0.6s ease;
+}
+.card-spin:hover { transform: rotate(360deg); }

@@ -1,0 +1,212 @@
+/* ===== TASK 4: IMAGE STYLING PORTFOLIO ===== */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1a1a2e;
+  padding: 30px;
+  color: #eee;
+}
+
+header {
+  text-align: center;
+  padding: 40px;
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, #0f3460, #16213e);
+  border-radius: 12px;
+  border: 1px solid #e94560;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #e94560;
+  margin-bottom: 10px;
+}
+
+header p { color: #a0a0b0; font-size: 1.1rem; }
+
+section {
+  background: #16213e;
+  padding: 25px;
+  margin: 20px 0;
+  border-radius: 10px;
+  border-left: 5px solid #e94560;
+}
+
+h2 {
+  color: #e94560;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Grid Layout */
+.img-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.img-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.img-card p {
+  font-size: 13px;
+  color: #a0a0b0;
+  text-align: center;
+}
+
+.img-card img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+}
+
+/* 1. Rounded and Circular */
+.img-normal   { border-radius: 0; }
+.img-rounded  { border-radius: 16px; }
+.img-circle   { border-radius: 50%; }
+.img-squircle { border-radius: 30%; }
+
+/* 2. Borders and Shadows */
+.img-border-blue {
+  border: 4px solid #3498db;
+  border-radius: 8px;
+}
+
+.img-shadow {
+  border-radius: 8px;
+  box-shadow: 8px 8px 20px rgba(0,0,0,0.5);
+}
+
+.img-double-border {
+  border: 4px solid #e74c3c;
+  outline: 4px solid #f39c12;
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+.img-glow {
+  border-radius: 8px;
+  box-shadow:
+    0 0 10px #3498db,
+    0 0 20px #3498db,
+    0 0 40px #3498db;
+}
+
+/* 3. Hover Effects */
+.hover-zoom-wrap {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.hover-zoom {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  border-radius: 8px;
+}
+
+.hover-zoom:hover { transform: scale(1.2); }
+
+.hover-rotate {
+  border-radius: 8px;
+  transition: transform 0.4s ease;
+}
+.hover-rotate:hover { transform: rotate(10deg) scale(1.05); }
+
+.hover-grayscale {
+  border-radius: 8px;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease;
+}
+.hover-grayscale:hover { filter: grayscale(0%); }
+
+.hover-bright {
+  border-radius: 8px;
+  filter: brightness(60%);
+  transition: filter 0.3s ease;
+}
+.hover-bright:hover { filter: brightness(120%); }
+
+/* 4. CSS Filters */
+.filter-gray     { border-radius: 8px; filter: grayscale(100%); }
+.filter-sepia    { border-radius: 8px; filter: sepia(100%); }
+.filter-blur     { border-radius: 8px; filter: blur(3px); }
+.filter-saturate { border-radius: 8px; filter: saturate(300%); }
+
+/* 5. Overlays */
+.overlay-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.overlay-card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 200px;
+  cursor: pointer;
+}
+
+.overlay-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.overlay-card:hover img { transform: scale(1.05); }
+
+.overlay-content {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  color: white;
+  z-index: 1;
+}
+
+.overlay-content h3 { font-size: 1.1rem; margin-bottom: 4px; }
+.overlay-content p  { font-size: 0.85rem; opacity: 0.85; }
+
+/* Dark overlay */
+.overlay-dark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0);
+  transition: background 0.3s ease;
+}
+.overlay-dark:hover::after { background: rgba(0,0,0,0.6); }
+
+/* Blue overlay */
+.overlay-blue::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(52,152,219,0);
+  transition: background 0.3s ease;
+}
+.overlay-blue:hover::after { background: rgba(52,152,219,0.6); }
+
+/* Gradient overlay — always visible */
+.overlay-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  z-index: 1;
+}

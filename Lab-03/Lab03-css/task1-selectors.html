@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 1 - CSS Selectors Practice</title>
+  <link rel="stylesheet" href="styles/task1.css">
+</head>
+<body>
+
+  <h1>Task 1: CSS Selectors Practice</h1>
+
+  <!-- 5 Basic Selectors -->
+  <section id="basic-selectors">
+    <h2>Basic Selectors</h2>
+    <p>Element selector — all paragraphs styled</p>
+    <p class="highlight">Class selector — highlighted paragraph</p>
+    <p id="special-para">ID selector — unique paragraph</p>
+    <div class="highlight">Class selector on a div</div>
+    <span>Universal selector affects me too</span>
+  </section>
+
+  <!-- 3 Attribute Selectors -->
+  <section id="attribute-selectors">
+    <h2>Attribute Selectors</h2>
+    <input type="text" placeholder="Has type attribute">
+    <input type="email" placeholder="Email input">
+    <a href="https://example.com">Starts with https</a><br><br>
+    <a href="document.pdf">Ends with .pdf</a>
+  </section>
+
+  <!-- 4 Combinators -->
+  <section id="combinators">
+    <h2>Combinators</h2>
+    <div class="parent-box">
+      <p>Descendant of parent-box</p>
+      <div>
+        <p>Also descendant (deeper)</p>
+      </div>
+      <p class="direct-child">Direct child of parent-box</p>
+    </div>
+    <div class="sibling-box">
+      <h3>Heading</h3>
+      <p>Adjacent sibling of h3</p>
+      <p>General sibling of h3</p>
+      <p>Also general sibling</p>
+    </div>
+  </section>
+
+  <!-- 5 Pseudo-classes -->
+  <section id="pseudo-classes">
+    <h2>Pseudo-classes</h2>
+    <a href="https://google.com">Hover over me!</a><br><br>
+    <input type="text" placeholder="Focus on me!"><br><br>
+    <ul>
+      <li>First child</li>
+      <li>Second child</li>
+      <li>Third child</li>
+      <li>Last child</li>
+    </ul>
+    <p class="not-this">I am excluded by :not()</p>
+    <p>I am targeted by :not(.not-this)</p>
+  </section>
+
+  <!-- 2 Pseudo-elements -->
+  <section id="pseudo-elements">
+    <h2>Pseudo-elements</h2>
+    <p class="pe-before-after">I have content before and after me</p>
+    <p class="pe-first-letter">once upon a time there was a developer who loved CSS very much.</p>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 7 - Font Properties</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@400;700&family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../styles/typography.css">
+</head>
+<body>
+
+  <h1>Exercise 7: Font Properties</h1>
+
+  <!-- 1. Font Families -->
+  <section class="font-families">
+    <h2>Font Families</h2>
+    <p class="roboto">This uses Google Font: Roboto — clean and modern</p>
+    <p class="playfair">This uses Google Font: Playfair Display — elegant serif</p>
+    <p class="source-code">This uses Google Font: Source Code Pro — monospace</p>
+    <p class="web-safe">This uses Web-safe font: Georgia — always available</p>
+  </section>
+
+  <!-- 2. Font Sizes -->
+  <section class="font-sizes">
+    <h2>Font Sizes</h2>
+    <p class="size-px">This is 20px — fixed pixel size</p>
+    <p class="size-em">This is 1.5em — relative to parent</p>
+    <p class="size-rem">This is 1.5rem — relative to root</p>
+    <p class="size-percent">This is 150% — percentage of parent</p>
+    <p class="size-small">This is small (0.8rem)</p>
+    <p class="size-large">This is large (2rem)</p>
+  </section>
+
+  <!-- 3. Font Weights -->
+  <section class="font-weights">
+    <h2>Font Weights</h2>
+    <p class="weight-300">Weight 300 — Light</p>
+    <p class="weight-400">Weight 400 — Normal (Regular)</p>
+    <p class="weight-700">Weight 700 — Bold</p>
+    <p class="weight-bold">font-weight: bold keyword</p>
+    <p class="weight-normal">font-weight: normal keyword</p>
+  </section>
+
+  <!-- 4. Font Style and Variant -->
+  <section class="font-style">
+    <h2>Font Style and Variant</h2>
+    <p class="italic">This is italic text</p>
+    <p class="oblique">This is oblique text</p>
+    <p class="small-caps">This uses font-variant: small-caps</p>
+    <p class="combined-style">Bold + Italic + Small-caps combined</p>
+  </section>
+
+
+  <!-- ===== EXERCISE 8: TEXT STYLING ===== -->
+  <hr>
+  <h1>Exercise 8: Text Styling</h1>
+
+  <!-- 1. Text Color and Opacity -->
+  <section class="color-demo">
+    <h2>Text Color and Opacity</h2>
+    <p class="color-hex">This uses HEX color (#e74c3c)</p>
+    <p class="color-rgb">This uses RGB color (rgb(52, 152, 219))</p>
+    <p class="color-hsl">This uses HSL color (hsl(120, 60%, 35%))</p>
+    <p class="color-opacity">This text has reduced opacity (0.5)</p>
+    <p class="color-rgba">This uses RGBA with transparency</p>
+  </section>
+
+  <!-- 2. Text Alignment and Decoration -->
+  <section class="alignment-demo">
+    <h2>Text Alignment and Decoration</h2>
+    <p class="align-left">This text is LEFT aligned</p>
+    <p class="align-center">This text is CENTER aligned</p>
+    <p class="align-right">This text is RIGHT aligned</p>
+    <p class="align-justify">This text is JUSTIFIED — it stretches to fill 
+    the full width of the container making both edges straight and clean.</p>
+    <p class="underline">This text is underlined</p>
+    <p class="overline">This text has an overline</p>
+    <p class="line-through">This text has line-through (strikethrough)</p>
+    <p class="no-decoration">This link has no decoration 
+    <a href="#" class="clean-link">click here</a></p>
+  </section>
+
+  <!-- 3. Text Transformation -->
+  <section class="transform-demo">
+    <h2>Text Transformation</h2>
+    <p class="uppercase">this text is transformed to uppercase</p>
+    <p class="lowercase">THIS TEXT IS TRANSFORMED TO LOWERCASE</p>
+    <p class="capitalize">this text has each word capitalized</p>
+  </section>
+
+  <!-- 4. Text Shadow -->
+  <section class="shadow-demo">
+    <h2>Text Shadow Effects</h2>
+    <p class="shadow-basic">Basic shadow effect</p>
+    <p class="shadow-colored">Colored shadow effect</p>
+    <p class="shadow-multiple">Multiple shadows combined</p>
+    <p class="shadow-glow">Glowing text effect</p>
+  </section>
+
+  <!-- ===== EXERCISE 9: TEXT SPACING AND LAYOUT ===== -->
+  <hr>
+  <h1>Exercise 9: Text Spacing and Layout</h1>
+
+  <!-- 1. Line Height -->
+  <section class="line-height-demo">
+    <h2>Line Height</h2>
+    <p class="line-tight">
+      This paragraph has TIGHT line height (1.0).
+      Notice how the lines are very close together.
+      It can be hard to read with tight spacing.
+    </p>
+    <p class="line-normal">
+      This paragraph has NORMAL line height (1.5).
+      This is the most comfortable for reading.
+      It gives each line enough breathing room.
+    </p>
+    <p class="line-loose">
+      This paragraph has LOOSE line height (2.5).
+      Notice how spread out each line is.
+      It feels very airy and open.
+    </p>
+  </section>
+
+  <!-- 2. Letter and Word Spacing -->
+  <section class="spacing-demo">
+    <h2>Letter and Word Spacing</h2>
+    <p class="letter-tight">Letter spacing: tight (-1px)</p>
+    <p class="letter-normal">Letter spacing: normal (0px)</p>
+    <p class="letter-wide">Letter spacing: wide (4px)</p>
+    <p class="word-tight">Word spacing tight (-2px) between each word</p>
+    <p class="word-normal">Word spacing normal between each word</p>
+    <p class="word-wide">Word spacing wide (12px) between each word</p>
+  </section>
+
+  <!-- 3. Text Indent and White-space -->
+  <section class="indent-demo">
+    <h2>Text Indent and White-space</h2>
+    <p class="indented">
+      This paragraph has a text indent of 40px on the first line.
+      The rest of the lines stay at normal position without any indent applied.
+    </p>
+    <p class="no-wrap">This text will not wrap no matter how long it gets — it stays on one single line and overflows</p>
+    <pre class="preserve-space">This    text
+    preserves    spaces
+        and line breaks</pre>
+  </section>
+
+  <!-- 4. Text Overflow -->
+  <section class="overflow-demo">
+    <h2>Text Overflow</h2>
+    <p class="overflow-clip">This is a very long text that will be clipped when it reaches the end of the box boundary</p>
+    <p class="overflow-ellipsis">This is a very long text that will show ellipsis (...) when it reaches the end of the container</p>
+    <p class="overflow-scroll">This is a very long text that will be scrollable when it reaches the end of the container box</p>
+  </section>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 9 - CSS Transform Gallery</title>
+  <link rel="stylesheet" href="styles/task9.css">
+</head>
+<body>
+
+  <header>
+    <h1>CSS Transform Gallery</h1>
+    <p>Hover over elements to see transform effects</p>
+  </header>
+
+  <!-- 1. Basic 2D Transforms -->
+  <section>
+    <h2>Basic 2D Transforms</h2>
+    <div class="transform-grid">
+
+      <div class="transform-card">
+        <div class="box t-translate">Translate</div>
+        <p>translate(30px, -20px)</p>
+      </div>
+
+      <div class="transform-card">
+        <div class="box t-rotate">Rotate</div>
+        <p>rotate(45deg)</p>
+      </div>
+
+      <div class="transform-card">
+        <div class="box t-scale">Scale</div>
+        <p>scale(1.4)</p>
+      </div>
+
+      <div class="transform-card">
+        <div class="box t-skew-x">Skew X</div>
+        <p>skewX(20deg)</p>
+      </div>
+
+      <div class="transform-card">
+        <div class="box t-skew-y">Skew Y</div>
+        <p>skewY(20deg)</p>
+      </div>
+
+      <div class="transform-card">
+        <div class="box t-combined">Combined</div>
+        <p>translate + rotate + scale</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 2. 3D Transforms -->
+  <section>
+    <h2>3D Transform Effects</h2>
+    <div class="transform-grid">
+
+      <div class="transform-card">
+        <div class="box t-rotate-x">Rotate X</div>
+        <p>rotateX(45deg)</p>
+      </div>
+
+      <div class="transform-card">
+        <div class="box t-rotate-y">Rotate Y</div>
+        <p>rotateY(45deg)</p>
+      </div>
+
+      <div class="transform-card">
+        <div class="box t-rotate-3d">Rotate 3D</div>
+        <p>rotate3d(1,1,0,45deg)</p>
+      </div>
+
+      <div class="transform-card">
+        <div class="perspective-wrap">
+          <div class="box t-perspective">Perspective</div>
+        </div>
+        <p>perspective(200px)</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3. Transform Origin -->
+  <section>
+    <h2>Transform Origin Demonstrations</h2>
+    <div class="transform-grid">
+
+      <div class="transform-card">
+        <div class="box origin-center">Center</div>
+        <p>transform-origin: center</p>
+      </div>
+
+      <div class="transform-card">
+        <div class="box origin-top-left">Top Left</div>
+        <p>transform-origin: top left</p>
+      </div>
+
+      <div class="transform-card">
+        <div class="box origin-bottom-right">Bottom Right</div>
+        <p>transform-origin: bottom right</p>
+      </div>
+
+      <div class="transform-card">
+        <div class="box origin-custom">Custom</div>
+        <p>transform-origin: 80% 20%</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. Combined Transformations -->
+  <section>
+    <h2>Combined Transformations</h2>
+    <div class="transform-grid">
+
+      <div class="transform-card">
+        <div class="box combo-1">Combo 1</div>
+        <p>rotate + scale</p>
+      </div>
+
+      <div class="transform-card">
+        <div class="box combo-2">Combo 2</div>
+        <p>skew + translate</p>
+      </div>
+
+      <div class="transform-card">
+        <div class="box combo-3">Combo 3</div>
+        <p>scale + rotate + translate</p>
+      </div>
+
+      <div class="transform-card">
+        <div class="box combo-4">Combo 4</div>
+        <p>3D rotate + scale</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. Transition Animations -->
+  <section>
+    <h2>Transition Animations (Hover!)</h2>
+    <div class="animation-grid">
+
+      <div class="anim-card spin-card">
+        <div class="anim-icon">⭐</div>
+        <p>Full Spin</p>
+      </div>
+
+      <div class="anim-card flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">Hover Me!</div>
+          <div class="flip-back">Flipped! 🎉</div>
+        </div>
+      </div>
+
+      <div class="anim-card pulse-card">
+        <div class="anim-icon">❤️</div>
+        <p>Pulse</p>
+      </div>
+
+      <div class="anim-card wobble-card">
+        <div class="anim-icon">🎸</div>
+        <p>Wobble</p>
+      </div>
+
+      <div class="anim-card rubber-card">
+        <div class="anim-icon">🏀</div>
+        <p>Rubber Band</p>
+      </div>
+
+      <div class="anim-card swing-card">
+        <div class="anim-icon">🔔</div>
+        <p>Swing</p>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>

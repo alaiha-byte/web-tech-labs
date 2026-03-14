@@ -1,0 +1,171 @@
+/* ===== TASK 1: CSS SELECTORS PRACTICE ===== */
+
+* { box-sizing: border-box; font-family: Arial, sans-serif; }
+
+body { padding: 20px; background-color: #f5f5f5; }
+
+h1 { text-align: center; color: #2c3e50; margin-bottom: 30px; }
+
+section {
+  background: white;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+h2 {
+  color: #2980b9;
+  border-bottom: 2px solid #2980b9;
+  padding-bottom: 8px;
+}
+
+/* ===== 5 BASIC SELECTORS ===== */
+
+/* 1. Element selector */
+p { color: #333; font-size: 15px; margin: 6px 0; }
+
+/* 2. Class selector */
+.highlight {
+  background-color: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+/* 3. ID selector */
+#special-para {
+  background-color: #d4edda;
+  border-left: 4px solid #28a745;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* 4. Universal selector */
+* { margin: 0; padding: 0; }
+
+/* 5. Element + Class combined */
+div.highlight {
+  background-color: #cce5ff;
+  border-left: 4px solid #004085;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin: 6px 0;
+}
+
+/* ===== 3 ATTRIBUTE SELECTORS ===== */
+
+/* 1. Has attribute */
+input[type] {
+  border: 2px solid #9b59b6;
+  padding: 6px 10px;
+  border-radius: 4px;
+  display: block;
+  margin: 6px 0;
+}
+
+/* 2. Exact value */
+input[type="email"] {
+  border-color: #e74c3c;
+  background-color: #fdecea;
+}
+
+/* 3. Ends with */
+a[href$=".pdf"] {
+  color: #e74c3c;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 2px solid #e74c3c;
+}
+
+/* ===== 4 COMBINATORS ===== */
+
+/* 1. Descendant */
+.parent-box p {
+  background-color: #d1ecf1;
+  padding: 6px 10px;
+  border-radius: 4px;
+  margin: 4px 0;
+}
+
+/* 2. Direct child */
+.parent-box > p.direct-child {
+  background-color: #d4edda;
+  border-left: 4px solid #28a745;
+}
+
+/* 3. Adjacent sibling */
+.sibling-box h3 + p {
+  background-color: #fff3cd;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* 4. General sibling */
+.sibling-box h3 ~ p {
+  border-left: 3px solid #f39c12;
+  padding-left: 10px;
+  margin: 4px 0;
+}
+
+/* ===== 5 PSEUDO-CLASSES ===== */
+
+/* 1. :hover */
+#pseudo-classes a {
+  color: #3498db;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+#pseudo-classes a:hover {
+  background-color: #3498db;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+/* 2. :focus */
+#pseudo-classes input:focus {
+  outline: none;
+  border: 2px solid #3498db;
+  box-shadow: 0 0 8px rgba(52,152,219,0.5);
+  padding: 6px;
+  border-radius: 4px;
+}
+
+/* 3. :first-child */
+#pseudo-classes li:first-child { color: #27ae60; font-weight: bold; }
+
+/* 4. :last-child */
+#pseudo-classes li:last-child { color: #e74c3c; font-weight: bold; }
+
+/* 5. :not() */
+#pseudo-classes p:not(.not-this) {
+  background-color: #d4edda;
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+
+/* ===== 2 PSEUDO-ELEMENTS ===== */
+
+/* 1. ::before and ::after */
+.pe-before-after::before {
+  content: "👉 ";
+  color: #e74c3c;
+}
+.pe-before-after::after {
+  content: " 👈";
+  color: #e74c3c;
+}
+
+/* 2. ::first-letter */
+.pe-first-letter::first-letter {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #9b59b6;
+  float: left;
+  line-height: 1;
+  margin-right: 6px;
+}
