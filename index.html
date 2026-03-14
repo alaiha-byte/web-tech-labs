@@ -1,58 +1,99 @@
-
-
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>CSS Basics</title>
-
-    <style>
-       body {
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #3498db; /* Blue background */
-    font-family: Arial, sans-serif;
-}
-
-        h1 {
-            font-family: Arial, sans-serif;
-        }
-
-        .rounded-image {
-            width: 150px;
-            height: 150px;
-            overflow: hidden;   /* Clip image */
-            border-radius: 50%; /* Make it circle */
-            margin-top: 20px;
-        }
-
-        .rounded-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;  /* Prevent stretching */
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Technologies Labs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-    <h1>Welcome to CS 311 - Web Programming</h1>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-logo">WT Labs</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#labs">Labs</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </nav>
 
-    <div class="rounded-image">
-        <img src="University ID.jpg" alt="My Photo">
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <p class="hero-tag">CS 224L — UET Peshawar</p>
+      <h1>Web Technologies<br><span>Lab Portfolio</span></h1>
+      <p class="hero-desc">A collection of all lab exercises and tasks completed during the Web Technologies course.</p>
+      <a href="#labs" class="btn-primary">View Labs</a>
     </div>
+  </section>
+
+  <!-- Labs Section -->
+  <section id="labs" class="labs-section">
+    <h2 class="section-title">Lab Work</h2>
+    <div class="labs-grid">
+
+      <div class="lab-card">
+        <div class="lab-number">01</div>
+        <div class="lab-info">
+          <h3>HTML Fundamentals</h3>
+          <p>Basic HTML structure, elements, forms and tables.</p>
+          <a href="Lab-01/index.html" class="lab-link">View Lab →</a>
+        </div>
+      </div>
+
+      <div class="lab-card">
+        <div class="lab-number">02</div>
+        <div class="lab-info">
+          <h3>HTML Advanced</h3>
+          <p>Semantic HTML, multimedia, portfolio and course schedule.</p>
+          <a href="Lab-02/index.html" class="lab-link">View Lab →</a>
+        </div>
+      </div>
+
+      <div class="lab-card lab-card-active">
+        <div class="lab-number">03</div>
+        <div class="lab-info">
+          <h3>CSS Fundamentals</h3>
+          <p>CSS selectors, typography, backgrounds, images and effects.</p>
+          <div class="lab-links">
+            <a href="Lab-03/Lab03-css/task11-portfolio.html" class="lab-link">Portfolio →</a>
+            <a href="Lab-03/Lab03-css/task12-course.html" class="lab-link">Course →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <div class="about-content">
+      <h2>About This Site</h2>
+      <p>This GitHub Pages site showcases all the lab work completed in CS 224L Web Technologies at UET Peshawar.</p>
+      <div class="about-stats">
+        <div class="stat">
+          <span class="stat-num">3+</span>
+          <span class="stat-label">Labs Done</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">15</span>
+          <span class="stat-label">Exercises</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">13</span>
+          <span class="stat-label">Tasks</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>CS 224L Web Technologies — UET Peshawar</p>
+    <p>Instructor: Mr. Mohammad</p>
+  </footer>
 
 </body>
 </html>
