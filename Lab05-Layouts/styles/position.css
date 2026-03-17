@@ -1,0 +1,297 @@
+/* position.css - Exercise 5 & 6 styles */
+
+/* ===== EXERCISE 5: Position Property Values ===== */
+
+/* --- 5A: Static (default) --- */
+.pos-static {
+  position: static;
+  background: #3498db;
+  color: white;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+/* --- 5B: Relative --- */
+.pos-relative-wrapper {
+  background: #ecf0f1;
+  padding: 15px;
+  margin-bottom: 10px;
+  min-height: 80px;
+}
+
+.pos-relative {
+  position: relative;
+  top: 15px;
+  left: 30px;
+  background: #e74c3c;
+  color: white;
+  padding: 15px;
+  display: inline-block;
+}
+
+/* --- 5C: Absolute --- */
+.pos-absolute-wrapper {
+  position: relative; /* anchor for absolute child */
+  background: #ecf0f1;
+  height: 150px;
+  margin-bottom: 10px;
+  border: 2px dashed #999;
+}
+
+.pos-absolute {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #27ae60;
+  color: white;
+  padding: 15px;
+}
+
+.pos-absolute-bl {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: #8e44ad;
+  color: white;
+  padding: 10px;
+  font-size: 13px;
+}
+
+/* --- 5D: Fixed --- */
+/* Fixed header - always visible at top */
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #2c3e50;
+  color: white;
+  padding: 12px 20px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.fixed-header span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Spacer so content doesn't hide under fixed header */
+.fixed-header-spacer {
+  height: 55px;
+}
+
+/* Fixed badge demo (not full page fixed, just inside demo box) */
+.fixed-demo-box {
+  position: relative;
+  background: #ecf0f1;
+  height: 120px;
+  border: 2px solid #bbb;
+  overflow: hidden;
+}
+
+.fixed-badge {
+  position: absolute; /* using absolute to simulate inside demo */
+  bottom: 15px;
+  right: 15px;
+  background: #e74c3c;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+/* --- 5E: Sticky --- */
+.sticky-demo-wrapper {
+  height: 250px;
+  overflow-y: scroll;
+  border: 2px solid #bbb;
+  background: #fafafa;
+}
+
+.sticky-heading {
+  position: sticky;
+  top: 0;
+  background: #f39c12;
+  color: white;
+  padding: 10px 15px;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.sticky-content {
+  padding: 15px;
+}
+
+.sticky-content p {
+  margin-bottom: 12px;
+  line-height: 1.7;
+}
+
+
+/* ===== EXERCISE 6: Practical Positioning ===== */
+
+/* --- 6A: Z-index / Overlapping elements --- */
+.zindex-wrapper {
+  position: relative;
+  height: 160px;
+  margin-bottom: 10px;
+}
+
+.z-box {
+  position: absolute;
+  width: 160px;
+  height: 100px;
+  padding: 15px;
+  font-weight: bold;
+  color: white;
+}
+
+.z-box-1 {
+  background: rgba(52, 152, 219, 0.9);
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+}
+
+.z-box-2 {
+  background: rgba(231, 76, 60, 0.9);
+  top: 30px;
+  left: 80px;
+  z-index: 2;
+}
+
+.z-box-3 {
+  background: rgba(39, 174, 96, 0.9);
+  top: 55px;
+  left: 150px;
+  z-index: 3;
+}
+
+/* --- 6B: Modal Dialog --- */
+.modal-trigger {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.modal-trigger:hover {
+  background: #2980b9;
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-box {
+  position: relative;
+  background: white;
+  padding: 30px;
+  width: 90%;
+  max-width: 480px;
+  border-radius: 6px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+.modal-box h3 {
+  margin-bottom: 12px;
+  color: #2c3e50;
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #888;
+}
+
+.modal-close:hover {
+  color: #e74c3c;
+}
+
+/* Mobile: full screen modal */
+@media (max-width: 480px) {
+  .modal-box {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+/* --- 6C: Sticky Navigation --- */
+.sticky-nav {
+  position: sticky;
+  top: 50px; /* sits below our fixed header */
+  background: #8e44ad;
+  color: white;
+  padding: 10px 20px;
+  z-index: 900;
+  display: flex;
+  gap: 20px;
+}
+
+.sticky-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.sticky-nav a:hover {
+  text-decoration: underline;
+}
+
+/* --- 6D: Tooltip --- */
+.tooltip-wrapper {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 20px 0;
+}
+
+.tooltip-item {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-btn {
+  background: #2c3e50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+  position: a

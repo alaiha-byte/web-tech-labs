@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,30 +7,30 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body> -->
 
   <!-- Navbar -->
-  <nav class="navbar">
+  <!-- <nav class="navbar">
     <div class="nav-logo">WT Labs</div>
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#labs">Labs</a></li>
       <li><a href="#about">About</a></li>
     </ul>
-  </nav>
+  </nav> -->
 
   <!-- Hero -->
-  <section id="home" class="hero">
+  <!-- <section id="home" class="hero">
     <div class="hero-content">
       <p class="hero-tag">CS 224L — UET Peshawar</p>
       <h1>Web Technologies<br><span>Lab Portfolio</span></h1>
       <p class="hero-desc">A collection of all lab exercises and tasks completed during the Web Technologies course.</p>
       <a href="#labs" class="btn-primary">View Labs</a>
     </div>
-  </section>
+  </section> -->
 
   <!-- Labs Section -->
-  <section id="labs" class="labs-section">
+  <!-- <section id="labs" class="labs-section">
     <h2 class="section-title">Lab Work</h2>
     <div class="labs-grid">
 
@@ -41,18 +41,18 @@
           <p>Basic HTML structure, elements, forms and tables.</p>
           <a href="Lab-01/index.html" class="lab-link">View Lab →</a>
         </div>
-      </div>
+      </div> -->
 
-      <div class="lab-card">
+      <!-- <div class="lab-card">
         <div class="lab-number">02</div>
         <div class="lab-info">
           <h3>HTML Advanced</h3>
           <p>Semantic HTML, multimedia, portfolio and course schedule.</p>
           <a href="Lab-02/index.html" class="lab-link">View Lab →</a>
         </div>
-      </div>
+      </div> -->
 
-      <div class="lab-card lab-card-active">
+      <!-- <div class="lab-card lab-card-active">
         <div class="lab-number">03</div>
         <div class="lab-info">
           <h3>CSS Fundamentals</h3>
@@ -65,10 +65,10 @@
       </div>
 
     </div>
-  </section>
+  </section> -->
 
   <!-- About Section -->
-  <section id="about" class="about-section">
+  <!-- <section id="about" class="about-section">
     <div class="about-content">
       <h2>About This Site</h2>
       <p>This GitHub Pages site showcases all the lab work completed in CS 224L Web Technologies at UET Peshawar.</p>
@@ -87,12 +87,256 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- Footer -->
-  <footer class="footer">
+  <!-- <footer class="footer">
     <p>CS 224L Web Technologies — UET Peshawar</p>
     <p>Instructor: Mr. Mohammad</p>
+  </footer>
+
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lab 05 & 06 — CSS Layout Techniques</title>
+  <link rel="stylesheet" href="styles/base.css" />
+  <style>
+    /* Index page specific styles */
+    .index-header {
+      background: linear-gradient(135deg, #2c3e50, #3498db);
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .index-header h1 {
+      font-size: 32px;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .index-header p {
+      font-size: 16px;
+      opacity: 0.85;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .index-header .meta {
+      margin-top: 15px;
+      font-size: 13px;
+      opacity: 0.65;
+    }
+
+    .section-group {
+      margin-bottom: 40px;
+    }
+
+    .section-group h2 {
+      font-size: 20px;
+      color: #2c3e50;
+      border-left: 4px solid #3498db;
+      padding-left: 12px;
+      margin-bottom: 16px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .link-card {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      text-decoration: none;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: box-shadow 0.2s, transform 0.2s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    .link-card:hover {
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+      transform: translateY(-2px);
+    }
+
+    .link-card .card-icon {
+      font-size: 28px;
+    }
+
+    .link-card .card-title {
+      font-size: 16px;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    .link-card .card-desc {
+      font-size: 13px;
+      color: #777;
+      line-height: 1.5;
+    }
+
+    .link-card .card-tag {
+      font-size: 11px;
+      font-weight: bold;
+      padding: 3px 8px;
+      border-radius: 20px;
+      align-self: flex-start;
+      margin-top: 4px;
+    }
+
+    .tag-exercise  { background: #dbeafe; color: #1e40af; }
+    .tag-layout    { background: #dcfce7; color: #166534; }
+    .tag-advanced  { background: #fef3c7; color: #92400e; }
+
+    .progress-bar {
+      background: #ecf0f1;
+      border-radius: 4px;
+      height: 6px;
+      margin-bottom: 30px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      background: linear-gradient(90deg, #3498db, #27ae60);
+      height: 100%;
+      width: 100%;
+      border-radius: 4px;
+    }
+
+    .index-footer {
+      background: #2c3e50;
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body style="background:#f5f5f5;">
+
+  <header class="index-header">
+    <h1>🎨 Lab 05 & 06 — CSS Layout Techniques</h1>
+    <p>CSS Display · Floats · Positioning · Flexbox · Grid · Responsive Design</p>
+    <p class="meta">CS 224L Web Technologies &nbsp;|&nbsp; UET Peshawar &nbsp;|&nbsp; Mr. Mohammad</p>
+  </header>
+
+  <div class="container" style="padding-top:30px;">
+
+    <div class="progress-bar">
+      <div class="progress-fill"></div>
+    </div>
+
+    <!-- Exercises -->
+    <div class="section-group">
+      <h2>📚 Exercises</h2>
+      <div class="card-grid">
+
+        <a class="link-card" href="exercises/display-exercises.html">
+          <span class="card-icon">🟦</span>
+          <span class="card-title">Exercise 1 & 2 — Display Properties</span>
+          <span class="card-desc">block, inline, inline-block, none, visibility. Horizontal & vertical nav, dropdown, table layout.</span>
+          <span class="card-tag tag-exercise">Part A</span>
+        </a>
+
+        <a class="link-card" href="exercises/float-exercises.html">
+          <span class="card-icon">🌊</span>
+          <span class="card-title">Exercise 3 & 4 — Float Layouts</span>
+          <span class="card-desc">Image wrapping, 2-col & 3-col floats, clearfix, equal height, float grid, responsive floats.</span>
+          <span class="card-tag tag-exercise">Part B</span>
+        </a>
+
+        <a class="link-card" href="exercises/position-exercises.html">
+          <span class="card-icon">📌</span>
+          <span class="card-title">Exercise 5 & 6 — CSS Positioning</span>
+          <span class="card-desc">static, relative, absolute, fixed, sticky. Z-index, modal dialog, sticky nav, tooltips.</span>
+          <span class="card-tag tag-exercise">Part C</span>
+        </a>
+
+        <a class="link-card" href="exercises/flexbox-exercises.html">
+          <span class="card-icon">↔️</span>
+          <span class="card-title">Exercise 7, 8 & 9 — Flexbox</span>
+          <span class="card-desc">flex-direction, wrap, justify-content, align-items, grow, shrink, basis, order. Navbar, cards, holy grail, form.</span>
+          <span class="card-tag tag-exercise">Part D</span>
+        </a>
+
+        <a class="link-card" href="exercises/grid-exercises.html">
+          <span class="card-icon">⊞</span>
+          <span class="card-title">Exercise 10, 11 & 12 — CSS Grid</span>
+          <span class="card-desc">template-columns, rows, areas, gap. grid-column, grid-row, grid-area. fr, minmax, auto-fit, named lines.</span>
+          <span class="card-tag tag-exercise">Part E</span>
+        </a>
+
+        <a class="link-card" href="exercises/media-query-exercises.html">
+          <span class="card-icon">📱</span>
+          <span class="card-title">Exercise 13–16 — Media Queries</span>
+          <span class="card-desc">Breakpoints, min/max-width, orientation, hover. Mobile-first layout. Responsive images, srcset, picture. Dark mode, reduced motion, print.</span>
+          <span class="card-tag tag-exercise">Part F</span>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Layout Files -->
+    <div class="section-group">
+      <h2>🏗️ Layout Demos</h2>
+      <div class="card-grid">
+
+        <a class="link-card" href="layouts/magazine-float.html">
+          <span class="card-icon">📰</span>
+          <span class="card-title">Magazine Float Layout</span>
+          <span class="card-desc">Task 2 & 11 — Multi-column magazine layout using floats. Sidebar, wrapped images. Responsive single column on mobile.</span>
+          <span class="card-tag tag-layout">Task 2 & 11</span>
+        </a>
+
+        <a class="link-card" href="layouts/holy-grail-comparison.html">
+          <span class="card-icon">🏆</span>
+          <span class="card-title">Holy Grail Comparison</span>
+          <span class="card-desc">Task 7 — Same layout built 3 ways: Float, Flexbox, and CSS Grid. Side-by-side comparison with notes.</span>
+          <span class="card-tag tag-layout">Task 7</span>
+        </a>
+
+        <a class="link-card" href="layouts/dashboard-grid.html">
+          <span class="card-icon">📊</span>
+          <span class="card-title">Admin Dashboard</span>
+          <span class="card-desc">Task 9 — CSS Grid structure with Flexbox internals. Stat cards, sidebar, responsive content area.</span>
+          <span class="card-tag tag-layout">Task 9</span>
+        </a>
+
+        <a class="link-card" href="layouts/portfolio-mixed.html">
+          <span class="card-icon">💼</span>
+          <span class="card-title">Portfolio — Mixed Techniques</span>
+          <span class="card-desc">Task 13 — Grid page structure, Flexbox galleries, CSS positioning for decorative elements.</span>
+          <span class="card-tag tag-layout">Task 13</span>
+        </a>
+
+        <a class="link-card" href="layouts/responsive-demo.html">
+          <span class="card-icon">🔄</span>
+          <span class="card-title">Responsive Demo Page</span>
+          <span class="card-desc">Task 10 — Live breakpoint indicator, layout changes, typography scaling, navigation pattern changes.</span>
+          <span class="card-tag tag-layout">Task 10</span>
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="index-footer">
+    CS 224L Web Technologies &nbsp;·&nbsp; Lab 05 & 06 &nbsp;·&nbsp;
+    UET Peshawar &nbsp;·&nbsp; Mr. Mohammad, Lecturer
   </footer>
 
 </body>

@@ -1,0 +1,171 @@
+/* display.css - Exercise 1 & 2 styles */
+
+/* --- Exercise 1: Display Property Values --- */
+
+/* Block elements take full width */
+.display-block {
+  display: block;
+  background: #e74c3c;
+  color: white;
+  padding: 10px;
+  margin: 5px 0;
+  width: 100%;
+}
+
+/* Inline elements sit side by side */
+.display-inline {
+  display: inline;
+  background: #27ae60;
+  color: white;
+  padding: 5px 10px;
+  margin: 2px;
+  /* Note: width/height have no effect on inline */
+}
+
+/* Inline-block: side by side BUT respects width/height */
+.display-inline-block {
+  display: inline-block;
+  background: #8e44ad;
+  color: white;
+  padding: 10px 20px;
+  margin: 5px;
+  width: 150px;
+  text-align: center;
+}
+
+/* display: none removes element from layout completely */
+.display-none {
+  display: none;
+}
+
+/* visibility: hidden hides but keeps space */
+.visibility-hidden {
+  visibility: hidden;
+  background: #e67e22;
+  color: white;
+  padding: 10px;
+  margin: 5px 0;
+}
+
+/* Show a placeholder so student can see the gap */
+.visibility-placeholder {
+  background: #f39c12;
+  color: white;
+  padding: 10px;
+  margin: 5px 0;
+}
+
+/* --- Exercise 2: Display in Navigation --- */
+
+/* Horizontal nav using inline-block */
+.nav-horizontal {
+  background: #2c3e50;
+  padding: 10px;
+  list-style: none;
+}
+
+.nav-horizontal li {
+  display: inline-block;
+}
+
+.nav-horizontal li a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  transition: background 0.3s;
+}
+
+.nav-horizontal li a:hover {
+  background: #4a90d9;
+}
+
+/* Vertical nav using block */
+.nav-vertical {
+  background: #2c3e50;
+  width: 200px;
+  padding: 10px 0;
+  list-style: none;
+}
+
+.nav-vertical li a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  transition: background 0.3s;
+}
+
+.nav-vertical li a:hover {
+  background: #4a90d9;
+}
+
+/* Dropdown menu */
+.nav-dropdown {
+  list-style: none;
+  background: #2c3e50;
+  padding: 10px;
+  position: relative;
+}
+
+.nav-dropdown > li {
+  display: inline-block;
+  position: relative;
+}
+
+.nav-dropdown > li > a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+}
+
+.nav-dropdown .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #34495e;
+  list-style: none;
+  min-width: 150px;
+  z-index: 100;
+}
+
+.nav-dropdown > li:hover .dropdown-menu {
+  display: block;
+}
+
+.nav-dropdown .dropdown-menu li a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+}
+
+.nav-dropdown .dropdown-menu li a:hover {
+  background: #4a90d9;
+}
+
+/* Table display without table markup */
+.table-display {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-row {
+  display: table-row;
+}
+
+.table-cell {
+  display: table-cell;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  background: white;
+}
+
+.table-header .table-cell {
+  background: #2c3e50;
+  color: white;
+  font-weight: bold;
+}

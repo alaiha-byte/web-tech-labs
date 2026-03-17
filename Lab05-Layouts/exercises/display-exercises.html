@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercise 1 & 2 — Display Properties</title>
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/display.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h1>Exercise 1 & 2 — CSS Display Property</h1>
+
+    <!-- ===== EXERCISE 1 ===== -->
+
+    <h2 class="section-title">Exercise 1A: display block</h2>
+    <div class="display-block">I am display: block — I take full width</div>
+    <div class="display-block">I am also display: block — I start on a new line</div>
+
+    <h2 class="section-title">Exercise 1B: display inline</h2>
+    <p>
+      Text before —
+      <span class="display-inline">Inline One</span>
+      <span class="display-inline">Inline Two</span>
+      <span class="display-inline">Inline Three</span>
+      — text after. Notice they sit inside text flow.
+    </p>
+
+    <h2 class="section-title">Exercise 1C: display inline-block</h2>
+    <div class="display-inline-block">Box 1</div>
+    <div class="display-inline-block">Box 2</div>
+    <div class="display-inline-block">Box 3</div>
+    <p style="margin-top:8px; color:#666;">
+      Each box is 150px wide and sits side by side — that's inline-block!
+    </p>
+
+    <h2 class="section-title">Exercise 1D: display none vs visibility hidden</h2>
+    <div class="display-block">Visible box above hidden one</div>
+    <div class="display-none">You CANNOT see me — display:none removes me from layout</div>
+    <div class="display-block">This box moves UP because display:none removes space</div>
+
+    <div style="margin-top: 20px;">
+      <div class="visibility-placeholder">Visible box above invisible one</div>
+      <div class="visibility-hidden">You CANNOT see me — but my space is kept!</div>
+      <div class="visibility-placeholder">This box stays in place — gap above is the hidden element</div>
+    </div>
+
+    <!-- ===== EXERCISE 2 ===== -->
+
+    <h2 class="section-title">Exercise 2A: Horizontal Navigation (inline-block)</h2>
+    <ul class="nav-horizontal">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+
+    <h2 class="section-title">Exercise 2B: Vertical Navigation (block)</h2>
+    <ul class="nav-vertical">
+      <li><a href="#">Dashboard</a></li>
+      <li><a href="#">Profile</a></li>
+      <li><a href="#">Settings</a></li>
+      <li><a href="#">Logout</a></li>
+    </ul>
+
+    <h2 class="section-title">Exercise 2C: Dropdown Menu (hover to open)</h2>
+    <ul class="nav-dropdown">
+      <li>
+        <a href="#">Home</a>
+      </li>
+      <li>
+        <a href="#">Services ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Web Design</a></li>
+          <li><a href="#">Development</a></li>
+          <li><a href="#">SEO</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Products ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Item One</a></li>
+          <li><a href="#">Item Two</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+
+    <h2 class="section-title">Exercise 2D: Table Layout Without Table Markup</h2>
+    <div class="table-display">
+      <div class="table-row table-header">
+        <div class="table-cell">Name</div>
+        <div class="table-cell">Roll No</div>
+        <div class="table-cell">Department</div>
+        <div class="table-cell">Grade</div>
+      </div>
+      <div class="table-row">
+        <div class="table-cell">Ali Hassan</div>
+        <div class="table-cell">2021-CS-01</div>
+        <div class="table-cell">Computer Science</div>
+        <div class="table-cell">A</div>
+      </div>
+      <div class="table-row">
+        <div class="table-cell">Sara Khan</div>
+        <div class="table-cell">2021-CS-02</div>
+        <div class="table-cell">Software Eng</div>
+        <div class="table-cell">A+</div>
+      </div>
+      <div class="table-row">
+        <div class="table-cell">Usman Tariq</div>
+        <div class="table-cell">2021-CS-03</div>
+        <div class="table-cell">Computer Science</div>
+        <div class="table-cell">B+</div>
+      </div>
+    </div>
+
+  </div><!-- end .container -->
+
+</body>
+</html>

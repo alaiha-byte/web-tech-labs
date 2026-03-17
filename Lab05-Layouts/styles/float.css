@@ -1,0 +1,228 @@
+/* float.css - Exercise 3 & 4 styles */
+
+/* ===== EXERCISE 3: Basic Float Implementation ===== */
+
+/* --- 3A: Float image with text wrapping --- */
+.float-image-section {
+  overflow: hidden;
+  margin-bottom: 20px;
+  background: white;
+  padding: 15px;
+  border: 1px solid #ddd;
+}
+
+.float-image-section img,
+.float-img {
+  float: left;
+  width: 180px;
+  height: 120px;
+  object-fit: cover;
+  margin: 0 15px 10px 0;
+  background: #4a90d9;
+  display: block;
+}
+
+.float-img {
+  /* placeholder since we have no real image */
+  line-height: 120px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.float-img-right {
+  float: right;
+  width: 180px;
+  height: 120px;
+  margin: 0 0 10px 15px;
+  background: #e74c3c;
+  text-align: center;
+  line-height: 120px;
+  color: white;
+  font-weight: bold;
+}
+
+/* --- 3B: Two-column float layout --- */
+.two-col-wrapper {
+  overflow: hidden; /* clearfix */
+  background: white;
+}
+
+.col-left {
+  float: left;
+  width: 65%;
+  background: #ecf0f1;
+  padding: 20px;
+  min-height: 200px;
+}
+
+.col-right {
+  float: right;
+  width: 32%;
+  background: #bdc3c7;
+  padding: 20px;
+  min-height: 200px;
+}
+
+/* --- 3C: Three-column float layout --- */
+.three-col-wrapper {
+  overflow: hidden;
+}
+
+.col-third {
+  float: left;
+  width: 31%;
+  background: #3498db;
+  color: white;
+  padding: 20px;
+  margin: 0 1%;
+  min-height: 180px;
+  box-sizing: border-box;
+}
+
+.col-third:first-child {
+  margin-left: 0;
+}
+
+.col-third:last-child {
+  margin-right: 0;
+}
+
+/* --- 3D: Clearfix technique --- */
+
+/* Method 1: overflow hidden on parent */
+.clearfix-overflow {
+  overflow: hidden;
+  background: #f9f9f9;
+  border: 2px dashed #999;
+  padding: 10px;
+}
+
+/* Method 2: ::after pseudo-element (best practice) */
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.float-child {
+  float: left;
+  width: 45%;
+  background: #27ae60;
+  color: white;
+  padding: 15px;
+  margin: 0 2.5%;
+  min-height: 100px;
+}
+
+
+/* ===== EXERCISE 4: Float Challenges & Solutions ===== */
+
+/* --- 4A: Float collapse demonstration --- */
+.collapse-bad {
+  background: #e74c3c;
+  padding: 10px;
+  /* No clearfix — parent collapses! */
+}
+
+.collapse-good {
+  background: #27ae60;
+  padding: 10px;
+}
+
+.collapse-good::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.collapse-item {
+  float: left;
+  width: 44%;
+  background: white;
+  color: #333;
+  padding: 15px;
+  margin: 0 3%;
+  min-height: 80px;
+}
+
+/* --- 4B: Equal height columns with floats --- */
+.equal-height-wrapper {
+  overflow: hidden;
+  background: #2c3e50; /* parent bg acts as fake equal height */
+}
+
+.eq-col {
+  float: left;
+  width: 31%;
+  margin: 0 1%;
+  background: #ecf0f1;
+  padding: 20px;
+  /* Trick: huge padding + negative margin */
+  padding-bottom: 9999px;
+  margin-bottom: -9999px;
+}
+
+/* --- 4C: Float-based grid system --- */
+.float-grid {
+  overflow: hidden;
+}
+
+.float-grid .fg-col-1  { float: left; width: 8.33%; }
+.float-grid .fg-col-2  { float: left; width: 16.66%; }
+.float-grid .fg-col-3  { float: left; width: 25%; }
+.float-grid .fg-col-4  { float: left; width: 33.33%; }
+.float-grid .fg-col-6  { float: left; width: 50%; }
+.float-grid .fg-col-8  { float: left; width: 66.66%; }
+.float-grid .fg-col-12 { float: left; width: 100%; }
+
+.float-grid [class*="fg-col-"] {
+  background: #8e44ad;
+  color: white;
+  padding: 15px;
+  border: 2px solid white;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* --- 4D: Responsive floats --- */
+.responsive-float-wrapper {
+  overflow: hidden;
+}
+
+.resp-col {
+  float: left;
+  width: 31%;
+  margin: 0 1%;
+  background: #e67e22;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Tablet: 2 columns */
+@media (max-width: 768px) {
+  .resp-col {
+    width: 48%;
+    margin: 0 1% 10px;
+  }
+}
+
+/* Mobile: 1 column */
+@media (max-width: 480px) {
+  .resp-col {
+    float: none;
+    width: 100%;
+    margin: 0 0 10px 0;
+  }
+
+  .col-left,
+  .col-right,
+  .col-third {
+    float: none;
+    width: 100%;
+    margin: 0 0 10px 0;
+  }
+}

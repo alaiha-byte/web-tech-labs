@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Mixed Techniques — Task 13</title>
+  <link rel="stylesheet" href="../styles/base.css" />
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, sans-serif; background: #0d0d0d; color: #eee; }
+
+    /* ===== FIXED NAV (position:fixed) ===== */
+    .port-nav {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      background: rgba(13,13,13,0.95);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+      height: 60px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .port-logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: #3498db;
+      text-decoration: none;
+    }
+
+    .port-nav ul {
+      list-style: none;
+      display: flex;
+      gap: 5px;
+    }
+
+    .port-nav ul li a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      padding: 8px 14px;
+      font-size: 14px;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+
+    .port-nav ul li a:hover {
+      color: white;
+      background: rgba(255,255,255,0.08);
+    }
+
+    /* ===== HERO (CSS Grid) ===== */
+    .port-hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 80px 40px 40px;
+      gap: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decorative absolute element (position:absolute) */
+    .hero-decor-circle {
+      position: absolute;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(52,152,219,0.15), transparent 70%);
+      top: -100px; right: -100px;
+      pointer-events: none;
+    }
+
+    .hero-decor-dots {
+      position: absolute;
+      bottom: 40px; left: 40px;
+      display: grid;
+      grid-template-columns: repeat(5, 12px);
+      gap: 8px;
+      pointer-events: none;
+    }
+
+    .hero-decor-dots span {
+      display: block;
+      width: 4px; height: 4px;
+      background: rgba(52,152,219,0.4);
+      border-radius: 50%;
+    }
+
+    .hero-text h1 {
+      font-size: 48px;
+      line-height: 1.2;
+      color: white;
+      margin-bottom: 16px;
+    }
+
+    .hero-text h1 span { color: #3498db; }
+
+    .hero-text p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: #3498db;
+      color: white;
+      padding: 12px 28px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: #2980b9; }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.3);
+      color: white;
+      padding: 12px 28px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    .btn-outline:hover { border-color: #3498db; color: #3498db; }
+
+    .hero-image {
+      position: relative;
+    }
+
+    .hero-img-box {
+      width: 100%;
+      aspect-ratio: 1;
+      max-width: 400px;
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 0 auto;
+      border: 2px solid rgba(52,152,219,0.3);
+    }
+
+    .hero-img-box img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+
+    /* Floating badge (position:absolute on relative parent) */
+    .hero-badge {
+      position: absolute;
+      bottom: -10px; left: -10px;
+      background: #27ae60;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: bold;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    /* ===== SKILLS SECTION ===== */
+    .section {
+      padding: 80px 40px;
+    }
+
+    .section-label {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #3498db;
+      margin-bottom: 8px;
+    }
+
+    .section-heading {
+      font-size: 32px;
+      color: white;
+      margin-bottom: 40px;
+    }
+
+    /* Skills grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .skill-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 20px;
+      transition: border-color 0.2s;
+    }
+
+    .skill-card:hover { border-color: #3498db; }
+
+    .skill-card .skill-icon { font-size: 28px; margin-bottom: 10px; }
+    .skill-card h3 { font-size: 15px; color: white; margin-bottom: 6px; }
+    .skill-card p  { font-size: 13px; color: rgba(255,255,255,0.5); margin: 0; line-height: 1.5; }
+
+    /* ===== PROJECTS (CSS Grid masonry-like) ===== */
+    .projects-section { background: rgba(255,255,255,0.02); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      gap: 16px;
+    }
+
+    /* Featured project spans 2 columns */
+    .proj-featured {
+      grid-column: span 2;
+    }
+
+    .project-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(52,152,219,0.4);
+    }
+
+    .project-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-img-placeholder {
+      width: 100%;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+    }
+
+    .proj-featured .project-img,
+    .proj-featured .project-img-placeholder {
+      height: 240px;
+    }
+
+    .project-body {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .project-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .project-tag {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 20px;
+      background: rgba(52,152,219,0.15);
+      color: #3498db;
+    }
+
+    .project-body h3 { font-size: 15px; color: white; margin: 0; }
+    .project-body p  { font-size: 13px; color: rgba(255,255,255,0.5); margin: 0; line-height: 1.5; }
+
+    .project-links {
+      display: flex;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .project-links a {
+      font-size: 12px;
+      color: #3498db;
+      text-decoration: none;
+    }
+    .project-links a:hover { text-decoration: underline; }
+
+    /* ===== CONTACT ===== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .contact-info p {
+      color: rgba(255,255,255,0.6);
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .contact-item span:first-child { font-size: 20px; }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px;
+      padding: 12px 16px;
+      color: white;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+      font-family: Arial, sans-serif;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #3498db;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ===== FOOTER ===== */
+    .port-footer {
+      background: rgba(255,255,255,0.03);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+      .proj-featured { grid-column: span 2; }
+    }
+
+    @media (max-width: 768px) {
+      .port-hero   { grid-template-columns: 1fr; padding: 100px 20px 40px; }
+      .hero-image  { display: none; }
+      .hero-text h1 { font-size: 32px; }
+
+      .projects-grid { grid-template-columns: 1fr; }
+      .proj-featured { grid-column: span 1; }
+
+      .contact-grid { grid-template-columns: 1fr; }
+      .section { padding: 60px 20px; }
+      .port-nav { padding: 0 20px; }
+      .port-nav ul { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fixed nav -->
+  <nav class="port-nav">
+    <a href="#" class="port-logo">⚡ Ali.dev</a>
+    <ul>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="../index.html">← Lab Index</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="port-hero">
+    <div class="hero-decor-circle"></div>
+    <div class="hero-decor-dots">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <div class="hero-text">
+      <p class="section-label">Full Stack Developer</p>
+      <h1>Building the <span>web</span> one pixel at a time.</h1>
+      <p>CS student at UET Peshawar passionate about clean code,
+        modern CSS layouts, and building things that work beautifully
+        on every screen size.</p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-primary">View My Work</a>
+        <a href="#contact"  class="btn-outline">Get In Touch</a>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <div class="hero-img-box">
+        <img src="https://picsum.photos/400/400?random=50" alt="Portfolio hero" />
+      </div>
+      <div class="hero-badge">✅ Available for work</div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="section" id="skills">
+    <p class="section-label">What I do</p>
+    <h2 class="section-heading">Skills & Technologies</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon">🌐</div>
+        <h3>HTML & CSS</h3>
+        <p>Semantic HTML5, CSS Grid, Flexbox, responsive design, animations.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">⚡</div>
+        <h3>JavaScript</h3>
+        <p>ES6+, DOM manipulation, async/await, APIs, React basics.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🔧</div>
+        <h3>Backend</h3>
+        <p>Node.js, Express, REST APIs, database design with MySQL.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">📱</div>
+        <h3>Responsive Design</h3>
+        <p>Mobile-first approach, media queries, cross-browser compatibility.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🎨</div>
+        <h3>UI/UX Design</h3>
+        <p>Figma prototyping, design systems, accessibility best practices.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🛠️</div>
+        <h3>Dev Tools</h3>
+        <p>Git, VS Code, Chrome DevTools, npm, command line.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="section projects-section" id="projects">
+    <p class="section-label">My Work</p>
+    <h2 class="section-heading">Featured Projects</h2>
+    <div class="projects-grid">
+
+      <div class="project-card proj-featured">
+        <img class="project-img"
+          src="https://picsum.photos/800/240?random=60"
+          alt="Project 1" />
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="project-tag">CSS Grid</span>
+            <span class="project-tag">Flexbox</span>
+            <span class="project-tag">Responsive</span>
+          </div>
+          <h3>CS Department Portal</h3>
+          <p>A full responsive university portal with dashboard, student records,
+            and course management. Built using CSS Grid for layout and
+            Flexbox for components.</p>
+          <div class="project-links">
+            <a href="#">Live Demo →</a>
+            <a href="#">GitHub →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img class="project-img"
+          src="https://picsum.photos/400/180?random=61"
+          alt="Project 2" />
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="project-tag">Float</span>
+            <span class="project-tag">Magazine</span>
+          </div>
+          <h3>TechPress Magazine</h3>
+          <p>Magazine layout using float-based multi-column design.</p>
+          <div class="project-links">
+            <a href="../layouts/magazine-float.html">Live Demo →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img class="project-img"
+          src="https://picsum.photos/400/180?random=62"
+          alt="Project 3" />
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="project-tag">CSS Grid</span>
+            <span class="project-tag">Dashboard</span>
+          </div>
+          <h3>Admin Dashboard</h3>
+          <p>Admin panel with CSS Grid layout and Flexbox stat cards.</p>
+          <div class="project-links">
+            <a href="../layouts/dashboard-grid.html">Live Demo →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img class="project-img"
+          src="https://picsum.photos/400/180?random=63"
+          alt="Project 4" />
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="project-tag">JavaScript</span>
+            <span class="project-tag">API</span>
+          </div>
+          <h3>Weather App</h3>
+          <p>Real-time weather app using OpenWeather API and responsive design.</p>
+          <div class="project-links">
+            <a href="#">Live Demo →</a>
+            <a href="#">GitHub →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img class="project-img"
+          src="https://picsum.photos/400/180?random=64"
+          alt="Project 5" />
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="project-tag">Node.js</span>
+            <span class="project-tag">MySQL</span>
+          </div>
+          <h3>Student Result System</h3>
+          <p>Backend system for managing and publishing student results.</p>
+          <div class="project-links">
+            <a href="#">GitHub →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <p class="section-label">Get in touch</p>
+    <h2 class="section-heading">Contact Me</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p>I am currently looking for internship and freelance opportunities.
+          Whether you have a question or just want to say hello —
+          my inbox is always open!</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <span>📧</span>
+            <span>ali.hassan@uetpeshawar.edu.pk</span>
+          </div>
+          <div class="contact-item">
+            <span>📍</span>
+            <span>Peshawar, KPK, Pakistan</span>
+          </div>
+          <div class="contact-item">
+            <span>🎓</span>
+            <span>UET Peshawar — CS Department</span>
+          </div>
+          <div class="contact-item">
+            <span>💼</span>
+            <span>Available for work</span>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="return false;">
+        <input type="text"  placeholder="Your Name" />
+        <input type="email" placeholder="Your Email" />
+        <input type="text"  placeholder="Subject" />
+        <textarea rows="5"  placeholder="Your message..."></textarea>
+        <button class="btn-primary" style="border:none; cursor:pointer; font-size:14px;">
+          Send Message ✉️
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="port-footer">
+    <span>© 2024 Ali Hassan — CS 224L Web Technologies — UET Peshawar</span>
+    <span>Task 13 — Portfolio with Mixed Layout Techniques</span>
+  </footer>
+
+</body>
+</html>

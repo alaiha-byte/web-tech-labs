@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magazine Float Layout — Task 2 & 11</title>
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/float.css" />
+  <link rel="stylesheet" href="../styles/media-queries.css" />
+  <style>
+    body { background: #f0ebe3; }
+
+    .mag-header {
+      background: #1a1a2e;
+      color: white;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .mag-header h1 {
+      color: white;
+      font-size: 28px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .mag-header .date {
+      font-size: 13px;
+      opacity: 0.6;
+    }
+
+    .mag-nav {
+      background: #e74c3c;
+      padding: 0 30px;
+    }
+
+    .mag-nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .mag-nav ul li a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 12px 16px;
+      font-size: 13px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background 0.2s;
+    }
+
+    .mag-nav ul li a:hover { background: rgba(0,0,0,0.2); }
+
+    /* Main layout */
+    .mag-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 25px 20px;
+    }
+
+    /* Hero article */
+    .mag-hero {
+      overflow: hidden;
+      background: white;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .mag-hero-img {
+      float: left;
+      width: 55%;
+      height: 320px;
+      background: linear-gradient(135deg, #3498db, #8e44ad);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 16px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .mag-hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .mag-hero-content {
+      padding: 30px;
+      overflow: hidden;
+    }
+
+    .mag-hero-content .tag {
+      background: #e74c3c;
+      color: white;
+      font-size: 11px;
+      font-weight: bold;
+      padding: 3px 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .mag-hero-content h2 {
+      font-size: 26px;
+      line-height: 1.3;
+      margin-bottom: 12px;
+      color: #1a1a2e;
+    }
+
+    .mag-hero-content p {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    /* Two column content area */
+    .mag-content-area {
+      overflow: hidden;
+      margin-bottom: 25px;
+    }
+
+    .mag-main {
+      float: left;
+      width: 65%;
+      padding-right: 25px;
+      box-sizing: border-box;
+    }
+
+    .mag-sidebar {
+      float: right;
+      width: 33%;
+      box-sizing: border-box;
+    }
+
+    /* Article card */
+    .article-card {
+      background: white;
+      margin-bottom: 20px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+    }
+
+    .article-card .article-img {
+      width: 120px;
+      height: 90px;
+      float: left;
+      object-fit: cover;
+    }
+
+    .article-card .article-img-placeholder {
+      float: left;
+      width: 120px;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .article-card-body {
+      padding: 12px 15px;
+      overflow: hidden;
+    }
+
+    .article-card-body h3 {
+      font-size: 15px;
+      margin-bottom: 6px;
+      color: #1a1a2e;
+    }
+
+    .article-card-body p {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* Three column grid */
+    .mag-three-col {
+      overflow: hidden;
+      margin-bottom: 25px;
+    }
+
+    .mag-col {
+      float: left;
+      width: 31%;
+      margin: 0 1%;
+      background: white;
+      padding: 20px;
+      box-sizing: border-box;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+    }
+
+    .mag-col:first-child { margin-left: 0; }
+    .mag-col:last-child  { margin-right: 0; }
+
+    .mag-col .col-img {
+      width: calc(100% + 40px);
+      height: 140px;
+      margin: -20px -20px 15px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .mag-col .col-img-placeholder {
+      width: calc(100% + 40px);
+      height: 140px;
+      margin: -20px -20px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+    }
+
+    .mag-col h3 {
+      font-size: 15px;
+      margin-bottom: 8px;
+      color: #1a1a2e;
+    }
+
+    .mag-col p {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Sidebar widgets */
+    .sidebar-widget {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+    }
+
+    .sidebar-widget h4 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #e74c3c;
+      border-bottom: 2px solid #e74c3c;
+      padding-bottom: 8px;
+      margin-bottom: 14px;
+    }
+
+    .sidebar-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 13px;
+      color: #444;
+    }
+
+    .sidebar-list li:last-child { border: none; }
+
+    .sidebar-list li span {
+      display: block;
+      font-size: 11px;
+      color: #999;
+      margin-top: 2px;
+    }
+
+    /* Footer */
+    .mag-footer {
+      background: #1a1a2e;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      clear: both;
+    }
+
+    /* Clearfix */
+    .cf::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* ======= RESPONSIVE ======= */
+    @media (max-width: 768px) {
+      .mag-hero-img {
+        float: none;
+        width: 100%;
+        height: 200px;
+      }
+
+      .mag-main,
+      .mag-sidebar {
+        float: none;
+        width: 100%;
+        padding-right: 0;
+      }
+
+      .mag-sidebar { margin-top: 20px; }
+
+      .mag-col {
+        float: none;
+        width: 100%;
+        margin: 0 0 15px 0;
+      }
+
+      .mag-header h1 { font-size: 20px; }
+    }
+
+    @media (max-width: 480px) {
+      .article-card .article-img-placeholder {
+        float: none;
+        width: 100%;
+        height: 120px;
+      }
+      .article-card-body { padding: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="mag-header">
+    <h1>⚡ TechPress</h1>
+    <span class="date">CS 224L — Task 2 & 11 — Float Magazine Layout</span>
+  </header>
+
+  <nav class="mag-nav">
+    <ul>
+      <li><a href="#">Technology</a></li>
+      <li><a href="#">Science</a></li>
+      <li><a href="#">Design</a></li>
+      <li><a href="#">Programming</a></li>
+      <li><a href="#">AI & ML</a></li>
+      <li><a href="#">Security</a></li>
+    </ul>
+  </nav>
+
+  <div class="mag-wrapper">
+
+    <!-- Hero article — image floated left -->
+    <div class="mag-hero cf">
+      <div class="mag-hero-img">
+        <img src="https://picsum.photos/600/320?random=30" alt="Hero" />
+      </div>
+      <div class="mag-hero-content">
+        <span class="tag">Featured</span>
+        <h2>The Future of CSS Layout: Grid and Flexbox Together</h2>
+        <p>Modern CSS has revolutionized how we build layouts on the web.
+          Combining Grid for the macro layout and Flexbox for micro components
+          gives developers unparalleled control and flexibility.</p>
+        <p style="margin-top:10px;">
+          Float-based layouts were the standard for over a decade. Today they are
+          mostly used for text wrapping — their original purpose — while Grid and
+          Flexbox handle structural layout.
+        </p>
+        <p style="margin-top:12px; font-size:12px; color:#999;">
+          By Ali Hassan &nbsp;·&nbsp; March 17, 2024 &nbsp;·&nbsp; 5 min read
+        </p>
+      </div>
+    </div>
+
+    <!-- Main + Sidebar two column -->
+    <div class="mag-content-area cf">
+
+      <!-- Main column -->
+      <div class="mag-main">
+        <h3 style="font-size:13px; text-transform:uppercase; letter-spacing:2px;
+          color:#e74c3c; border-bottom:2px solid #e74c3c; padding-bottom:8px;
+          margin-bottom:16px;">Latest Articles</h3>
+
+        <div class="article-card cf">
+          <div class="article-img-placeholder" style="background:#3498db;">
+            <img src="https://picsum.photos/120/90?random=31" alt="article" style="width:120px; height:90px; object-fit:cover;" />
+          </div>
+          <div class="article-card-body">
+            <h3>Understanding CSS Grid: A Complete Guide</h3>
+            <p>CSS Grid is a two-dimensional layout system. Learn how to use
+              grid-template-columns, grid-template-areas, and the fr unit.</p>
+            <p style="margin-top:6px; font-size:11px; color:#999;">
+              March 15, 2024 &nbsp;·&nbsp; 8 min read
+            </p>
+          </div>
+        </div>
+
+        <div class="article-card cf">
+          <div class="article-img-placeholder" style="background:#27ae60;">
+            <img src="https://picsum.photos/120/90?random=32" alt="article" style="width:120px; height:90px; object-fit:cover;" />
+          </div>
+          <div class="article-card-body">
+            <h3>Responsive Design Patterns for 2024</h3>
+            <p>Mobile-first, container queries, and the new CSS features that
+              are changing how we think about responsive design.</p>
+            <p style="margin-top:6px; font-size:11px; color:#999;">
+              March 12, 2024 &nbsp;·&nbsp; 6 min read
+            </p>
+          </div>
+        </div>
+
+        <div class="article-card cf">
+          <div class="article-img-placeholder" style="background:#8e44ad;">
+            <img src="https://picsum.photos/120/90?random=33" alt="article" style="width:120px; height:90px; object-fit:cover;" />
+          </div>
+          <div class="article-card-body">
+            <h3>Flexbox vs Grid: When to Use Which</h3>
+            <p>Both are powerful but serve different purposes.
+              Use Flexbox for one-dimensional alignment, Grid for
+              two-dimensional page layouts.</p>
+            <p style="margin-top:6px; font-size:11px; color:#999;">
+              March 10, 2024 &nbsp;·&nbsp; 4 min read
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <div class="mag-sidebar">
+
+        <div class="sidebar-widget">
+          <h4>Trending</h4>
+          <ul class="sidebar-list">
+            <li>CSS Container Queries Explained
+              <span>2.4k views</span></li>
+            <li>The Death of Float Layouts
+              <span>1.8k views</span></li>
+            <li>Masonry Layout with CSS Grid
+              <span>1.5k views</span></li>
+            <li>Mobile First vs Desktop First
+              <span>1.2k views</span></li>
+            <li>CSS Variables Deep Dive
+              <span>980 views</span></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h4>Categories</h4>
+          <ul class="sidebar-list">
+            <li>CSS Layout — 24 articles</li>
+            <li>Responsive Design — 18 articles</li>
+            <li>Flexbox — 12 articles</li>
+            <li>CSS Grid — 15 articles</li>
+            <li>Accessibility — 9 articles</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background:#e74c3c; color:white;">
+          <h4 style="color:white; border-color:rgba(255,255,255,0.4);">Newsletter</h4>
+          <p style="font-size:13px; margin-bottom:12px;">
+            Get weekly CSS tips in your inbox.
+          </p>
+          <input type="email" placeholder="your@email.com"
+            style="width:100%; padding:8px; border:none; border-radius:3px;
+              font-size:13px; margin-bottom:8px; box-sizing:border-box;" />
+          <button style="width:100%; background:#1a1a2e; color:white;
+            border:none; padding:9px; border-radius:3px; cursor:pointer;
+            font-size:13px;">Subscribe</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Three column grid -->
+    <h3 style="font-size:13px; text-transform:uppercase; letter-spacing:2px;
+      color:#e74c3c; border-bottom:2px solid #e74c3c; padding-bottom:8px;
+      margin-bottom:16px;">More Stories</h3>
+
+    <div class="mag-three-col cf">
+      <div class="mag-col">
+        <div class="col-img-placeholder" style="background:#16a085;">
+          <img src="https://picsum.photos/300/140?random=40"
+            alt="col1" style="width:100%; height:140px; object-fit:cover;
+              display:block; margin:-20px -20px 15px;" />
+        </div>
+        <h3>CSS Animations & Transitions</h3>
+        <p>Add life to your interfaces with smooth transitions
+          and keyframe animations that respect user preferences.</p>
+      </div>
+      <div class="mag-col">
+        <div class="col-img-placeholder" style="background:#e67e22;">
+          <img src="https://picsum.photos/300/140?random=41"
+            alt="col2" style="width:100%; height:140px; object-fit:cover;
+              display:block; margin:-20px -20px 15px;" />
+        </div>
+        <h3>Building Dark Mode with CSS</h3>
+        <p>Use prefers-color-scheme media query and CSS custom
+          properties to build automatic dark mode support.</p>
+      </div>
+      <div class="mag-col">
+        <div class="col-img-placeholder" style="background:#2c3e50;">
+          <img src="https://picsum.photos/300/140?random=42"
+            alt="col3" style="width:100%; height:140px; object-fit:cover;
+              display:block; margin:-20px -20px 15px;" />
+        </div>
+        <h3>CSS Custom Properties Guide</h3>
+        <p>CSS variables let you define values once and reuse
+          them throughout your stylesheet for easy theming.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="mag-footer">
+    &copy; 2024 TechPress &nbsp;·&nbsp;
+    CS 224L Web Technologies &nbsp;·&nbsp; Float Magazine Layout — Task 2 & 11
+  </footer>
+
+</body>
+</html>

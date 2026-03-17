@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercise 7, 8, 9 — Flexbox</title>
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/flexbox.css" />
+</head>
+<body>
+<div class="container">
+  <h1>Exercise 7, 8 & 9 — Flexbox Layout System</h1>
+
+  <!-- ===== EXERCISE 7 ===== -->
+
+  <!-- 7A: Basic flex -->
+  <h2 class="section-title">Exercise 7A: display flex</h2>
+  <div class="flex-container">
+    <div class="flex-item">Item 1</div>
+    <div class="flex-item">Item 2</div>
+    <div class="flex-item">Item 3</div>
+    <div class="flex-item">Item 4</div>
+  </div>
+
+  <!-- 7B: flex-direction -->
+  <h2 class="section-title">Exercise 7B: flex-direction</h2>
+  <p style="margin-bottom:6px; color:#666;">row (default):</p>
+  <div class="flex-container flex-row">
+    <div class="flex-item">1</div>
+    <div class="flex-item">2</div>
+    <div class="flex-item">3</div>
+  </div>
+  <p style="margin-bottom:6px; color:#666;">row-reverse:</p>
+  <div class="flex-container flex-row-reverse">
+    <div class="flex-item">1</div>
+    <div class="flex-item">2</div>
+    <div class="flex-item">3</div>
+  </div>
+  <p style="margin-bottom:6px; color:#666;">column:</p>
+  <div class="flex-container flex-col" style="width:200px;">
+    <div class="flex-item">1</div>
+    <div class="flex-item">2</div>
+    <div class="flex-item">3</div>
+  </div>
+  <p style="margin-bottom:6px; color:#666; margin-top:8px;">column-reverse:</p>
+  <div class="flex-container flex-col-reverse" style="width:200px;">
+    <div class="flex-item">1</div>
+    <div class="flex-item">2</div>
+    <div class="flex-item">3</div>
+  </div>
+
+  <!-- 7C: flex-wrap -->
+  <h2 class="section-title" style="margin-top:16px;">Exercise 7C: flex-wrap</h2>
+  <p style="margin-bottom:6px; color:#666;">wrap (items wrap to next line):</p>
+  <div class="flex-wrap-container">
+    <div class="flex-item">Item 1</div>
+    <div class="flex-item">Item 2</div>
+    <div class="flex-item">Item 3</div>
+    <div class="flex-item">Item 4</div>
+    <div class="flex-item">Item 5</div>
+    <div class="flex-item">Item 6</div>
+    <div class="flex-item">Item 7</div>
+    <div class="flex-item">Item 8</div>
+  </div>
+
+  <!-- 7D: justify-content -->
+  <h2 class="section-title">Exercise 7D: justify-content (main axis)</h2>
+  <p style="color:#666; margin-bottom:4px;">flex-start:</p>
+  <div class="flex-container jc-start">
+    <div class="flex-item">A</div><div class="flex-item">B</div><div class="flex-item">C</div>
+  </div>
+  <p style="color:#666; margin-bottom:4px;">flex-end:</p>
+  <div class="flex-container jc-end">
+    <div class="flex-item">A</div><div class="flex-item">B</div><div class="flex-item">C</div>
+  </div>
+  <p style="color:#666; margin-bottom:4px;">center:</p>
+  <div class="flex-container jc-center">
+    <div class="flex-item">A</div><div class="flex-item">B</div><div class="flex-item">C</div>
+  </div>
+  <p style="color:#666; margin-bottom:4px;">space-between:</p>
+  <div class="flex-container jc-between">
+    <div class="flex-item">A</div><div class="flex-item">B</div><div class="flex-item">C</div>
+  </div>
+  <p style="color:#666; margin-bottom:4px;">space-around:</p>
+  <div class="flex-container jc-around">
+    <div class="flex-item">A</div><div class="flex-item">B</div><div class="flex-item">C</div>
+  </div>
+  <p style="color:#666; margin-bottom:4px;">space-evenly:</p>
+  <div class="flex-container jc-evenly">
+    <div class="flex-item">A</div><div class="flex-item">B</div><div class="flex-item">C</div>
+  </div>
+
+  <!-- 7E: align-items -->
+  <h2 class="section-title">Exercise 7E: align-items (cross axis)</h2>
+  <p style="color:#666; margin-bottom:4px;">flex-start:</p>
+  <div class="ai-demo ai-start">
+    <div class="flex-item" style="height:40px;">A</div>
+    <div class="flex-item" style="height:70px;">B</div>
+    <div class="flex-item" style="height:55px;">C</div>
+  </div>
+  <p style="color:#666; margin-bottom:4px;">flex-end:</p>
+  <div class="ai-demo ai-end">
+    <div class="flex-item" style="height:40px;">A</div>
+    <div class="flex-item" style="height:70px;">B</div>
+    <div class="flex-item" style="height:55px;">C</div>
+  </div>
+  <p style="color:#666; margin-bottom:4px;">center:</p>
+  <div class="ai-demo ai-center">
+    <div class="flex-item" style="height:40px;">A</div>
+    <div class="flex-item" style="height:70px;">B</div>
+    <div class="flex-item" style="height:55px;">C</div>
+  </div>
+  <p style="color:#666; margin-bottom:4px;">stretch (default):</p>
+  <div class="ai-demo ai-stretch">
+    <div class="flex-item">A</div>
+    <div class="flex-item">B</div>
+    <div class="flex-item">C</div>
+  </div>
+
+  <!-- 7F: align-content -->
+  <h2 class="section-title">Exercise 7F: align-content (multi-line)</h2>
+  <p style="color:#666; margin-bottom:4px;">space-between (multi-line):</p>
+  <div class="ac-demo ac-between">
+    <div class="flex-item">1</div><div class="flex-item">2</div>
+    <div class="flex-item">3</div><div class="flex-item">4</div>
+    <div class="flex-item">5</div><div class="flex-item">6</div>
+    <div class="flex-item">7</div><div class="flex-item">8</div>
+  </div>
+
+
+  <!-- ===== EXERCISE 8 ===== -->
+
+  <!-- 8A: flex-grow -->
+  <h2 class="section-title">Exercise 8A: flex-grow</h2>
+  <div class="grow-demo">
+    <div class="grow-0">grow:0 (fixed)</div>
+    <div class="grow-1">grow:1</div>
+    <div class="grow-2">grow:2 (2x space)</div>
+    <div class="grow-3">grow:3 (3x space)</div>
+  </div>
+
+  <!-- 8B: flex-shrink -->
+  <h2 class="section-title">Exercise 8B: flex-shrink</h2>
+  <p style="color:#666; margin-bottom:6px;">All items 200px wide — shrink:0 won't shrink, shrink:3 shrinks most:</p>
+  <div class="shrink-demo">
+    <div class="shrink-0">shrink:0 (won't shrink)</div>
+    <div class="shrink-1">shrink:1 (normal)</div>
+    <div class="shrink-3">shrink:3 (shrinks most)</div>
+  </div>
+
+  <!-- 8C: flex-basis -->
+  <h2 class="section-title">Exercise 8C: flex-basis</h2>
+  <div class="basis-demo">
+    <div class="basis-auto">basis: auto</div>
+    <div class="basis-100">basis: 100px</div>
+    <div class="basis-200">basis: 200px</div>
+    <div class="basis-pct">basis: 30%</div>
+  </div>
+
+  <!-- 8D: flex shorthand -->
+  <h2 class="section-title">Exercise 8D: flex shorthand (grow shrink basis)</h2>
+  <div class="shorthand-demo">
+    <div class="flex-1-1-auto">1 1 auto</div>
+    <div class="flex-2-1-auto">2 1 auto (2x)</div>
+    <div class="flex-1-0-200">1 0 200px (won't shrink)</div>
+  </div>
+
+  <!-- 8E: align-self -->
+  <h2 class="section-title">Exercise 8E: align-self (overrides align-items)</h2>
+  <p style="color:#666; margin-bottom:6px;">Container has align-items:center — each item overrides individually:</p>
+  <div class="align-self-demo">
+    <div class="as-auto">auto</div>
+    <div class="as-start">start</div>
+    <div class="as-end">end</div>
+    <div class="as-center">center</div>
+    <div class="as-stretch">stretch</div>
+  </div>
+
+  <!-- 8F: order -->
+  <h2 class="section-title">Exercise 8F: order property</h2>
+  <p style="color:#666; margin-bottom:6px;">HTML order: 1→2→3→4 | Visual order with order property: 3→1→4→2</p>
+  <div class="order-demo">
+    <div class="flex-item order-1 reorder-1">HTML:1 order:2</div>
+    <div class="flex-item order-2 reorder-2">HTML:2 order:4</div>
+    <div class="flex-item order-3 reorder-3">HTML:3 order:1</div>
+    <div class="flex-item order-4 reorder-4">HTML:4 order:3</div>
+  </div>
+
+
+  <!-- ===== EXERCISE 9 ===== -->
+
+  <!-- 9A: Navbar -->
+  <h2 class="section-title">Exercise 9A: Responsive Flexbox Navbar</h2>
+  <nav class="flex-navbar">
+    <div class="logo">⚡ FlexSite</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+  <p style="color:#666; margin: 8px 0 20px;">Resize browser to ≤600px to see it stack vertically.</p>
+
+  <!-- 9B: Card layout -->
+  <h2 class="section-title">Exercise 9B: Equal Height Card Layout</h2>
+  <div class="cards-wrapper">
+    <div class="card">
+      <div class="card-img blue">🌐</div>
+      <div class="card-body">
+        <h3>Web Design</h3>
+        <p>Beautiful, responsive websites built with modern CSS techniques including Flexbox and Grid.</p>
+      </div>
+      <div class="card-footer">
+        <span style="font-size:13px; color:#888;">From $500</span>
+        <button class="card-btn">Learn More</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img green">📱</div>
+      <div class="card-body">
+        <h3>Mobile Development</h3>
+        <p>Cross-platform apps that work seamlessly on iOS and Android. We handle everything from design to deployment.</p>
+        <p>Extra content to show equal height works regardless of content length.</p>
+      </div>
+      <div class="card-footer">
+        <span style="font-size:13px; color:#888;">From $1200</span>
+        <button class="card-btn">Learn More</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img red">🔒</div>
+      <div class="card-body">
+        <h3>Security</h3>
+        <p>Keep your data safe.</p>
+      </div>
+      <div class="card-footer">
+        <span style="font-size:13px; color:#888;">From $300</span>
+        <button class="card-btn">Learn More</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img purple">📊</div>
+      <div class="card-body">
+        <h3>Analytics</h3>
+        <p>Data-driven decisions with real-time dashboards and reporting tools.</p>
+      </div>
+      <div class="card-footer">
+        <span style="font-size:13px; color:#888;">From $400</span>
+        <button class="card-btn">Learn More</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9C: Holy Grail -->
+  <h2 class="section-title">Exercise 9C: Holy Grail Layout with Flexbox</h2>
+  <div class="holy-grail">
+    <header class="hg-header">Header</header>
+    <div class="hg-body">
+      <aside class="hg-sidebar-left">
+        <h4>Left Sidebar</h4>
+        <p>Navigation links here.</p>
+      </aside>
+      <main class="hg-main">
+        <h3>Main Content</h3>
+        <p>This is the holy grail layout — header, footer, two sidebars,
+          and a main content area. Built entirely with Flexbox.</p>
+        <p>Resize to ≤768px to see it stack into single column.</p>
+      </main>
+      <aside class="hg-sidebar-right">
+        <h4>Right Sidebar</h4>
+        <p>Ads or extra info.</p>
+      </aside>
+    </div>
+    <footer class="hg-footer">Footer</footer>
+  </div>
+
+  <!-- 9D: Form Layout -->
+  <h2 class="section-title">Exercise 9D: Flexbox Form Layout</h2>
+  <div class="flex-form">
+    <h3 style="margin-bottom:16px;">Student Registration</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" placeholder="Ali" />
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" placeholder="Hassan" />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="ali@uetpeshawar.edu.pk" />
+      </div>
+      <div class="form-group">
+        <label>Roll Number</label>
+        <input type="text" placeholder="2021-CS-01" />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Department</label>
+        <select>
+          <option>Computer Science</option>
+          <option>Software Engineering</option>
+          <option>Electrical Engineering</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Semester</label>
+        <select>
+          <option>1st</option><option>2nd</option>
+          <option>3rd</option><option>4th</option>
+          <option>5th</option><option>6th</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group full">
+        <label>Address</label>
+        <textarea rows="3" placeholder="Your full address..."></textarea>
+      </div>
+    </div>
+    <div class="form-actions">
+      <button class="btn-secondary">Cancel</button>
+      <button class="btn-primary">Submit</button>
+    </div>
+  </div>
+
+</div><!-- end .container -->
+</body>
+</html>

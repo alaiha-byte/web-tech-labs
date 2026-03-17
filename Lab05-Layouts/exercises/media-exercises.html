@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercise 13–16 — Media Queries & Responsive Design</title>
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/media-queries.css" />
+  <link rel="stylesheet" href="../styles/utilities.css" />
+</head>
+<body>
+<div class="container">
+  <h1>Exercise 13–16 — Media Queries & Responsive Design</h1>
+
+  <!-- ===== EXERCISE 13 ===== -->
+
+  <!-- 13A: Breakpoint indicator -->
+  <h2 class="section-title">Exercise 13A: Breakpoint Indicator (resize browser!)</h2>
+  <div class="breakpoint-indicator"></div>
+  <p style="color:#666; margin-bottom:20px;">
+    The box above changes color and label as you resize.
+    This is purely CSS using ::after and media queries — no JavaScript!
+  </p>
+
+  <!-- 13B: min-width and max-width -->
+  <h2 class="section-title">Exercise 13B: min-width vs max-width queries</h2>
+  <div class="mq-box mq-maxwidth"></div>
+  <div class="mq-box mq-range"></div>
+  <div class="mq-box mq-minwidth"></div>
+  <p style="color:#666; margin-bottom:20px;">
+    Resize browser to see which query is active on each box.
+  </p>
+
+  <!-- 13C: Orientation -->
+  <h2 class="section-title">Exercise 13C: Device Orientation Query</h2>
+  <div class="orientation-box"></div>
+  <p style="color:#666; margin-bottom:20px;">
+    Rotate your device or narrow/widen browser to switch orientation.
+  </p>
+
+  <!-- 13D: Media features -->
+  <h2 class="section-title">Exercise 13D: hover & pointer Media Features</h2>
+  <div class="hover-feature">
+    <strong>Hover / Touch Detection</strong>
+    <p style="margin:0; font-size:14px;">
+      On desktop: hover turns this blue. On touch device: yellow background shown.
+    </p>
+  </div>
+
+
+  <!-- ===== EXERCISE 14 ===== -->
+
+  <h2 class="section-title">Exercise 14: Mobile-First Layout</h2>
+  <p style="color:#666; margin-bottom:8px;">
+    Mobile → nav stacks vertically, content full width.
+    Tablet (768px+) → nav horizontal, sidebar appears.
+    Desktop (1024px+) → branded nav, wider sidebar.
+  </p>
+
+  <div class="mf-layout">
+    <header class="mf-header">
+      <h2 style="margin:0;">🎓 UET Peshawar — CS Department</h2>
+    </header>
+    <nav class="mf-nav">
+      <span class="nav-brand">CS224L</span>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Courses</a></li>
+        <li><a href="#">Labs</a></li>
+        <li><a href="#">Results</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="mf-body">
+      <main class="mf-content">
+        <h3>Web Technologies Lab</h3>
+        <p>This layout demonstrates the mobile-first approach.
+          Start with mobile as the base, then add complexity
+          for larger screens using min-width media queries.</p>
+        <p style="margin-top:10px;">
+          Progressive enhancement means every device gets a
+          working layout — larger screens just get more features.
+        </p>
+      </main>
+      <aside class="mf-sidebar">
+        <h4>Quick Links</h4>
+        <ul style="list-style:none; padding:0; margin-top:10px;">
+          <li style="padding:6px 0; border-bottom:1px solid #ddd;">
+            📄 Lab 05 PDF
+          </li>
+          <li style="padding:6px 0; border-bottom:1px solid #ddd;">
+            🔗 MDN Docs
+          </li>
+          <li style="padding:6px 0; border-bottom:1px solid #ddd;">
+            🎨 CSS Tricks
+          </li>
+          <li style="padding:6px 0;">
+            📚 W3Schools
+          </li>
+        </ul>
+      </aside>
+    </div>
+    <footer class="mf-footer">
+      &copy; 2024 CS224L Web Technologies — UET Peshawar
+    </footer>
+  </div>
+
+
+  <!-- ===== EXERCISE 15 ===== -->
+
+  <!-- 15A: Responsive img tag -->
+  <h2 class="section-title">Exercise 15A: Responsive Images (max-width:100%)</h2>
+  <p style="color:#666; margin-bottom:8px;">
+    Image below uses max-width:100% — it never overflows its container:
+  </p>
+  <div style="background:#ecf0f1; padding:15px; border-radius:4px; margin-bottom:15px;">
+    <img
+      class="img-responsive"
+      src="https://picsum.photos/800/300?random=1"
+      alt="Responsive demo image"
+      style="border-radius:4px;"
+    />
+    <p style="margin-top:8px; font-size:13px; color:#666;">
+      Source: 800×300px — shrinks on small screens, never exceeds container width.
+    </p>
+  </div>
+
+  <!-- 15B: srcset for different densities -->
+  <h2 class="section-title">Exercise 15B: srcset for Screen Densities</h2>
+  <p style="color:#666; margin-bottom:8px;">
+    Browser picks the right image based on screen DPI and viewport width:
+  </p>
+  <div style="background:#ecf0f1; padding:15px; border-radius:4px; margin-bottom:15px;">
+    <img
+      class="img-responsive"
+      src="https://picsum.photos/400/200?random=2"
+      srcset="
+        https://picsum.photos/400/200?random=2  400w,
+        https://picsum.photos/800/400?random=2  800w,
+        https://picsum.photos/1200/600?random=2 1200w
+      "
+      sizes="
+        (max-width: 480px)  100vw,
+        (max-width: 768px)  80vw,
+        60vw
+      "
+      alt="srcset demo"
+      style="border-radius:4px;"
+    />
+    <p style="margin-top:8px; font-size:13px; color:#666;">
+      srcset: 400w, 800w, 1200w versions. Sizes: 100vw mobile, 80vw tablet, 60vw desktop.
+    </p>
+  </div>
+
+  <!-- 15C: picture element -->
+  <h2 class="section-title">Exercise 15C: &lt;picture&gt; Element for Art Direction</h2>
+  <p style="color:#666; margin-bottom:8px;">
+    Different images loaded at different breakpoints — not just sizes, but different crops:
+  </p>
+  <div class="picture-demo">
+    <picture>
+      <!-- Wide landscape for desktop -->
+      <source
+        media="(min-width: 1024px)"
+        srcset="https://picsum.photos/1200/300?random=10"
+      />
+      <!-- Square-ish for tablet -->
+      <source
+        media="(min-width: 768px)"
+        srcset="https://picsum.photos/800/350?random=11"
+      />
+      <!-- Tall crop for mobile -->
+      <img
+        src="https://picsum.photos/400/300?random=12"
+        alt="Art direction demo"
+        class="img-responsive"
+        style="border-radius:4px; width:100%;"
+      />
+    </picture>
+    <p style="font-size:13px; color:#666; margin-top:6px;">
+      Desktop: 1200×300 (wide banner) | Tablet: 800×350 | Mobile: 400×300 fallback.
+      Resize to see different images load.
+    </p>
+  </div>
+
+  <!-- 15D: Responsive background image -->
+  <h2 class="section-title">Exercise 15D: Responsive Background Images</h2>
+  <div
+    class="bg-image-box bg-responsive"
+    style="background-image: url('https://picsum.photos/1200/400?random=5');"
+  >
+    <span>Responsive Background Image<br>
+    <small style="font-weight:normal; font-size:14px;">
+      background-size: cover — fills container at any size
+    </small></span>
+  </div>
+
+  <!-- 15E: Responsive image grid -->
+  <h2 class="section-title">Exercise 15E: Responsive Image Grid</h2>
+  <p style="color:#666; margin-bottom:8px;">
+    Mobile: 1 col → 480px: 2 cols → 768px: 3 cols → 1024px: 4 cols
+  </p>
+  <div class="img-grid">
+    <div class="img-placeholder" style="background:#3498db;">
+      <img src="https://picsum.photos/300/225?random=20" alt="img 1"
+        style="width:100%; height:100%; object-fit:cover; border-radius:4px;" />
+    </div>
+    <div class="img-placeholder" style="background:#e74c3c;">
+      <img src="https://picsum.photos/300/225?random=21" alt="img 2"
+        style="width:100%; height:100%; object-fit:cover; border-radius:4px;" />
+    </div>
+    <div class="img-placeholder" style="background:#27ae60;">
+      <img src="https://picsum.photos/300/225?random=22" alt="img 3"
+        style="width:100%; height:100%; object-fit:cover; border-radius:4px;" />
+    </div>
+    <div class="img-placeholder" style="background:#8e44ad;">
+      <img src="https://picsum.photos/300/225?random=23" alt="img 4"
+        style="width:100%; height:100%; object-fit:cover; border-radius:4px;" />
+    </div>
+    <div class="img-placeholder" style="background:#e67e22;">
+      <img src="https://picsum.photos/300/225?random=24" alt="img 5"
+        style="width:100%; height:100%; object-fit:cover; border-radius:4px;" />
+    </div>
+    <div class="img-placeholder" style="background:#16a085;">
+      <img src="https://picsum.photos/300/225?random=25" alt="img 6"
+        style="width:100%; height:100%; object-fit:cover; border-radius:4px;" />
+    </div>
+    <div class="img-placeholder" style="background:#2c3e50;">
+      <img src="https://picsum.photos/300/225?random=26" alt="img 7"
+        style="width:100%; height:100%; object-fit:cover; border-radius:4px;" />
+    </div>
+    <div class="img-placeholder" style="background:#c0392b;">
+      <img src="https://picsum.photos/300/225?random=27" alt="img 8"
+        style="width:100%; height:100%; object-fit:cover; border-radius:4px;" />
+    </div>
+  </div>
+
+
+  <!-- ===== EXERCISE 16 ===== -->
+
+  <!-- 16A: Typography scaling -->
+  <h2 class="section-title">Exercise 16A: Typography Scaling at Breakpoints</h2>
+  <div class="typo-demo" style="background:white; padding:20px; border:1px solid #ddd; border-radius:4px; margin-bottom:15px;">
+    <h1>Heading 1 — scales with viewport</h1>
+    <h2>Heading 2 — also scales</h2>
+    <p>Paragraph text gets slightly larger and more line-height on bigger screens.
+      Resize the browser to see each heading and paragraph size change at each breakpoint.
+      Mobile: 22/18/14px → Tablet: 28/22/15px → Desktop: 36/26/16px → Large: 42/30/17px.</p>
+  </div>
+
+  <!-- 16B: Responsive grid breakpoints -->
+  <h2 class="section-title">Exercise 16B: Grid — Different Columns per Breakpoint</h2>
+  <p style="color:#666; margin-bottom:8px;">
+    Mobile: 1 col → Tablet: 2 cols → Desktop: 3 cols → Large: 4 cols
+  </p>
+  <div class="bp-grid">
+    <div class="bp-card">
+      <div class="bp-card-icon">🌐</div>
+      <h3>Web Design</h3>
+      <p style="font-size:13px; color:#666;">Responsive layouts for all devices.</p>
+    </div>
+    <div class="bp-card">
+      <div class="bp-card-icon">📱</div>
+      <h3>Mobile First</h3>
+      <p style="font-size:13px; color:#666;">Start small, enhance for larger screens.</p>
+    </div>
+    <div class="bp-card">
+      <div class="bp-card-icon">⚡</div>
+      <h3>Performance</h3>
+      <p style="font-size:13px; color:#666;">Fast loading on any connection.</p>
+    </div>
+    <div class="bp-card">
+      <div class="bp-card-icon">🎨</div>
+      <h3>CSS Grid</h3>
+      <p style="font-size:13px; color:#666;">Two-dimensional layout power.</p>
+    </div>
+  </div>
+
+  <!-- 16C: Show/hide utilities -->
+  <h2 class="section-title">Exercise 16C: Show / Hide at Breakpoints</h2>
+  <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:15px;">
+    <div class="show-mobile" style="background:#e74c3c; color:white; padding:12px; border-radius:4px; font-weight:bold;">
+      📱 MOBILE ONLY — visible below 768px
+    </div>
+    <div class="show-tablet" style="background:#e67e22; color:white; padding:12px; border-radius:4px; font-weight:bold;">
+      📟 TABLET ONLY — visible 768px to 1023px
+    </div>
+    <div class="show-desktop" style="background:#27ae60; color:white; padding:12px; border-radius:4px; font-weight:bold;">
+      🖥️ DESKTOP ONLY — visible 1024px and above
+    </div>
+    <div class="hide-mobile" style="background:#3498db; color:white; padding:12px; border-radius:4px; font-weight:bold;">
+      🚫 HIDDEN ON MOBILE — visible 768px and above
+    </div>
+  </div>
+
+  <!-- 16D: Reduced motion -->
+  <h2 class="section-title">Exercise 16D: prefers-reduced-motion</h2>
+  <p style="color:#666; margin-bottom:8px;">
+    Animation plays normally. If OS has "reduce motion" enabled, it stops:
+  </p>
+  <div class="animated-box"></div>
+
+  <!-- 16E: Dark mode -->
+  <h2 class="section-title">Exercise 16E: prefers-color-scheme (Dark Mode)</h2>
+  <p style="color:#666; margin-bottom:8px;">
+    Enable dark mode in your OS/browser settings to see this change:
+  </p>
+  <div class="dark-aware">
+    <h3 style="margin-bottom:10px;">Dark Mode Aware Component</h3>
+    <div class="dark-card">
+      <p>This card detects your system color preference using
+        <code>prefers-color-scheme: dark</code>.</p>
+    </div>
+    <div class="dark-card">
+      <p>In dark mode: background goes dark navy, text turns light,
+        borders change to match the dark theme.</p>
+    </div>
+    <button class="dark-btn" style="margin-top:10px;">Dark Mode Button</button>
+  </div>
+
+  <!-- 16F: High contrast -->
+  <h2 class="section-title">Exercise 16F: prefers-contrast (High Contrast)</h2>
+  <div class="contrast-demo">
+    <h3>High Contrast Mode Demo</h3>
+    <p>Normal: light grey background, dark text, subtle border.</p>
+    <p>Enable high contrast in OS accessibility settings to see:
+      black background, white text, bold white border, yellow links.</p>
+    <a href="#">Sample link</a>
+  </div>
+
+  <!-- Print note -->
+  <h2 class="section-title">Exercise 16G: Print Media Query</h2>
+  <div style="background:white; padding:20px; border:1px solid #ddd; border-radius:4px;">
+    <p>
+      Open <strong>Print Preview</strong> (Ctrl+P) to see the print styles apply.
+      The navigation, sidebars and colored backgrounds are hidden when printing.
+      Link URLs are shown after each anchor tag using <code>a::after { content: attr(href) }</code>.
+    </p>
+    <div class="no-print" style="margin-top:10px; background:#ffeaa7; padding:10px; border-radius:4px;">
+      ⚠️ This yellow box has class <code>no-print</code> — it disappears in print preview!
+    </div>
+    <div class="print-only" style="margin-top:10px; background:#dff9fb; padding:10px; border-radius:4px;">
+      🖨️ This box has class <code>print-only</code> — only visible when printing!
+    </div>
+    <p style="margin-top:10px;">
+      Visit <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media">MDN Media Queries</a>
+      for full documentation.
+    </p>
+  </div>
+
+</div><!-- end .container -->
+</body>
+</html>
+```
+
+---
+
+## ✅ What You Do Right Now
+
+1. Create `lab05-layouts/styles/media-queries.css` → paste Step 1
+2. Create `lab05-layouts/styles/utilities.css` → paste Step 2
+3. Create `lab05-layouts/exercises/media-query-exercises.html` → paste Step 3
+4. Open in browser and test:
+
+| What to test | How |
+|---|---|
+| Breakpoint indicator changes color & label | Resize browser window |
+| min/max-width boxes activate/deactivate | Resize browser |
+| Orientation box changes text | Narrow vs wide browser |
+| Mobile-first layout stacks/unstacks | Resize through 768px and 1024px |
+| Images never overflow container | Shrink browser |
+| Picture element loads different image | Resize through 768px and 1024px |
+| Image grid goes 1→2→3→4 columns | Resize browser |
+| Typography grows at each breakpoint | Resize browser |
+| Mobile/Tablet/Desktop boxes appear correctly | Resize browser |
+| Animation plays (stops if OS reduced motion on) | Exercise 16D |
+| Dark mode styles apply | Enable dark mode in OS |
+| No-print box hides in print preview | Press Ctrl+P |
+
+---
+
+## 📁 Your folder now looks like this
+```
+lab05-layouts/
+├── styles/
+│   ├── base.css            ✅
+│   ├── display.css         ✅
+│   ├── float.css           ✅
+│   ├── position.css        ✅
+│   ├── flexbox.css         ✅
+│   ├── grid.css            ✅
+│   ├── media-queries.css   ✅
+│   └── utilities.css       ✅
+└── exercises/
+    ├── display-exercises.html        ✅
+    ├── float-exercises.html          ✅
+    ├── position-exercises.html       ✅
+    ├── flexbox-exercises.html        ✅
+    ├── grid-exercises.html           ✅
+    └── media-query-exercises.html    ✅

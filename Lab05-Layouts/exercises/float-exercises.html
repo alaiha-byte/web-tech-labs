@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercise 3 & 4 — Float Layouts</title>
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/float.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h1>Exercise 3 & 4 — Float-Based Layouts</h1>
+
+    <!-- ===== EXERCISE 3 ===== -->
+
+    <!-- 3A: Float image with text wrapping -->
+    <h2 class="section-title">Exercise 3A: Float Image with Text Wrapping</h2>
+    <div class="float-image-section">
+      <div class="float-img">IMG LEFT</div>
+      <p>This text wraps around the floated image on the left. Floats were originally
+        designed for this exact purpose — wrapping text around images like in a
+        newspaper or magazine. The text flows naturally alongside the image and
+        continues below it once it runs out of space beside it.</p>
+      <p>This is a second paragraph that continues wrapping around the floated element
+        until the content clears the float height.</p>
+    </div>
+
+    <div class="float-image-section" style="margin-top: 20px;">
+      <div class="float-img-right">IMG RIGHT</div>
+      <p>This time the image is floated to the RIGHT. Text wraps on the left side.
+        You can see how changing float direction changes which side the text appears on.</p>
+      <p>This technique is still widely used for article images and blog post layouts.</p>
+    </div>
+
+    <!-- 3B: Two-column layout -->
+    <h2 class="section-title">Exercise 3B: Two-Column Float Layout</h2>
+    <div class="two-col-wrapper">
+      <div class="col-left">
+        <h3>Main Content (65%)</h3>
+        <p>This is the main content column floated to the left at 65% width.
+          This is where your primary article or page content would live.</p>
+        <p>Float layouts were the standard way to build multi-column websites
+          before Flexbox and Grid existed.</p>
+      </div>
+      <div class="col-right">
+        <h3>Sidebar (32%)</h3>
+        <p>This sidebar is floated right at 32% width.</p>
+        <p>Ads, links, or extra info go here.</p>
+      </div>
+    </div>
+
+    <!-- 3C: Three-column layout -->
+    <h2 class="section-title">Exercise 3C: Three-Column Float Layout</h2>
+    <div class="three-col-wrapper clearfix">
+      <div class="col-third">
+        <h3>Column 1</h3>
+        <p>First column floated left at ~31% width.</p>
+      </div>
+      <div class="col-third">
+        <h3>Column 2</h3>
+        <p>Second column also floated left, sitting beside Column 1.</p>
+      </div>
+      <div class="col-third">
+        <h3>Column 3</h3>
+        <p>Third column completing the three-column layout.</p>
+      </div>
+    </div>
+
+    <!-- 3D: Clearfix -->
+    <h2 class="section-title">Exercise 3D: Clearfix Technique</h2>
+
+    <p style="margin-bottom: 8px; font-weight: bold; color: #e74c3c;">
+      ❌ WITHOUT clearfix — parent has no height:
+    </p>
+    <div style="background:#fdecea; border:2px dashed #e74c3c; padding:10px; margin-bottom: 15px;">
+      <div class="float-child" style="background:#e74c3c;">Float Child 1</div>
+      <div class="float-child" style="background:#c0392b;">Float Child 2</div>
+      <!-- parent collapses here -->
+    </div>
+    <p style="margin-bottom: 8px;">^ See how the red border above collapses?</p>
+
+    <p style="margin-bottom: 8px; font-weight: bold; color: #27ae60;">
+      ✅ WITH clearfix::after — parent wraps children correctly:
+    </p>
+    <div class="clearfix" style="background:#eafaf1; border:2px dashed #27ae60; padding:10px;">
+      <div class="float-child">Float Child 1</div>
+      <div class="float-child">Float Child 2</div>
+    </div>
+
+
+    <!-- ===== EXERCISE 4 ===== -->
+
+    <!-- 4A: Collapse demonstration -->
+    <h2 class="section-title">Exercise 4A: Float Collapse Problem & Fix</h2>
+
+    <p style="font-weight:bold; margin-bottom:5px;">BAD — parent background not visible (collapsed):</p>
+    <div class="collapse-bad" style="margin-bottom:15px;">
+      <div class="collapse-item">Float item 1</div>
+      <div class="collapse-item">Float item 2</div>
+    </div>
+
+    <p style="font-weight:bold; margin-bottom:5px;">GOOD — clearfix applied, parent visible:</p>
+    <div class="collapse-good">
+      <div class="collapse-item">Float item 1</div>
+      <div class="collapse-item">Float item 2</div>
+    </div>
+
+    <!-- 4B: Equal height columns -->
+    <h2 class="section-title">Exercise 4B: Equal Height Columns with Floats</h2>
+    <div class="equal-height-wrapper">
+      <div class="eq-col">
+        <h3>Column A</h3>
+        <p>Short content here.</p>
+      </div>
+      <div class="eq-col">
+        <h3>Column B</h3>
+        <p>This column has much more content than the others. It goes on and on
+          to demonstrate that all three columns appear to be the same height
+          even though their content lengths are different.</p>
+        <p>This is achieved with the padding-bottom + margin-bottom trick.</p>
+      </div>
+      <div class="eq-col">
+        <h3>Column C</h3>
+        <p>Medium amount of content in this column to show the difference.</p>
+        <p>Extra paragraph here.</p>
+      </div>
+    </div>
+
+    <!-- 4C: Float-based grid system -->
+    <h2 class="section-title">Exercise 4C: Float-Based Grid System (12 columns)</h2>
+    <div class="float-grid clearfix" style="margin-bottom:5px;">
+      <div class="fg-col-12">col-12 (100%)</div>
+    </div>
+    <div class="float-grid clearfix" style="margin-bottom:5px;">
+      <div class="fg-col-6">col-6 (50%)</div>
+      <div class="fg-col-6">col-6 (50%)</div>
+    </div>
+    <div class="float-grid clearfix" style="margin-bottom:5px;">
+      <div class="fg-col-4">col-4 (33%)</div>
+      <div class="fg-col-4">col-4 (33%)</div>
+      <div class="fg-col-4">col-4 (33%)</div>
+    </div>
+    <div class="float-grid clearfix" style="margin-bottom:5px;">
+      <div class="fg-col-3">col-3</div>
+      <div class="fg-col-3">col-3</div>
+      <div class="fg-col-3">col-3</div>
+      <div class="fg-col-3">col-3</div>
+    </div>
+    <div class="float-grid clearfix">
+      <div class="fg-col-8">col-8 (66%)</div>
+      <div class="fg-col-4">col-4 (33%)</div>
+    </div>
+
+    <!-- 4D: Responsive floats -->
+    <h2 class="section-title">Exercise 4D: Responsive Floats (resize browser!)</h2>
+    <p style="margin-bottom:10px; color:#666;">
+      Desktop → 3 columns &nbsp;|&nbsp; Tablet (≤768px) → 2 columns &nbsp;|&nbsp; Mobile (≤480px) → 1 column
+    </p>
+    <div class="responsive-float-wrapper clearfix">
+      <div class="resp-col">Column 1</div>
+      <div class="resp-col">Column 2</div>
+      <div class="resp-col">Column 3</div>
+    </div>
+
+  </div><!-- end .container -->
+
+</body>
+</html>

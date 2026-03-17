@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercise 5 & 6 — CSS Positioning</title>
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/position.css" />
+</head>
+<body>
+
+  <!-- FIXED HEADER (Exercise 5D) — always on top -->
+  <header class="fixed-header">
+    <span>⚓ Fixed Header — Exercise 5D</span>
+    <span style="font-size:13px; opacity:0.7;">Scroll down to see sticky elements</span>
+  </header>
+
+  <!-- Spacer so content starts below fixed header -->
+  <div class="fixed-header-spacer"></div>
+
+  <div class="container">
+    <h1>Exercise 5 & 6 — CSS Positioning</h1>
+
+    <!-- ===== EXERCISE 5 ===== -->
+
+    <!-- 5A: Static -->
+    <h2 class="section-title">Exercise 5A: position static (default)</h2>
+    <div class="pos-static">Box 1 — position: static (default flow)</div>
+    <div class="pos-static">Box 2 — position: static (default flow)</div>
+    <p style="color:#666; margin-bottom:15px;">
+      Static is the default. Elements follow normal document flow.
+      top/left/right/bottom have NO effect here.
+    </p>
+
+    <!-- 5B: Relative -->
+    <h2 class="section-title">Exercise 5B: position relative</h2>
+    <div class="pos-relative-wrapper">
+      <p>Normal text in the wrapper (static)</p>
+      <div class="pos-relative">
+        I am position: relative — shifted 15px down, 30px right from my normal spot
+      </div>
+    </div>
+    <p style="color:#666; margin-bottom:15px;">
+      Relative moves element from its <em>own</em> normal position.
+      Its original space is still reserved in the layout.
+    </p>
+
+    <!-- 5C: Absolute -->
+    <h2 class="section-title">Exercise 5C: position absolute</h2>
+    <div class="pos-absolute-wrapper">
+      <p style="padding:10px;">I am the positioned parent (position: relative)</p>
+      <div class="pos-absolute">TOP RIGHT — absolute</div>
+      <div class="pos-absolute-bl">BOTTOM LEFT — absolute</div>
+    </div>
+    <p style="color:#666; margin-bottom:15px;">
+      Absolute removes element from normal flow and places it relative
+      to its nearest <em>positioned ancestor</em>.
+    </p>
+
+    <!-- 5D: Fixed (demo box version) -->
+    <h2 class="section-title">Exercise 5D: position fixed</h2>
+    <div class="fixed-demo-box">
+      <p style="padding:15px;">
+        The real fixed element is the dark header at the very top of this page.
+        It stays there as you scroll — that's position: fixed.
+      </p>
+      <div class="fixed-badge">Fixed Badge</div>
+    </div>
+    <p style="color:#666; margin-bottom:15px;">
+      Fixed is positioned relative to the <em>viewport</em> — it never moves when scrolling.
+    </p>
+
+    <!-- 5E: Sticky -->
+    <h2 class="section-title">Exercise 5E: position sticky</h2>
+    <p style="margin-bottom:8px; color:#666;">Scroll inside the box below:</p>
+    <div class="sticky-demo-wrapper">
+      <div class="sticky-heading">📌 Section A — Sticky Heading (scroll me!)</div>
+      <div class="sticky-content">
+        <p>This content scrolls normally. The orange heading above sticks to the
+          top of this container when you scroll past it.</p>
+        <p>Sticky is a hybrid of relative and fixed. It behaves like relative
+          until you scroll to the threshold, then acts like fixed.</p>
+        <p>Keep scrolling inside this box to see the effect...</p>
+        <p>More content here to make the box scrollable.</p>
+        <p>Even more content so there's enough to scroll through.</p>
+      </div>
+      <div class="sticky-heading">📌 Section B — Another Sticky Heading</div>
+      <div class="sticky-content">
+        <p>Each section heading sticks when reached during scroll.</p>
+        <p>This pattern is commonly used in mobile contact lists and
+          long page navigation.</p>
+        <p>More filler content in section B.</p>
+        <p>Almost done scrolling through this demo box.</p>
+      </div>
+    </div>
+
+
+    <!-- ===== EXERCISE 6 ===== -->
+
+    <!-- 6A: Z-index -->
+    <h2 class="section-title">Exercise 6A: Overlapping Elements with Z-index</h2>
+    <div class="zindex-wrapper">
+      <div class="z-box z-box-1">z-index: 1 (Blue — behind)</div>
+      <div class="z-box z-box-2">z-index: 2 (Red — middle)</div>
+      <div class="z-box z-box-3">z-index: 3 (Green — front)</div>
+    </div>
+    <p style="color:#666; margin-bottom:15px;">
+      Higher z-index = closer to the viewer. Only works on positioned elements
+      (relative, absolute, fixed, sticky).
+    </p>
+
+    <!-- 6B: Modal Dialog -->
+    <h2 class="section-title">Exercise 6B: Modal Dialog with Absolute Positioning</h2>
+    <button class="modal-trigger" onclick="openModal()">
+      Click to Open Modal
+    </button>
+
+    <!-- Modal overlay -->
+    <div class="modal-overlay" id="myModal">
+      <div class="modal-box">
+        <button class="modal-close" onclick="closeModal()">✕</button>
+        <h3>Modal Dialog</h3>
+        <p>This modal uses <strong>position: fixed</strong> for the overlay
+          (covers the full viewport) and <strong>position: relative</strong>
+          on the box so the close button can be absolutely placed in the corner.</p>
+        <p>On mobile (≤480px), resize your browser — the modal becomes full screen!</p>
+        <button class="modal-trigger" style="margin-top:15px;" onclick="closeModal()">
+          Close Modal
+        </button>
+      </div>
+    </div>
+
+    <!-- 6C: Sticky Nav -->
+    <h2 class="section-title">Exercise 6C: Sticky Navigation Bar</h2>
+    <p style="color:#666; margin-bottom:8px;">
+      The purple nav below sticks just under the fixed header when you scroll.
+    </p>
+    <nav class="sticky-nav">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Work</a>
+      <a href="#">Contact</a>
+    </nav>
+    <!-- Filler content to allow scrolling -->
+    <div style="background:#f9f9f9; padding:20px; border:1px solid #ddd; margin-top:10px;">
+      <p>Scroll the page to see the sticky nav stick below the fixed header.</p>
+      <p style="margin-top:10px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <p style="margin-top:10px;">Ut enim ad minim veniam, quis nostrud exercitation
+        ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+
+    <!-- 6D: Tooltips -->
+    <h2 class="section-title">Exercise 6D: Tooltips with Positioning</h2>
+    <p style="color:#666; margin-bottom:8px;">Hover over the buttons:</p>
+    <div class="tooltip-wrapper">
+      <div class="tooltip-item">
+        <button class="tooltip-btn">Hover Me</button>
+        <span class="tooltip-text">This is a tooltip!</span>
+      </div>
+      <div class="tooltip-item">
+        <button class="tooltip-btn">Save File</button>
+        <span class="tooltip-text">Ctrl + S to save</span>
+      </div>
+      <div class="tooltip-item">
+        <button class="tooltip-btn">Delete</button>
+        <span class="tooltip-text">⚠️ This cannot be undone</span>
+      </div>
+      <div class="tooltip-item">
+        <button class="tooltip-btn">Info</button>
+        <span class="tooltip-text">Click for more details</span>
+      </div>
+    </div>
+
+  </div><!-- end .container -->
+
+  <!-- Modal JS -->
+  <script>
+    function openModal() {
+      document.getElementById('myModal').classList.add('active');
+    }
+    function closeModal() {
+      document.getElementById('myModal').classList.remove('active');
+    }
+    // Close if clicking outside modal box
+    document.getElementById('myModal').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+  </script>
+
+</body>
+</html>

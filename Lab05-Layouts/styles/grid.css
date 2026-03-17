@@ -1,0 +1,393 @@
+/* grid.css - Exercise 10, 11, 12 styles */
+
+/* ===== EXERCISE 10: Grid Container Properties ===== */
+
+/* --- 10A: Basic grid container --- */
+.grid-basic {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  background: #ecf0f1;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.grid-item {
+  background: #3498db;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* --- 10B: grid-template-columns variations --- */
+.grid-fixed {
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+  gap: 10px;
+  background: #ecf0f1;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.grid-mixed {
+  display: grid;
+  grid-template-columns: 200px 1fr 2fr;
+  gap: 10px;
+  background: #ecf0f1;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.grid-repeat {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  background: #ecf0f1;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+/* --- 10C: grid-template-rows --- */
+.grid-rows {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 80px 120px 60px;
+  gap: 10px;
+  background: #ecf0f1;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+/* --- 10D: grid-template-areas --- */
+.grid-areas {
+  display: grid;
+  grid-template-columns: 180px 1fr 160px;
+  grid-template-rows: 60px 1fr 50px;
+  grid-template-areas:
+    "header  header  header"
+    "sidebar main    aside"
+    "footer  footer  footer";
+  gap: 10px;
+  background: #ecf0f1;
+  padding: 10px;
+  min-height: 300px;
+  margin-bottom: 15px;
+}
+
+.ga-header  { grid-area: header;  background: #2c3e50; color: white; padding: 15px; display:flex; align-items:center; justify-content:center; font-weight:bold; }
+.ga-sidebar { grid-area: sidebar; background: #8e44ad; color: white; padding: 15px; }
+.ga-main    { grid-area: main;    background: #ecf0f1; padding: 15px; border: 1px solid #ddd; }
+.ga-aside   { grid-area: aside;   background: #16a085; color: white; padding: 15px; }
+.ga-footer  { grid-area: footer;  background: #34495e; color: white; padding: 15px; display:flex; align-items:center; justify-content:center; font-weight:bold; }
+
+/* --- 10E: gap --- */
+.grid-gap-small  { gap: 5px; }
+.grid-gap-large  { gap: 25px; }
+.grid-gap-asymm  { column-gap: 20px; row-gap: 5px; }
+
+/* --- 10F: justify-items & align-items --- */
+.grid-ji-start   { justify-items: start; }
+.grid-ji-center  { justify-items: center; }
+.grid-ji-end     { justify-items: end; }
+.grid-ji-stretch { justify-items: stretch; }
+
+.grid-ai-start   { align-items: start; }
+.grid-ai-center  { align-items: center; }
+.grid-ai-end     { align-items: end; }
+
+.grid-alignment-demo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  background: #ecf0f1;
+  padding: 10px;
+  margin-bottom: 15px;
+  height: 160px;
+}
+
+.grid-alignment-demo .grid-item {
+  background: #e74c3c;
+  padding: 10px 15px;
+  width: auto;
+}
+
+
+/* ===== EXERCISE 11: Grid Item Properties ===== */
+
+/* --- 11A: grid-column --- */
+.grid-placement {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  background: #ecf0f1;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.gc-span-2 {
+  grid-column: span 2;
+  background: #e74c3c;
+}
+
+.gc-span-3 {
+  grid-column: span 3;
+  background: #27ae60;
+}
+
+.gc-1-3 {
+  grid-column: 1 / 3;
+  background: #8e44ad;
+}
+
+.gc-2-5 {
+  grid-column: 2 / 5;
+  background: #e67e22;
+}
+
+.gc-full {
+  grid-column: 1 / -1;
+  background: #2c3e50;
+  color: white;
+}
+
+/* --- 11B: grid-row --- */
+.grid-row-placement {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 80px);
+  gap: 10px;
+  background: #ecf0f1;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.gr-span-2 {
+  grid-row: span 2;
+  background: #e74c3c;
+}
+
+.gr-span-3 {
+  grid-row: 1 / 4;
+  background: #27ae60;
+}
+
+/* --- 11C: grid-area placement --- */
+.grid-area-placement {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 70px);
+  gap: 10px;
+  background: #ecf0f1;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+/* grid-area: row-start / col-start / row-end / col-end */
+.gap-item-a {
+  grid-area: 1 / 1 / 2 / 3;
+  background: #3498db;
+  color: white;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.gap-item-b {
+  grid-area: 1 / 3 / 3 / 5;
+  background: #e74c3c;
+  color: white;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.gap-item-c {
+  grid-area: 2 / 1 / 4 / 2;
+  background: #27ae60;
+  color: white;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.gap-item-d {
+  grid-area: 2 / 2 / 4 / 3;
+  background: #8e44ad;
+  color: white;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.gap-item-e {
+  grid-area: 3 / 3 / 4 / 5;
+  background: #e67e22;
+  color: white;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* --- 11D: justify-self & align-self --- */
+.grid-self-demo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  background: #ecf0f1;
+  padding: 10px;
+  margin-bottom: 15px;
+  height: 200px;
+}
+
+.js-start  { justify-self: start;   align-self: start;  background: #e74c3c; color: white; padding: 10px; }
+.js-center { justify-self: center;  align-self: center; background: #3498db; color: white; padding: 10px; }
+.js-end    { justify-self: end;     align-self: end;    background: #27ae60; color: white; padding: 10px; }
+
+
+/* ===== EXERCISE 12: Advanced Grid Features ===== */
+
+/* --- 12A: fr units --- */
+.grid-fr {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 10px;
+  background: #ecf0f1;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.grid-fr-equal {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  background: #ecf0f1;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+/* --- 12B: minmax() --- */
+.grid-minmax {
+  display: grid;
+  grid-template-columns: minmax(150px, 1fr) minmax(200px, 2fr) minmax(100px, 1fr);
+  gap: 10px;
+  background: #ecf0f1;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+/* --- 12C: repeat() --- */
+.grid-repeat-auto {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  background: #ecf0f1;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+/* --- 12D: auto-fit vs auto-fill --- */
+.grid-autofit {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  background: #ecf0f1;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.grid-autofill {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  background: #dfe6e9;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+/* --- 12E: Named grid lines --- */
+.grid-named-lines {
+  display: grid;
+  grid-template-columns:
+    [sidebar-start] 180px
+    [sidebar-end main-start] 1fr
+    [main-end aside-start] 150px
+    [aside-end];
+  grid-template-rows:
+    [header-start] 60px
+    [header-end content-start] 1fr
+    [content-end footer-start] 50px
+    [footer-end];
+  gap: 10px;
+  background: #ecf0f1;
+  padding: 10px;
+  min-height: 280px;
+  margin-bottom: 15px;
+}
+
+.nl-header {
+  grid-column: sidebar-start / aside-end;
+  grid-row: header-start / header-end;
+  background: #2c3e50;
+  color: white;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.nl-sidebar {
+  grid-column: sidebar-start / sidebar-end;
+  grid-row: content-start / content-end;
+  background: #8e44ad;
+  color: white;
+  padding: 15px;
+}
+
+.nl-main {
+  grid-column: main-start / main-end;
+  grid-row: content-start / content-end;
+  background: white;
+  padding: 15px;
+  border: 1px solid #ddd;
+}
+
+.nl-aside {
+  grid-column: aside-start / aside-end;
+  grid-row: content-start / content-end;
+  background: #16a085;
+  color: white;
+  padding: 15px;
+}
+
+.nl-footer {
+  grid-column: sidebar-start / aside-end;
+  grid-row: footer-start / footer-end;
+  background: #34495e;
+  color: white;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* color helpers */
+.gi-blue   { background: #3498db; color: white; }
+.gi-red    { background: #e74c3c; color: white; }
+.gi-green  { background: #27ae60; color: white; }
+.gi-purple { background: #8e44ad; color: white; }
+.gi-orange { background: #e67e22; color: white; }
+.gi-teal   { background: #16a085; color: white; }
+.gi-dark   { background: #2c3e50; color: white; }

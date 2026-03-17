@@ -1,0 +1,203 @@
+/* utilities.css - Responsive utility classes (Task 17 & 18) */
+
+/* ===================================================
+   TASK 17: Responsive Utility Classes
+   =================================================== */
+
+/* --- Text alignment utilities --- */
+.text-left    { text-align: left; }
+.text-center  { text-align: center; }
+.text-right   { text-align: right; }
+
+@media (min-width: 768px) {
+  .text-md-left   { text-align: left; }
+  .text-md-center { text-align: center; }
+  .text-md-right  { text-align: right; }
+}
+
+@media (min-width: 1024px) {
+  .text-lg-left   { text-align: left; }
+  .text-lg-center { text-align: center; }
+  .text-lg-right  { text-align: right; }
+}
+
+/* --- Flexbox utilities --- */
+.d-flex          { display: flex; }
+.d-block         { display: block; }
+.d-none          { display: none; }
+.flex-wrap        { flex-wrap: wrap; }
+.flex-nowrap      { flex-wrap: nowrap; }
+.justify-start    { justify-content: flex-start; }
+.justify-center   { justify-content: center; }
+.justify-end      { justify-content: flex-end; }
+.justify-between  { justify-content: space-between; }
+.align-start      { align-items: flex-start; }
+.align-center     { align-items: center; }
+.align-end        { align-items: flex-end; }
+.gap-sm           { gap: 8px; }
+.gap-md           { gap: 16px; }
+.gap-lg           { gap: 24px; }
+
+/* --- Margin utilities --- */
+.mt-sm { margin-top: 8px; }
+.mt-md { margin-top: 16px; }
+.mt-lg { margin-top: 32px; }
+.mb-sm { margin-bottom: 8px; }
+.mb-md { margin-bottom: 16px; }
+.mb-lg { margin-bottom: 32px; }
+
+/* --- Width utilities --- */
+.w-100  { width: 100%; }
+.w-75   { width: 75%; }
+.w-50   { width: 50%; }
+.w-25   { width: 25%; }
+
+/* ===================================================
+   TASK 18: Dark Mode & Preference Media Queries
+   =================================================== */
+
+/* --- Dark mode --- */
+@media (prefers-color-scheme: dark) {
+  .dark-aware {
+    background: #1a1a2e;
+    color: #eaeaea;
+    border-color: #444;
+  }
+
+  .dark-aware h1,
+  .dark-aware h2,
+  .dark-aware h3 {
+    color: #f0f0f0;
+  }
+
+  .dark-aware .dark-card {
+    background: #16213e;
+    border-color: #0f3460;
+    color: #eaeaea;
+  }
+
+  .dark-aware .dark-btn {
+    background: #0f3460;
+    color: white;
+    border-color: #4a90d9;
+  }
+}
+
+/* Light mode always visible */
+.dark-aware {
+  background: #ffffff;
+  color: #333;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  transition: background 0.3s, color 0.3s;
+  margin-bottom: 15px;
+}
+
+.dark-aware .dark-card {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.dark-aware .dark-btn {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* --- Reduced motion --- */
+.animated-box {
+  width: 60px;
+  height: 60px;
+  background: #3498db;
+  border-radius: 4px;
+  animation: slide-bounce 1.5s infinite alternate ease-in-out;
+  margin: 10px 0;
+}
+
+@keyframes slide-bounce {
+  from { transform: translateX(0); background: #3498db; }
+  to   { transform: translateX(200px); background: #e74c3c; }
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .animated-box {
+    animation: none;
+    background: #95a5a6;
+    opacity: 0.7;
+  }
+
+  .animated-box::after {
+    content: "Animation disabled (prefers-reduced-motion)";
+    display: block;
+    white-space: nowrap;
+    font-size: 13px;
+    color: #555;
+    margin-left: 70px;
+    line-height: 60px;
+  }
+}
+
+/* --- High contrast mode --- */
+@media (prefers-contrast: high) {
+  .contrast-demo {
+    background: black !important;
+    color: white !important;
+    border: 3px solid white !important;
+  }
+
+  .contrast-demo a {
+    color: yellow !important;
+    text-decoration: underline !important;
+  }
+}
+
+.contrast-demo {
+  background: #f0f0f0;
+  color: #333;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  transition: all 0.3s;
+}
+
+/* --- Print media queries --- */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  a::after {
+    content: " (" attr(href) ")";
+    font-size: 10pt;
+    color: #555;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+}
+
+.print-only {
+  display: none;
+}

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercise 10, 11, 12 — CSS Grid</title>
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/grid.css" />
+</head>
+<body>
+<div class="container">
+  <h1>Exercise 10, 11 & 12 — CSS Grid Layout System</h1>
+
+  <!-- ===== EXERCISE 10 ===== -->
+
+  <!-- 10A: Basic grid -->
+  <h2 class="section-title">Exercise 10A: display grid — 3 equal columns</h2>
+  <div class="grid-basic">
+    <div class="grid-item">Item 1</div>
+    <div class="grid-item">Item 2</div>
+    <div class="grid-item">Item 3</div>
+    <div class="grid-item">Item 4</div>
+    <div class="grid-item">Item 5</div>
+    <div class="grid-item">Item 6</div>
+  </div>
+
+  <!-- 10B: Column variations -->
+  <h2 class="section-title">Exercise 10B: grid-template-columns</h2>
+  <p style="color:#666; margin-bottom:4px;">Fixed — 200px 200px 200px:</p>
+  <div class="grid-fixed">
+    <div class="grid-item gi-blue">200px</div>
+    <div class="grid-item gi-red">200px</div>
+    <div class="grid-item gi-green">200px</div>
+  </div>
+  <p style="color:#666; margin-bottom:4px;">Mixed — 200px 1fr 2fr:</p>
+  <div class="grid-mixed">
+    <div class="grid-item gi-purple">200px (fixed)</div>
+    <div class="grid-item gi-orange">1fr</div>
+    <div class="grid-item gi-teal">2fr (double)</div>
+  </div>
+  <p style="color:#666; margin-bottom:4px;">repeat(4, 1fr):</p>
+  <div class="grid-repeat">
+    <div class="grid-item gi-dark">1fr</div>
+    <div class="grid-item gi-dark">1fr</div>
+    <div class="grid-item gi-dark">1fr</div>
+    <div class="grid-item gi-dark">1fr</div>
+  </div>
+
+  <!-- 10C: Row heights -->
+  <h2 class="section-title">Exercise 10C: grid-template-rows (80px / 120px / 60px)</h2>
+  <div class="grid-rows">
+    <div class="grid-item gi-blue">Row 1 — 80px</div>
+    <div class="grid-item gi-red">Row 1 — 80px</div>
+    <div class="grid-item gi-green">Row 1 — 80px</div>
+    <div class="grid-item gi-purple">Row 2 — 120px</div>
+    <div class="grid-item gi-orange">Row 2 — 120px</div>
+    <div class="grid-item gi-teal">Row 2 — 120px</div>
+    <div class="grid-item gi-dark">Row 3 — 60px</div>
+    <div class="grid-item gi-dark">Row 3 — 60px</div>
+    <div class="grid-item gi-dark">Row 3 — 60px</div>
+  </div>
+
+  <!-- 10D: grid-template-areas -->
+  <h2 class="section-title">Exercise 10D: grid-template-areas (named layout)</h2>
+  <div class="grid-areas">
+    <div class="ga-header">Header</div>
+    <div class="ga-sidebar">
+      <h4>Sidebar</h4>
+      <p>Navigation</p>
+    </div>
+    <div class="ga-main">
+      <h3>Main Content</h3>
+      <p>Each area is named in grid-template-areas and referenced
+        with grid-area on the child element.</p>
+    </div>
+    <div class="ga-aside">
+      <h4>Aside</h4>
+      <p>Widgets</p>
+    </div>
+    <div class="ga-footer">Footer</div>
+  </div>
+
+  <!-- 10E: gap -->
+  <h2 class="section-title">Exercise 10E: gap variations</h2>
+  <p style="color:#666; margin-bottom:4px;">Small gap (5px):</p>
+  <div class="grid-basic grid-gap-small" style="margin-bottom:10px;">
+    <div class="grid-item gi-blue">A</div>
+    <div class="grid-item gi-red">B</div>
+    <div class="grid-item gi-green">C</div>
+  </div>
+  <p style="color:#666; margin-bottom:4px;">Large gap (25px):</p>
+  <div class="grid-basic grid-gap-large" style="margin-bottom:10px;">
+    <div class="grid-item gi-blue">A</div>
+    <div class="grid-item gi-red">B</div>
+    <div class="grid-item gi-green">C</div>
+  </div>
+  <p style="color:#666; margin-bottom:4px;">Asymmetric — column-gap:20px row-gap:5px:</p>
+  <div class="grid-basic grid-gap-asymm">
+    <div class="grid-item gi-purple">A</div>
+    <div class="grid-item gi-orange">B</div>
+    <div class="grid-item gi-teal">C</div>
+    <div class="grid-item gi-purple">D</div>
+    <div class="grid-item gi-orange">E</div>
+    <div class="grid-item gi-teal">F</div>
+  </div>
+
+  <!-- 10F: justify-items & align-items -->
+  <h2 class="section-title">Exercise 10F: justify-items & align-items</h2>
+  <p style="color:#666; margin-bottom:4px;">justify-items: center + align-items: center:</p>
+  <div class="grid-alignment-demo grid-ji-center grid-ai-center">
+    <div class="grid-item" style="width:80px; height:50px;">A</div>
+    <div class="grid-item" style="width:80px; height:50px;">B</div>
+    <div class="grid-item" style="width:80px; height:50px;">C</div>
+  </div>
+  <p style="color:#666; margin-bottom:4px;">justify-items: start + align-items: end:</p>
+  <div class="grid-alignment-demo grid-ji-start grid-ai-end">
+    <div class="grid-item" style="width:80px; height:50px;">A</div>
+    <div class="grid-item" style="width:80px; height:50px;">B</div>
+    <div class="grid-item" style="width:80px; height:50px;">C</div>
+  </div>
+
+
+  <!-- ===== EXERCISE 11 ===== -->
+
+  <!-- 11A: grid-column -->
+  <h2 class="section-title">Exercise 11A: grid-column (column placement)</h2>
+  <div class="grid-placement">
+    <div class="grid-item gc-span-2">span 2</div>
+    <div class="grid-item gi-blue">auto</div>
+    <div class="grid-item gi-blue">auto</div>
+    <div class="grid-item gc-1-3">col 1/3</div>
+    <div class="grid-item gi-teal">auto</div>
+    <div class="grid-item gi-teal">auto</div>
+    <div class="grid-item gc-full">col 1 / -1 (full width)</div>
+    <div class="grid-item gc-2-5">col 2/5</div>
+    <div class="grid-item gi-dark">auto</div>
+  </div>
+
+  <!-- 11B: grid-row -->
+  <h2 class="section-title">Exercise 11B: grid-row (row placement)</h2>
+  <div class="grid-row-placement">
+    <div class="grid-item gr-span-3">row 1/4 (tall)</div>
+    <div class="grid-item gi-blue">auto</div>
+    <div class="grid-item gi-red">auto</div>
+    <div class="grid-item gr-span-2">row span 2</div>
+    <div class="grid-item gi-orange">auto</div>
+    <div class="grid-item gi-teal">auto</div>
+    <div class="grid-item gi-purple">auto</div>
+  </div>
+
+  <!-- 11C: grid-area placement -->
+  <h2 class="section-title">Exercise 11C: grid-area (row-start / col-start / row-end / col-end)</h2>
+  <div class="grid-area-placement">
+    <div class="gap-item-a">A: 1/1/2/3</div>
+    <div class="gap-item-b">B: 1/3/3/5</div>
+    <div class="gap-item-c">C: 2/1/4/2</div>
+    <div class="gap-item-d">D: 2/2/4/3</div>
+    <div class="gap-item-e">E: 3/3/4/5</div>
+  </div>
+
+  <!-- 11D: justify-self & align-self -->
+  <h2 class="section-title">Exercise 11D: justify-self & align-self (individual items)</h2>
+  <div class="grid-self-demo">
+    <div class="js-start">start / start</div>
+    <div class="js-center">center / center</div>
+    <div class="js-end">end / end</div>
+  </div>
+
+
+  <!-- ===== EXERCISE 12 ===== -->
+
+  <!-- 12A: fr units -->
+  <h2 class="section-title">Exercise 12A: Fractional Units (fr)</h2>
+  <p style="color:#666; margin-bottom:4px;">1fr 2fr 1fr — middle gets double space:</p>
+  <div class="grid-fr">
+    <div class="grid-item gi-blue">1fr</div>
+    <div class="grid-item gi-red">2fr</div>
+    <div class="grid-item gi-blue">1fr</div>
+  </div>
+  <p style="color:#666; margin-bottom:4px;">repeat(5, 1fr) — 5 equal columns:</p>
+  <div class="grid-fr-equal">
+    <div class="grid-item gi-purple">1fr</div>
+    <div class="grid-item gi-purple">1fr</div>
+    <div class="grid-item gi-purple">1fr</div>
+    <div class="grid-item gi-purple">1fr</div>
+    <div class="grid-item gi-purple">1fr</div>
+  </div>
+
+  <!-- 12B: minmax() -->
+  <h2 class="section-title">Exercise 12B: minmax() function</h2>
+  <p style="color:#666; margin-bottom:4px;">
+    Columns: minmax(150px,1fr) | minmax(200px,2fr) | minmax(100px,1fr)
+    — resize to see minimum kicks in:
+  </p>
+  <div class="grid-minmax">
+    <div class="grid-item gi-teal">min:150px max:1fr</div>
+    <div class="grid-item gi-orange">min:200px max:2fr</div>
+    <div class="grid-item gi-teal">min:100px max:1fr</div>
+  </div>
+
+  <!-- 12C: repeat() -->
+  <h2 class="section-title">Exercise 12C: repeat() function</h2>
+  <div class="grid-repeat-auto">
+    <div class="grid-item gi-dark">repeat</div>
+    <div class="grid-item gi-dark">3,</div>
+    <div class="grid-item gi-dark">minmax(0,1fr)</div>
+  </div>
+
+  <!-- 12D: auto-fit vs auto-fill -->
+  <h2 class="section-title">Exercise 12D: auto-fit vs auto-fill (resize browser!)</h2>
+  <p style="color:#666; margin-bottom:4px;">
+    auto-fit — empty tracks collapse, items stretch to fill:
+  </p>
+  <div class="grid-autofit">
+    <div class="grid-item gi-blue">auto-fit</div>
+    <div class="grid-item gi-blue">auto-fit</div>
+    <div class="grid-item gi-blue">auto-fit</div>
+  </div>
+  <p style="color:#666; margin-bottom:4px;">
+    auto-fill — empty tracks kept as whitespace:
+  </p>
+  <div class="grid-autofill">
+    <div class="grid-item gi-red">auto-fill</div>
+    <div class="grid-item gi-red">auto-fill</div>
+    <div class="grid-item gi-red">auto-fill</div>
+  </div>
+  <p style="color:#666; margin-bottom:20px;">
+    Both use minmax(150px, 1fr). Difference is visible when items
+    don't fill the full row — auto-fit stretches them, auto-fill leaves gaps.
+  </p>
+
+  <!-- 12E: Named grid lines -->
+  <h2 class="section-title">Exercise 12E: Named Grid Lines</h2>
+  <p style="color:#666; margin-bottom:8px;">
+    Columns named [sidebar-start] [sidebar-end main-start] [main-end aside-start] [aside-end].
+    Items placed by name instead of numbers — much more readable!
+  </p>
+  <div class="grid-named-lines">
+    <div class="nl-header">Header (sidebar-start → aside-end)</div>
+    <div class="nl-sidebar">
+      <h4>Sidebar</h4>
+      <p>sidebar-start → sidebar-end</p>
+    </div>
+    <div class="nl-main">
+      <h3>Main Content</h3>
+      <p>main-start → main-end. Named lines make grid placement
+        much easier to read and maintain compared to line numbers.</p>
+    </div>
+    <div class="nl-aside">
+      <h4>Aside</h4>
+      <p>aside-start → aside-end</p>
+    </div>
+    <div class="nl-footer">Footer (sidebar-start → aside-end)</div>
+  </div>
+
+</div><!-- end .container -->
+</body>
+</html>
+```
+
+---
+
+## ✅ What You Do Right Now
+
+1. Create `lab05-layouts/styles/grid.css` → paste Step 1
+2. Create `lab05-layouts/exercises/grid-exercises.html` → paste Step 2
+3. Open `grid-exercises.html` in browser and check:
+
+| What to test | Where |
+|---|---|
+| 3 equal columns with fr units | Exercise 10A |
+| Named areas — header/sidebar/main/aside/footer | Exercise 10D |
+| gap changes spacing between cells | Exercise 10E |
+| Items centered inside cells | Exercise 10F |
+| gc-full spans entire row (1 / -1) | Exercise 11A |
+| Tall item spans 3 rows | Exercise 11B |
+| Items placed by row/col coordinates | Exercise 11C |
+| Middle column gets double space (2fr) | Exercise 12A |
+| auto-fit stretches vs auto-fill leaves gaps | Exercise 12D |
+| Named lines used instead of numbers | Exercise 12E |
+
+---
+
+## 📁 Your folder should now look like this
+```
+lab05-layouts/
+├── styles/
+│   ├── base.css        ✅
+│   ├── display.css     ✅
+│   ├── float.css       ✅
+│   ├── position.css    ✅
+│   ├── flexbox.css     ✅
+│   └── grid.css        ✅
+└── exercises/
+    ├── display-exercises.html    ✅
+    ├── float-exercises.html      ✅
+    ├── position-exercises.html   ✅
+    ├── flexbox-exercises.html    ✅
+    └── grid-exercises.html       ✅

@@ -1,0 +1,520 @@
+/* media-queries.css - Exercise 13, 14, 15, 16 styles */
+
+/* ===================================================
+   EXERCISE 13: Media Query Fundamentals
+   =================================================== */
+
+/* --- 13A: Breakpoint indicator --- */
+.breakpoint-indicator {
+  padding: 12px 20px;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  transition: all 0.3s;
+}
+
+/* Mobile base */
+.breakpoint-indicator {
+  background: #e74c3c;
+  color: white;
+}
+.breakpoint-indicator::after {
+  content: " 📱 Mobile (0 - 767px)";
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .breakpoint-indicator {
+    background: #e67e22;
+    color: white;
+  }
+  .breakpoint-indicator::after {
+    content: " 📟 Tablet (768px - 1023px)";
+  }
+}
+
+/* Small desktop */
+@media (min-width: 1024px) {
+  .breakpoint-indicator {
+    background: #27ae60;
+    color: white;
+  }
+  .breakpoint-indicator::after {
+    content: " 💻 Small Desktop (1024px - 1199px)";
+  }
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+  .breakpoint-indicator {
+    background: #3498db;
+    color: white;
+  }
+  .breakpoint-indicator::after {
+    content: " 🖥️ Large Desktop (1200px - 1399px)";
+  }
+}
+
+/* Extra large */
+@media (min-width: 1400px) {
+  .breakpoint-indicator {
+    background: #8e44ad;
+    color: white;
+  }
+  .breakpoint-indicator::after {
+    content: " 🖥️ Extra Large (1400px+)";
+  }
+}
+
+/* --- 13B: min-width and max-width queries --- */
+.mq-box {
+  padding: 15px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+/* Only applies up to 767px */
+@media (max-width: 767px) {
+  .mq-maxwidth {
+    background: #e74c3c;
+  }
+  .mq-maxwidth::after {
+    content: " max-width:767px — ACTIVE on mobile only";
+  }
+}
+
+@media (min-width: 767px) {
+  .mq-maxwidth {
+    background: #95a5a6;
+  }
+  .mq-maxwidth::after {
+    content: " max-width:767px — inactive (screen too wide)";
+  }
+}
+
+/* Only applies 768px to 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .mq-range {
+    background: #e67e22;
+  }
+  .mq-range::after {
+    content: " Range 768-1023px — ACTIVE (tablet only)";
+  }
+}
+
+@media (max-width: 767px) {
+  .mq-range {
+    background: #95a5a6;
+  }
+  .mq-range::after {
+    content: " Range 768-1023px — inactive (too small)";
+  }
+}
+
+@media (min-width: 1024px) {
+  .mq-range {
+    background: #95a5a6;
+  }
+  .mq-range::after {
+    content: " Range 768-1023px — inactive (too wide)";
+  }
+}
+
+/* Always active */
+.mq-minwidth {
+  background: #27ae60;
+}
+.mq-minwidth::after {
+  content: " min-width:320px — always active";
+}
+
+/* --- 13C: Orientation queries --- */
+.orientation-box {
+  padding: 15px;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  transition: background 0.3s;
+}
+
+@media (orientation: portrait) {
+  .orientation-box {
+    background: #8e44ad;
+  }
+  .orientation-box::after {
+    content: " Portrait orientation detected";
+  }
+}
+
+@media (orientation: landscape) {
+  .orientation-box {
+    background: #16a085;
+  }
+  .orientation-box::after {
+    content: " Landscape orientation detected";
+  }
+}
+
+/* --- 13D: Media features --- */
+.hover-feature {
+  padding: 15px;
+  background: #ecf0f1;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  transition: background 0.3s;
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .hover-feature:hover {
+    background: #3498db;
+    color: white;
+  }
+  .hover-feature::after {
+    content: " — hover:hover detected (desktop mouse)";
+    font-size: 12px;
+    color: #666;
+  }
+  .hover-feature:hover::after {
+    color: rgba(255,255,255,0.8);
+  }
+}
+
+@media (hover: none) {
+  .hover-feature {
+    background: #ffeaa7;
+  }
+  .hover-feature::after {
+    content: " — hover:none (touch device)";
+    font-size: 12px;
+  }
+}
+
+
+/* ===================================================
+   EXERCISE 14: Mobile-First Approach
+   =================================================== */
+
+/* --- Base mobile styles (no query needed) --- */
+.mf-layout {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.mf-header {
+  background: #2c3e50;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+.mf-nav {
+  background: #34495e;
+  padding: 10px;
+}
+
+.mf-nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mf-nav ul li a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  background: #3d566e;
+  transition: background 0.3s;
+}
+
+.mf-nav ul li a:hover {
+  background: #4a90d9;
+}
+
+.mf-content {
+  padding: 20px;
+  background: #f9f9f9;
+  min-height: 150px;
+}
+
+.mf-sidebar {
+  background: #ecf0f1;
+  padding: 20px;
+  border-top: 3px solid #3498db;
+}
+
+.mf-footer {
+  background: #2c3e50;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 13px;
+}
+
+/* Tablet styles — 768px and up */
+@media (min-width: 768px) {
+  .mf-nav ul {
+    flex-direction: row;
+    gap: 5px;
+  }
+
+  .mf-body {
+    display: flex;
+    gap: 0;
+  }
+
+  .mf-content {
+    flex: 1;
+    border-right: 1px solid #ddd;
+  }
+
+  .mf-sidebar {
+    width: 220px;
+    border-top: none;
+    border-left: 3px solid #3498db;
+    flex-shrink: 0;
+  }
+}
+
+/* Desktop styles — 1024px and up */
+@media (min-width: 1024px) {
+  .mf-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+  }
+
+  .mf-nav .nav-brand {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .mf-nav ul {
+    flex-direction: row;
+  }
+
+  .mf-nav ul li a {
+    background: none;
+    padding: 10px 14px;
+  }
+
+  .mf-content {
+    padding: 30px;
+  }
+
+  .mf-sidebar {
+    width: 260px;
+    padding: 30px;
+  }
+}
+
+
+/* ===================================================
+   EXERCISE 15: Responsive Images
+   =================================================== */
+
+/* --- 15A: Responsive image basics --- */
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- 15B: Responsive background images --- */
+.bg-image-box {
+  width: 100%;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 15px;
+  background-color: #3498db;
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px;
+  position: relative;
+}
+
+.bg-image-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  border-radius: 4px;
+}
+
+.bg-image-box span { position: relative; z-index: 1; }
+
+/* Different bg sizes at breakpoints */
+@media (max-width: 767px) {
+  .bg-responsive {
+    min-height: 150px;
+    background-size: cover;
+  }
+}
+
+@media (min-width: 768px) {
+  .bg-responsive {
+    min-height: 250px;
+  }
+}
+
+/* --- 15C: Picture element demo styling --- */
+.picture-demo {
+  margin-bottom: 20px;
+}
+
+.picture-demo picture img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+/* --- 15D: Image grid responsive --- */
+.img-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 480px) {
+  .img-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 768px) {
+  .img-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .img-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.img-placeholder {
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+
+/* ===================================================
+   EXERCISE 16: Common Breakpoint Implementation
+   =================================================== */
+
+/* --- 16A: Typography scaling --- */
+.typo-demo h1 { font-size: 22px; }
+.typo-demo h2 { font-size: 18px; }
+.typo-demo p  { font-size: 14px; line-height: 1.5; }
+
+@media (min-width: 768px) {
+  .typo-demo h1 { font-size: 28px; }
+  .typo-demo h2 { font-size: 22px; }
+  .typo-demo p  { font-size: 15px; }
+}
+
+@media (min-width: 1024px) {
+  .typo-demo h1 { font-size: 36px; }
+  .typo-demo h2 { font-size: 26px; }
+  .typo-demo p  { font-size: 16px; line-height: 1.7; }
+}
+
+@media (min-width: 1200px) {
+  .typo-demo h1 { font-size: 42px; }
+  .typo-demo h2 { font-size: 30px; }
+  .typo-demo p  { font-size: 17px; }
+}
+
+/* --- 16B: Responsive grid at all breakpoints --- */
+.bp-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+@media (min-width: 768px) {
+  .bp-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .bp-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 1200px) {
+  .bp-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.bp-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.bp-card-icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+/* --- 16C: Show / hide at breakpoints --- */
+.show-mobile   { display: block; }
+.hide-mobile   { display: none; }
+.show-tablet   { display: none; }
+.show-desktop  { display: none; }
+
+@media (min-width: 768px) {
+  .show-mobile  { display: none; }
+  .hide-mobile  { display: block; }
+  .show-tablet  { display: block; }
+  .show-desktop { display: none; }
+}
+
+@media (min-width: 1024px) {
+  .show-mobile  { display: none; }
+  .show-tablet  { display: none; }
+  .show-desktop { display: block; }
+  .hide-mobile  { display: block; }
+}
+
+/* --- 16D: Responsive spacing utilities --- */
+.p-sm  { padding: 8px; }
+.p-md  { padding: 16px; }
+.p-lg  { padding: 24px; }
+
+@media (min-width: 768px) {
+  .p-sm  { padding: 12px; }
+  .p-md  { padding: 24px; }
+  .p-lg  { padding: 40px; }
+}
+
+@media (min-width: 1024px) {
+  .p-sm  { padding: 16px; }
+  .p-md  { padding: 32px; }
+  .p-lg  { padding: 56px; }
+}
